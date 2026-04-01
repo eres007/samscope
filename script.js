@@ -214,131 +214,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ═══ APPOINTMENT SUBMISSION ═══ */
-    function bindAppointmentForms() {
-        const appointmentForms = document.querySelectorAll('.appointment-form');
-        appointmentForms.forEach(appointmentForm => {
-            // Avoid double-binding
-            if(appointmentForm.dataset.bound) return;
-            appointmentForm.dataset.bound = 'true';
+    const appointmentForm = document.querySelector('.appointment-form');
+    if (appointmentForm) {
+        appointmentForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = appointmentForm.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> &nbsp;Booking...';
 
-            appointmentForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = appointmentForm.querySelector('button[type="submit"]');
-                const originalText = btn.textContent;
-                btn.disabled = true;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> &nbsp;Booking...';
+            const formData = new FormData(appointmentForm);
+            const formDataObj = {
+                full_name: formData.get('name') || formData.get('Full Name'),
+                phone: formData.get('phone') || formData.get('Phone Number'),
+                whatsapp: formData.get('whatsapp') || formData.get('Whatsapp Number'),
+                email: formData.get('email') || formData.get('E-mail Address'),
+                service: formData.get('services'),
+                appointment_date: formData.get('Appointment Date'),
+                appointment_time: formData.get('Appointment Time'),
+                message: formData.get('message') || formData.get('Briefly Describe Your Project or Goals') || formData.get('How can we help you?')
+            };
 
-                const formData = new FormData(appointmentForm);
-                const formDataObj = {
-                    full_name: formData.get('name') || formData.get('Full Name'),
-                    phone: formData.get('phone') || formData.get('Phone Number'),
-                    whatsapp: formData.get('whatsapp') || formData.get('Whatsapp Number'),
-                    email: formData.get('email') || formData.get('E-mail Address'),
-                    service: formData.get('services') || 'General Appt',
-                    appointment_date: formData.get('Appointment Date') || '',
-                    appointment_time: formData.get('Appointment Time') || '',
-                    message: formData.get('message') || formData.get('Briefly Describe Your Project or Goals') || formData.get('How can we help you?')
-                };
+            try {
+                if (!window.db) throw new Error("Database not initialized");
+                const { error } = await window.db.from('consultations').insert([formDataObj]);
+                if (error) throw error;
 
-                try {
-                    if (!window.db) throw new Error("Database not initialized");
-                    const { error } = await window.db.from('consultations').insert([formDataObj]);
-                    if (error) throw error;
-
-                    fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
-                    showToast('Appointment booked successfully!', 'success');
-                    appointmentForm.reset();
-                    document.querySelectorAll('.selected-tag').forEach(el => el.remove());
-                    const triggerLabel = appointmentForm.querySelector('.trigger-label');
-                    if (triggerLabel) triggerLabel.style.display = 'block';
-                    const hiddenInput = appointmentForm.querySelector('input[name="services"]');
-                    if (hiddenInput) hiddenInput.value = '';
-                    
-                    // Close modal if this form was inside a modal
-                    const modal = document.getElementById('globalAppointmentModal');
-                    if (modal && modal.style.display === 'flex') {
-                        setTimeout(() => modal.style.display = 'none', 1500);
-                    }
-                } catch (err) {
-                    showToast('Failed to book appointment', 'error');
-                } finally {
-                    btn.disabled = false;
-                    btn.textContent = originalText;
-                }
-            });
+                fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+                showToast('Appointment booked successfully!', 'success');
+                appointmentForm.reset();
+                document.querySelectorAll('.selected-tag').forEach(el => el.remove());
+                const triggerLabel = document.querySelector('.trigger-label');
+                if (triggerLabel) triggerLabel.style.display = 'block';
+                const hiddenInput = document.getElementById('selectedServices');
+                if (hiddenInput) hiddenInput.value = '';
+            } catch (err) {
+                showToast('Failed to book appointment', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = originalText;
+            }
         });
     }
-
-    // Bind initially
-    bindAppointmentForms();
-
-    /* ═══ DYNAMIC APPOINTMENT MODAL INJECTION & LOGIC ═══ */
-    const modalHTML = `
-    <div class="modal-overlay appointment-modal-overlay" id="globalAppointmentModal">
-        <div class="modal-content appointment-modal-content">
-            <div class="modal-header">
-                <h3>BOOK AN APPOINTMENT</h3>
-                <button type="button" class="btn-close" id="closeAppointmentModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form class="appointment-form" action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="4f9f5e56-d1e3-4df7-9859-7ccb1e1ccc33">
-                    <input type="hidden" name="subject" value="New Appointment Request - Global Modal">
-
-                    <div class="form-group" style="margin-bottom:15px;">
-                        <input type="text" class="form-input" name="name" placeholder="Full Name" required>
-                    </div>
-
-                    <div class="form-group" style="margin-bottom:15px;">
-                        <input type="tel" class="form-input" name="phone" placeholder="Phone Number" required>
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom:15px;">
-                        <input type="email" class="form-input" name="email" placeholder="E-mail Address" required>
-                    </div>
-
-                    <div class="form-group" style="margin-bottom:20px;">
-                        <textarea name="message" class="form-input" required placeholder="Briefly Describe Your Project or Goals" rows="4"></textarea>
-                    </div>
-
-                    <button type="submit" class="book-appointment-btn" style="width:100%;">Confirm Booking</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    `;
-
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-    const mainModal = document.getElementById('globalAppointmentModal');
-    const closeBtn = document.getElementById('closeAppointmentModal');
-
-    // Re-bind forms since we just appended a new one
-    bindAppointmentForms();
-
-    // Event listener to open modal via any trigger
-    document.addEventListener('click', (e) => {
-        const trigger = e.target.closest('.open-modal-btn');
-        if (trigger) {
-            e.preventDefault(); // prevent navigation if it's an <a> tag
-            mainModal.style.display = 'flex';
-        }
-    });
-
-    // Close logic
-    if(closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            mainModal.style.display = 'none';
-        });
-    }
-    
-    // Clicking outside modal body
-    mainModal.addEventListener('click', (e) => {
-        if (e.target === mainModal) {
-            mainModal.style.display = 'none';
-        }
-    });
-
 
     /* ═══ GLOBAL ANALYTICS TRACKER ═══ */
     (async function () {
@@ -389,6 +306,185 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Analytics init failed:', err);
         }
     })();
+
+    /* ═══ APPOINTMENT MODAL LOGIC (Updated for New Design) ═══ */
+    const modal = document.querySelector('.appointment-modal-overlay');
+    const openModalBtns = document.querySelectorAll('.btn-open-modal');
+    const closeModalBtn = document.querySelector('.appointment-modal-close');
+
+    if (modal) {
+        // Open Modal
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; 
+            });
+        });
+
+        // Close Modal
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // --- Modal Multi-Select ---
+        const modalServiceTrigger = document.getElementById('modalServiceTrigger');
+        const modalServiceOptions = document.getElementById('modalServiceOptions');
+        const modalSelectedServicesInput = document.getElementById('modalSelectedServices');
+        const modalSelectedItemsContainer = modal.querySelector('.selected-items');
+
+        if (modalServiceTrigger && modalServiceOptions) {
+            modalServiceTrigger.addEventListener('click', () => {
+                modalServiceOptions.classList.toggle('show');
+                modalServiceTrigger.classList.toggle('active');
+            });
+
+            modalServiceOptions.querySelectorAll('.select-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    option.classList.toggle('selected');
+                    updateModalSelectedServices();
+                });
+            });
+
+            function updateModalSelectedServices() {
+                const selected = Array.from(modalServiceOptions.querySelectorAll('.select-option.selected'));
+                const values = selected.map(opt => opt.getAttribute('data-value'));
+                const texts = selected.map(opt => opt.textContent);
+                modalSelectedServicesInput.value = values.join(',');
+
+                modalSelectedItemsContainer.innerHTML = '';
+                const label = modalServiceTrigger.querySelector('.trigger-label');
+
+                if (values.length > 0) {
+                    label.style.display = 'none';
+                    if (values.length <= 2) {
+                        texts.forEach(text => {
+                            const tag = document.createElement('span');
+                            tag.className = 'selected-tag';
+                            tag.textContent = text;
+                            modalSelectedItemsContainer.appendChild(tag);
+                        });
+                    } else {
+                        const tag = document.createElement('span');
+                        tag.className = 'selected-tag';
+                        tag.textContent = `${values.length} Services Selected`;
+                        modalSelectedItemsContainer.appendChild(tag);
+                    }
+                } else {
+                    label.style.display = 'block';
+                }
+            }
+        }
+
+        // --- Modal Date & Time Pickers (Updated) ---
+        const mDateInput = document.getElementById('modalAppointmentDate');
+        const mCalendar = document.getElementById('modalCalendarDropdown');
+        if (mDateInput && mCalendar) {
+            mDateInput.addEventListener('click', () => {
+                mCalendar.classList.toggle('show');
+                generateModalCalendar(currentMonth, currentYear);
+            });
+
+            function generateModalCalendar(month, year) {
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                mCalendar.innerHTML = `
+                    <div class="calendar-header">
+                        <span class="calendar-month-year">${monthNames[month]} ${year}</span>
+                        <div class="calendar-nav">
+                            <button id="mPrevMonth" type="button"><i class="fas fa-chevron-left"></i></button>
+                            <button id="mNextMonth" type="button"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+                    </div>
+                    <div class="calendar-days" id="mCalendarDays"></div>`;
+                const daysContainer = document.getElementById('mCalendarDays');
+                for (let i = 0; i < firstDay; i++) daysContainer.appendChild(Object.assign(document.createElement('div'), {className:'calendar-day empty'}));
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const day = document.createElement('div');
+                    day.className = 'calendar-day';
+                    day.textContent = i;
+                    const ds = `${i} ${monthNames[month]} ${year}`;
+                    if (mDateInput.value === ds) day.classList.add('active');
+                    day.addEventListener('click', () => { mDateInput.value = ds; mCalendar.classList.remove('show'); });
+                    daysContainer.appendChild(day);
+                }
+                document.getElementById('mPrevMonth').onclick = (e) => { e.stopPropagation(); currentMonth--; if(currentMonth<0){currentMonth=11;currentYear--;} generateModalCalendar(currentMonth, currentYear); };
+                document.getElementById('mNextMonth').onclick = (e) => { e.stopPropagation(); currentMonth++; if(currentMonth>11){currentMonth=0;currentYear++;} generateModalCalendar(currentMonth, currentYear); };
+            }
+        }
+
+        const mTimeInput = document.getElementById('modalAppointmentTime');
+        const mTimePicker = document.getElementById('modalTimepickerDropdown');
+        if (mTimeInput && mTimePicker) {
+            mTimeInput.addEventListener('click', () => {
+                mTimePicker.classList.toggle('show');
+                if (mTimePicker.classList.contains('show')) {
+                    const slots = ["09:00 AM (UTC+6)", "10:00 AM (UTC+6)", "11:00 AM (UTC+6)", "12:00 PM (UTC+6)", "01:00 PM (UTC+6)", "02:00 PM (UTC+6)", "03:00 PM (UTC+6)", "04:00 PM (UTC+6)", "05:00 PM (UTC+6)"];
+                    mTimePicker.innerHTML = '<div class="timepicker-list"></div>';
+                    const list = mTimePicker.querySelector('.timepicker-list');
+                    slots.forEach(slot => {
+                        const el = document.createElement('div');
+                        el.className = 'time-slot';
+                        el.textContent = slot;
+                        if (mTimeInput.value === slot) el.classList.add('active');
+                        el.addEventListener('click', () => { mTimeInput.value = slot; mTimePicker.classList.remove('show'); });
+                        list.appendChild(el);
+                    });
+                }
+            });
+        }
+
+        // --- Modal Form Submission (Updated for Extra Fields) ---
+        const modalForm = document.getElementById('modalForm');
+        if (modalForm) {
+            modalForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = modalForm.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> &nbsp;Booking...';
+
+                const formData = new FormData(modalForm);
+                const formDataObj = {
+                    full_name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    whatsapp: formData.get('whatsapp'), // Added
+                    email: formData.get('email'),
+                    service: formData.get('services'),
+                    appointment_date: formData.get('Appointment Date'),
+                    appointment_time: formData.get('Appointment Time'),
+                    message: formData.get('message')
+                };
+
+                try {
+                    if (window.db) {
+                        const { error } = await window.db.from('consultations').insert([formDataObj]);
+                        if (error) throw error;
+                    }
+                    await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+                    showToast('Appointment booked successfully!', 'success');
+                    modalForm.reset();
+                    closeModal(); 
+                } catch (err) {
+                    showToast('Failed to book appointment', 'error');
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = originalText;
+                }
+            });
+        }
+    }
 
 });
 
