@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="icon" type="image/webp" href="Samscope Agency Logo Favicon Cropped.webp">
+    <link rel="apple-touch-icon" href="Samscope Agency Logo Favicon Cropped.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Learn about Samscope Agency, a strategic digital marketing agency focused on sustainable growth through data‑driven strategies and long‑term value creation.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Samscope Agency">
+    <link rel="canonical" href="https://samscope.netlify.app/about.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Samscope | Strategic Digital Marketing Agency">
+    <meta property="og:description"
+        content="Samscope is a strategic digital marketing agency dedicated to building sustainable brand growth through data-driven strategies, creative execution, and performance-focused optimization.">
+    <meta property="og:url" content="https://samscope.netlify.app/about.html">
+    <meta property="og:image" content="https://samscope.netlify.app/Portfolio%20(Desktop).webp">
+    <meta property="og:site_name" content="Samscope Agency">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Samscope | Strategic Digital Marketing Agency">
+    <meta name="twitter:description"
+        content="Samscope is a strategic digital marketing agency dedicated to building sustainable brand growth through data-driven strategies, creative execution, and performance-focused optimization.">
+    <meta name="twitter:image" content="https://samscope.netlify.app/Portfolio%20(Desktop).webp">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Samscope",
+  "url": "https://samscope.netlify.app/about.html",
+  "description": "Samscope is a strategic digital marketing agency dedicated to helping brands achieve sustainable and scalable growth through structured, data-driven, and strategically aligned marketing systems.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Samscope Agency",
+    "url": "https://samscope.netlify.app",
+    "logo": "https://samscope.netlify.app/full-logo-white.webp"
+  }
+}
+    </script>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="full-logo-white.webp" alt="SAMSCOPE Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="demonstration.html">Demonstration</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="guidelines.html">Guidelines</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- About Us Hero Section -->
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <h1 class="service-hero-title">ABOUT US</h1>
+            <p class="service-hero-desc">
+                Samscope is a strategic digital marketing agency dedicated to building sustainable brand growth
+                through data-driven strategies, creative execution, and performance-focused optimization.
+            </p>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span class="separator">></span>
+                <span class="current">About Us</span>
+            </div>
+        </div>
+
+        <!-- Abstract Wave Background -->
+        <div class="service-hero-bg">
+            <svg class="wave-chart-svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradientAbout" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(0, 163, 255, 0);stop-opacity:0" />
+                        <stop offset="20%" style="stop-color:rgba(255, 255, 255, 0.4);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:rgba(255, 255, 255, 0.9);stop-opacity:1" />
+                        <stop offset="80%" style="stop-color:rgba(255, 255, 255, 0.4);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(0, 163, 255, 0);stop-opacity:0" />
+                    </linearGradient>
+                    <filter id="glowAbout">
+                        <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                <path
+                    d="M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450"
+                    fill="none" stroke="url(#waveGradientAbout)" stroke-width="3" filter="url(#glowAbout)"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                        values="
+                        M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450;
+                        M-100,460 C100,460 200,410 300,430 C400,450 450,310 500,410 C580,570 620,110 680,160 C740,210 780,460 850,360 C920,260 980,310 1050,330 C1150,360 1200,210 1300,260 C1400,310 1500,460 1600,460;
+                        M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450" />
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Us Content Section -->
+    <section class="about-content-section">
+        <div class="about-container">
+
+            <!-- Agency Overview (Split Layout) -->
+            <div class="agency-overview">
+                <div class="agency-img-col agency-logo-box">
+                    <img src="full-logo-white.webp" alt="Samscope Agency Logo" class="agency-logo-img">
+                </div>
+                <div class="agency-text-col">
+                    <h2 class="agency-title">SAMSCOPE AGENCY</h2>
+                    <p class="agency-desc">
+                        We provide strategic digital marketing solutions designed to build sustainable brand growth. Our
+                        focus is not just visibility — it is structured, measurable, and long-term expansion in an
+                        increasingly competitive digital landscape.
+                    </p>
+                    <p class="agency-desc">
+                        We combine strategy, creativity, data analytics, and performance optimization to help businesses
+                        grow with clarity and confidence. Every decision we make is guided by insight, market research,
+                        and clearly defined business objectives.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Who We Are -->
+            <div class="mission-card">
+                <h2 class="mission-title">WHO WE ARE</h2>
+                <div class="mission-content">
+                    <p>
+                        Samscope is a strategic growth partner for businesses that want more than short-term marketing
+                        results. We are a team of digital strategists, creative professionals, and performance analysts
+                        dedicated to building scalable and sustainable marketing systems.
+                    </p>
+                    <p>
+                        We believe digital marketing should be intentional — not random posting, not impulsive
+                        advertising, and not trend-driven activity without direction. Instead, we build structured
+                        frameworks that align brand identity, audience psychology, and data-driven execution.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Who We Work With -->
+            <div class="who-we-work-with-section">
+                <div class="agency-text-col agency-text-box">
+                    <h2 class="agency-title">WHO WE WORK WITH</h2>
+                    <p class="agency-desc">
+                        Samscope collaborates with startups, small and medium-sized enterprises, and growing brands that
+                        are committed to sustainable growth and strategic decision-making.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Our Achievements Section -->
+    <section class="experts-section">
+        <div class="experts-container">
+            <div class="experts-header">
+                <span class="section-tag">Recognition</span>
+                <h2 class="experts-title">OUR ACHIEVEMENTS</h2>
+                <p class="experts-description">
+                    We are honored to have been awarded "Most Outstanding Exhibitor for Best Product Display" at the
+                    Chittagong University Entrepreneurs &amp; Startup Social – Entrepreneurs Expo 2.0.
+                </p>
+            </div>
+
+            <!-- Award Image -->
+            <div class="award-img-wrapper">
+                <img src="Samscope Agency Award.webp" alt="Samscope Agency Award - Most Outstanding Exhibitor"
+                    class="award-img">
+            </div>
+
+            <div class="experts-grid">
+                <div class="experts-column-left">
+                    <div class="info-card">
+                        <h3 class="info-card-title">THE AWARD</h3>
+                        <p class="info-card-text">
+                            This recognition was granted in acknowledgment of our exceptional presentation standards,
+                            strategic brand positioning, and innovative product display execution. Among a competitive
+                            environment of emerging entrepreneurs and startup ventures, Samscope distinguished itself
+                            through clarity of communication, structured visual identity, and professional brand
+                            representation.
+                        </p>
+                    </div>
+                </div>
+                <div class="experts-column-left">
+                    <div class="info-card">
+                        <h3 class="info-card-title">WHAT IT REFLECTS</h3>
+                        <p class="info-card-text">
+                            The award reflects our commitment to strategic thinking over random execution, precision in
+                            brand presentation, excellence in visual communication, and professional standards in every
+                            public engagement. While recognition strengthens credibility, our true achievement lies in
+                            delivering measurable, sustainable growth for the brands we serve.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experts / Why Choose Us Section -->
+    <section class="experts-section">
+        <div class="experts-container">
+            <div class="experts-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="experts-title">EXPERTS DIGITAL MARKETING<br>SOLUTIONS TO GROW BUSINESS</h2>
+                <p class="experts-description">
+                    Choosing the right digital marketing partner determines whether your brand experiences temporary
+                    growth or long-term success. At Samscope, we do not rely on random tactics or short-term trends.
+                    We build structured, data-driven systems designed for sustainable growth and measurable impact.
+                </p>
+            </div>
+
+            <div class="experts-grid">
+                <!-- Left Column: Cards -->
+                <div class="experts-column-left">
+                    <div class="info-card">
+                        <h3 class="info-card-title">STRUCTURED WORK PROCESS</h3>
+                        <p class="info-card-text">
+                            We start with Brand, Market, and Audience Analysis, followed by Positioning Planning and
+                            Structure Building. Then we move to Implementation, track performance, and finally scale the
+                            market reach.
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">STRATEGY APPROACH</h3>
+                        <p class="info-card-text">
+                            We do not execute without direction. Every project begins with analysis, positioning, and
+                            structural planning. Our decisions are backed by research, data, and market intelligence —
+                            not assumptions.
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">SUSTAINABLE GROWTH FOCUS</h3>
+                        <p class="info-card-text">
+                            Many agencies focus only on short-term performance metrics. We focus on building scalable
+                            systems that generate consistent results over time.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Cards -->
+                <div class="experts-column-left">
+                    <div class="info-card">
+                        <h3 class="info-card-title">DATA-DRIVEN DECISION MAKING</h3>
+                        <p class="info-card-text">
+                            We continuously monitor KPIs, conversion metrics, ROI, CAC, and performance trends.
+                            Optimization is not optional — it is embedded into our system. Every campaign is refined
+                            based on performance analytics to maximize efficiency and return.
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">CONVERSION &amp; ROI FOCUS</h3>
+                        <p class="info-card-text">
+                            Visibility without conversion has no business value. We build marketing funnels, optimize
+                            user journeys, and align messaging with audience intent to ensure measurable business
+                            outcomes — not just impressions.
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">LONG-TERM PARTNERSHIP MINDSET</h3>
+                        <p class="info-card-text">
+                            We work as strategic partners, not service vendors. Our objective is to understand your
+                            business deeply, align with your goals, and contribute to sustainable expansion. Your growth
+                            becomes our performance benchmark.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-card">
+                <h2 class="cta-title">BOOK A FREE CONSULTATION</h2>
+                <p class="cta-text">
+                    Take the first step toward growing your brand strategically and sustainably. Our team at Samscope
+                    will analyze your business, identify opportunities, and provide actionable guidelines— all
+                    completely free.
+                </p>
+                <a href="contact.html" class="btn-cta">Book Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="full-logo-white.webp" alt="SAMSCOPE Logo" class="logo-image">
+                    </div>
+                    <p class="brand-desc">
+                        Samscope is a strategic digital marketing agency dedicated to helping brands achieve sustainable
+                        and measurable growth through structured, data-driven marketing strategies.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/samscopeagency" class="social-icon" aria-label="Facebook"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/samscope_agency" class="social-icon" aria-label="Instagram"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/98774287" class="social-icon" aria-label="LinkedIn"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Important Links -->
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Important Links</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="demonstration.html">Demonstration</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="guidelines.html">Brand Guidelines</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="service.html">Strategic Brand Building</a></li>
+                        <li><a href="service.html">Strategic Web Design &amp; Development</a></li>
+                        <li><a href="service.html">Strategic Social Media Content Development</a></li>
+                        <li><a href="service.html">Strategic Social Media Management</a></li>
+                        <li><a href="service.html">Strategic Social Media Advertising</a></li>
+                        <li><a href="service.html">Strategic Search Engine Optimization</a></li>
+                        <li><a href="service.html">Strategic Search Engine Advertising</a></li>
+                        <li><a href="service.html">Strategic Email Marketing</a></li>
+                        <li><a href="service.html">Strategic SMS Marketing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@samscope.com">info@samscope.com</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/8801751973367" target="_blank">+8801751973367</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <a href="https://samscope.com" target="_blank" rel="noopener noreferrer">samscope.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Samscope Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+<script>
+(function() {
+    const SB_URL = 'https://ocaeyapzahotesvybfon.supabase.co';
+    const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k';
+    const sb = typeof supabase !== 'undefined' ? supabase.createClient(SB_URL, SB_KEY) : null;
+
+    async function trackView() {
+        if(!sb) return;
+        const path = window.location.pathname.split('/').pop() || 'index.html';
+        await sb.from('page_views').insert([{ page_path: path }]);
+    }
+
+    window.addEventListener('load', trackView);
+
+    document.addEventListener('click', async (e) => {
+        const a = e.target.closest('a');
+        if (a && sb) {
+            await sb.from('link_clicks').insert([{ 
+                link_url: a.href, 
+                link_text: a.innerText.trim().substring(0, 50),
+                page_path: window.location.pathname.split('/').pop() || 'index.html'
+            }]);
+        }
+    });
+})();
+</script>
+
+<!-- Analytics Tracking (Enhanced) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function() {
+    const SB_URL = 'https://ocaeyapzahotesvybfon.supabase.co';
+    const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k';
+    
+    let sb = null;
+    let userIP = 'unknown';
+
+    async function initTracking() {
+        if (typeof supabase !== 'undefined') {
+            sb = supabase.createClient(SB_URL, SB_KEY);
+            
+            // Get IP address
+            try {
+                const res = await fetch('https://api.ipify.org?format=json');
+                const json = await res.json();
+                userIP = json.ip;
+            } catch (e) { console.warn('Analytics: Could not fetch IP'); }
+
+            trackView();
+        } else {
+            // Retry if supabase isn't loaded yet
+            setTimeout(initTracking, 500);
+        }
+    }
+
+    async function trackView() {
+        if(!sb) return;
+        const path = window.location.pathname.split('/').pop() || 'index.html';
+        await sb.from('page_views').insert([{ 
+            page_path: path,
+            ip_address: userIP,
+            user_agent: navigator.userAgent
+        }]);
+    }
+
+    // Start tracking when DOM is ready
+    if (document.readyState === 'complete') initTracking();
+    else window.addEventListener('load', initTracking);
+
+    document.addEventListener('click', async (e) => {
+        const a = e.target.closest('a');
+        if (a && sb) {
+            const clickData = { 
+                link_url: a.href, 
+                link_text: a.innerText.trim().substring(0, 50),
+                page_path: window.location.pathname.split('/').pop() || 'index.html',
+                ip_address: userIP
+            };
+            
+            // Use fetch with keepalive if possible for better reliability during navigation
+            try {
+                await sb.from('link_clicks').insert([clickData]);
+            } catch (e) {
+                console.warn('Analytics: Click tracking failed');
+            }
+        }
+    });
+})();
+</script>
+</body>
+
+
+</html>

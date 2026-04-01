@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "fs-extra": "^11.3.4",
+    "sharp": "^0.34.5"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.100.0",
+    "jsdom": "^28.1.0"
+  }
+}

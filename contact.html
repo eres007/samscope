@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <meta name="description"
+        content="Connect with Samscope for strategic digital marketing guidance, consultations, and partnership opportunities to grow your brand sustainably.">
+    <link rel="icon" type="image/webp" href="Samscope Agency Logo Favicon Cropped.webp">
+    <link rel="apple-touch-icon" href="Samscope Agency Logo Favicon Cropped.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Every brand deserves strategic guidance. Book a free consultation with Samscope — we'll advise and provide actionable strategies to grow your brand. Email: info@samscope.com | +8801751973367">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Samscope Agency">
+    <link rel="canonical" href="https://samscope.netlify.app/contact.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Samscope | Book a Free Consultation">
+    <meta property="og:description"
+        content="Every brand deserves strategic guidance. Book a free consultation with Samscope — we'll advise and provide actionable strategies to grow your brand. Email: info@samscope.com | +8801751973367">
+    <meta property="og:url" content="https://samscope.netlify.app/contact.html">
+    <meta property="og:image" content="https://samscope.netlify.app/Portfolio%20(Desktop).webp">
+    <meta property="og:site_name" content="Samscope Agency">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Samscope | Book a Free Consultation">
+    <meta name="twitter:description"
+        content="Every brand deserves strategic guidance. Book a free consultation with Samscope — we'll advise and provide actionable strategies to grow your brand. Email: info@samscope.com | +8801751973367">
+    <meta name="twitter:image" content="https://samscope.netlify.app/Portfolio%20(Desktop).webp">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Samscope",
+  "url": "https://samscope.netlify.app/contact.html",
+  "description": "Book a free consultation with Samscope's digital marketing team.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Samscope Agency",
+    "telephone": "+8801751973367",
+    "email": "info@samscope.com",
+    "url": "https://samscope.netlify.app"
+  }
+}
+    </script>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="full-logo-white.webp" alt="SAMSCOPE Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="demonstration.html">Demonstration</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="guidelines.html">Guidelines</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <h1 class="service-hero-title">CONTACT</h1>
+            <p class="service-hero-desc">
+                We believe that every brand deserves strategic guidance and measurable growth. Whether you have
+                questions, want to explore our services, or need a tailored marketing solution, we’re here to help.
+                Connecting with us — we’re ready to listen, advise, and provide actionable strategies to elevate your
+                brand.
+            </p>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span class="separator">></span>
+                <span class="current">Contact</span>
+            </div>
+        </div>
+
+        <!-- Abstract Wave Background -->
+        <div class="service-hero-bg">
+            <svg class="wave-chart-svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradientContact" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(0, 163, 255, 0);stop-opacity:0" />
+                        <stop offset="20%" style="stop-color:rgba(255, 255, 255, 0.4);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:rgba(255, 255, 255, 0.9);stop-opacity:1" />
+                        <stop offset="80%" style="stop-color:rgba(255, 255, 255, 0.4);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(0, 163, 255, 0);stop-opacity:0" />
+                    </linearGradient>
+                    <filter id="glowContact">
+                        <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                <path
+                    d="M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450"
+                    fill="none" stroke="url(#waveGradientContact)" stroke-width="3" filter="url(#glowContact)"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                        values="
+                        M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450;
+                        M-100,460 C100,460 200,410 300,430 C400,450 450,310 500,410 C580,570 620,110 680,160 C740,210 780,460 850,360 C920,260 980,310 1050,330 C1150,360 1200,210 1300,260 C1400,310 1500,460 1600,460;
+                        M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450" />
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="contact-form-container">
+            <div class="section-header center-align">
+                <h2 class="section-title">Let’s Build Your Brand Together</h2>
+                <p class="section-desc">
+                    Want personalized guidance for your brand? Schedule a consultation with our experts. We will discuss
+                    your business goals, review your current marketing strategy, and outline actionable steps for
+                    sustainable growth.
+                </p>
+            </div>
+
+            <div class="appointment-form-wrapper">
+                <h3 class="form-header">MAKE AN APPOINTMENT</h3>
+
+                <form class="appointment-form" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="4f9f5e56-d1e3-4df7-9859-7ccb1e1ccc33">
+                    <!-- Optional: Redirect to a thank you page (can add later if needed) -->
+                    <!-- <input type="hidden" name="redirect" value="https://samscope.netlify.app/success.html"> -->
+                    <!-- Optional: Subject line for the email -->
+                    <input type="hidden" name="subject" value="New Appointment Request - Samscope">
+
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="name" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" class="form-input" name="phone" placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" class="form-input" name="whatsapp" placeholder="Whatsapp Number">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" class="form-input" name="email" placeholder="E-mail Address" required>
+                    </div>
+
+                    <div class="form-group custom-select-container">
+                        <div class="custom-select-trigger" id="serviceTrigger">
+                            <span class="trigger-label">Service</span>
+                            <div class="selected-items"></div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="custom-select-options" id="serviceOptions">
+                            <div class="select-option" data-value="strategic-brand-building">Strategic Brand Building
+                            </div>
+                            <div class="select-option" data-value="strategic-web-design-development">Strategic Web
+                                Design &amp; Development</div>
+                            <div class="select-option" data-value="strategic-social-media-content-development">Strategic
+                                Social Media Content Development</div>
+                            <div class="select-option" data-value="strategic-social-media-management">Strategic Social
+                                Media Management</div>
+                            <div class="select-option" data-value="strategic-social-media-advertising">Strategic Social
+                                Media Advertising</div>
+                            <div class="select-option" data-value="strategic-search-engine-optimization">Strategic
+                                Search Engine Optimization</div>
+                            <div class="select-option" data-value="strategic-search-engine-advertising">Strategic Search
+                                Engine Advertising</div>
+                            <div class="select-option" data-value="strategic-email-marketing">Strategic Email Marketing
+                            </div>
+                            <div class="select-option" data-value="strategic-sms-marketing">Strategic SMS Marketing
+                            </div>
+                        </div>
+                        <input type="hidden" name="services" id="selectedServices" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group date-picker-container">
+                            <input type="text" class="form-input custom-datepicker-input" id="appointmentDate"
+                                name="Appointment Date" placeholder="Appointment Date" readonly required>
+                            <i class="far fa-calendar-alt input-icon"></i>
+                            <div class="calendar-dropdown" id="calendarDropdown">
+                                <!-- JS Dynamic Content -->
+                            </div>
+                        </div>
+                        <div class="form-group time-picker-container">
+                            <input type="text" class="form-input custom-timepicker-input" id="appointmentTime"
+                                name="Appointment Time" placeholder="Appointment Time" readonly required>
+                            <i class="far fa-clock input-icon"></i>
+                            <div class="timepicker-dropdown" id="timepickerDropdown">
+                                <!-- JS Dynamic Content -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <textarea name="message" class="form-input" required placeholder="Briefly Describe Your Project or Goals"
+                            rows="5"></textarea>
+                    </div>
+
+                    <button type="submit" class="book-appointment-btn">Book an Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <span class="section-tag-center">FAQ</span>
+                <h2 class="faq-title">Frequently Asked Questions (FAQ)</h2>
+                <p class="faq-desc">Find answers to the most common questions our clients have about our services.</p>
+            </div>
+
+            <div class="faq-grid">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">1.</span>
+                            How can I contact Samscope?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            You can reach the Samscope team through the contact form, email, or WhatsApp listed on this
+                            page. Simply complete the form with your details and project information, and our team will
+                            respond promptly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">2.</span>
+                            How long does it take to receive a response?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            We typically respond within 72 business hours. For urgent inquiries, we recommend contacting
+                            us directly via WhatsApp for faster assistance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">3.</span>
+                            What information should I provide in the contact form?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            To help us understand your requirements clearly, please include:<br><br>
+                            • Your name and company name<br>
+                            • Contact details<br>
+                            • Type of service required<br>
+                            • A brief description of your project or goals<br><br>
+                            Providing detailed information enables us to offer more accurate and effective solutions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">4.</span>
+                            Do you offer free consultations?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Yes, Samscope provides a complimentary initial consultation to understand your business
+                            objectives and recommend the most suitable digital marketing strategy tailored to your
+                            needs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">5.</span>
+                            Can I request a custom proposal?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Absolutely. After discussing your requirements, our team will prepare a customized proposal
+                            outlining the strategy, deliverables, timeline, and pricing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">6.</span>
+                            Do you work with international clients?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Yes, we collaborate with businesses worldwide. Our team works with international clients
+                            through online meetings, email, and WhatsApp to ensure smooth communication and project
+                            execution.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">7.</span>
+                            Where is Samscope located?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Samscope operates from Bangladesh and serves clients both locally and internationally
+                            through remote collaboration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="full-logo-white.webp" alt="SAMSCOPE Logo" class="logo-image">
+                    </div>
+                    <p class="brand-desc">
+                        Samscope is a strategic digital marketing agency dedicated to helping brands achieve sustainable
+                        and measurable growth through structured, data-driven marketing strategies.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/samscopeagency" class="social-icon" aria-label="Facebook"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/samscope_agency" class="social-icon" aria-label="Instagram"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/98774287" class="social-icon" aria-label="LinkedIn"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Important Links -->
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Important Links</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="demonstration.html">Demonstration</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="guidelines.html">Brand Guidelines</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="service.html">Strategic Brand Building</a></li>
+                        <li><a href="service.html">Strategic Web Design &amp; Development</a></li>
+                        <li><a href="service.html">Strategic Social Media Content Development</a></li>
+                        <li><a href="service.html">Strategic Social Media Management</a></li>
+                        <li><a href="service.html">Strategic Social Media Advertising</a></li>
+                        <li><a href="service.html">Strategic Search Engine Optimization</a></li>
+                        <li><a href="service.html">Strategic Search Engine Advertising</a></li>
+                        <li><a href="service.html">Strategic Email Marketing</a></li>
+                        <li><a href="service.html">Strategic SMS Marketing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@samscope.com">info@samscope.com</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/8801751973367" target="_blank">+8801751973367</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <a href="https://samscope.com" target="_blank" rel="noopener noreferrer">samscope.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Samscope Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+<script>
+(function() {
+    const SB_URL = 'https://ocaeyapzahotesvybfon.supabase.co';
+    const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k';
+    const sb = typeof supabase !== 'undefined' ? supabase.createClient(SB_URL, SB_KEY) : null;
+
+    async function trackView() {
+        if(!sb) return;
+        const path = window.location.pathname.split('/').pop() || 'index.html';
+        await sb.from('page_views').insert([{ page_path: path }]);
+    }
+
+    window.addEventListener('load', trackView);
+
+    document.addEventListener('click', async (e) => {
+        const a = e.target.closest('a');
+        if (a && sb) {
+            await sb.from('link_clicks').insert([{ 
+                link_url: a.href, 
+                link_text: a.innerText.trim().substring(0, 50),
+                page_path: window.location.pathname.split('/').pop() || 'index.html'
+            }]);
+        }
+    });
+})();
+</script>
+
+<!-- Analytics Tracking (Enhanced) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function() {
+    const SB_URL = 'https://ocaeyapzahotesvybfon.supabase.co';
+    const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k';
+    
+    let sb = null;
+    let userIP = 'unknown';
+
+    async function initTracking() {
+        if (typeof supabase !== 'undefined') {
+            sb = supabase.createClient(SB_URL, SB_KEY);
+            
+            // Get IP address
+            try {
+                const res = await fetch('https://api.ipify.org?format=json');
+                const json = await res.json();
+                userIP = json.ip;
+            } catch (e) { console.warn('Analytics: Could not fetch IP'); }
+
+            trackView();
+        } else {
+            // Retry if supabase isn't loaded yet
+            setTimeout(initTracking, 500);
+        }
+    }
+
+    async function trackView() {
+        if(!sb) return;
+        const path = window.location.pathname.split('/').pop() || 'index.html';
+        await sb.from('page_views').insert([{ 
+            page_path: path,
+            ip_address: userIP,
+            user_agent: navigator.userAgent
+        }]);
+    }
+
+    // Start tracking when DOM is ready
+    if (document.readyState === 'complete') initTracking();
+    else window.addEventListener('load', initTracking);
+
+    document.addEventListener('click', async (e) => {
+        const a = e.target.closest('a');
+        if (a && sb) {
+            const clickData = { 
+                link_url: a.href, 
+                link_text: a.innerText.trim().substring(0, 50),
+                page_path: window.location.pathname.split('/').pop() || 'index.html',
+                ip_address: userIP
+            };
+            
+            // Use fetch with keepalive if possible for better reliability during navigation
+            try {
+                await sb.from('link_clicks').insert([clickData]);
+            } catch (e) {
+                console.warn('Analytics: Click tracking failed');
+            }
+        }
+    });
+})();
+</script>
+</body>
+
+
+</html>
