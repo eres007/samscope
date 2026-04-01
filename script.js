@@ -214,48 +214,131 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ═══ APPOINTMENT SUBMISSION ═══ */
-    const appointmentForm = document.querySelector('.appointment-form');
-    if (appointmentForm) {
-        appointmentForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = appointmentForm.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> &nbsp;Booking...';
+    function bindAppointmentForms() {
+        const appointmentForms = document.querySelectorAll('.appointment-form');
+        appointmentForms.forEach(appointmentForm => {
+            // Avoid double-binding
+            if(appointmentForm.dataset.bound) return;
+            appointmentForm.dataset.bound = 'true';
 
-            const formData = new FormData(appointmentForm);
-            const formDataObj = {
-                full_name: formData.get('name') || formData.get('Full Name'),
-                phone: formData.get('phone') || formData.get('Phone Number'),
-                whatsapp: formData.get('whatsapp') || formData.get('Whatsapp Number'),
-                email: formData.get('email') || formData.get('E-mail Address'),
-                service: formData.get('services'),
-                appointment_date: formData.get('Appointment Date'),
-                appointment_time: formData.get('Appointment Time'),
-                message: formData.get('message') || formData.get('Briefly Describe Your Project or Goals') || formData.get('How can we help you?')
-            };
+            appointmentForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = appointmentForm.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> &nbsp;Booking...';
 
-            try {
-                if (!window.db) throw new Error("Database not initialized");
-                const { error } = await window.db.from('consultations').insert([formDataObj]);
-                if (error) throw error;
+                const formData = new FormData(appointmentForm);
+                const formDataObj = {
+                    full_name: formData.get('name') || formData.get('Full Name'),
+                    phone: formData.get('phone') || formData.get('Phone Number'),
+                    whatsapp: formData.get('whatsapp') || formData.get('Whatsapp Number'),
+                    email: formData.get('email') || formData.get('E-mail Address'),
+                    service: formData.get('services') || 'General Appt',
+                    appointment_date: formData.get('Appointment Date') || '',
+                    appointment_time: formData.get('Appointment Time') || '',
+                    message: formData.get('message') || formData.get('Briefly Describe Your Project or Goals') || formData.get('How can we help you?')
+                };
 
-                fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
-                showToast('Appointment booked successfully!', 'success');
-                appointmentForm.reset();
-                document.querySelectorAll('.selected-tag').forEach(el => el.remove());
-                const triggerLabel = document.querySelector('.trigger-label');
-                if (triggerLabel) triggerLabel.style.display = 'block';
-                const hiddenInput = document.getElementById('selectedServices');
-                if (hiddenInput) hiddenInput.value = '';
-            } catch (err) {
-                showToast('Failed to book appointment', 'error');
-            } finally {
-                btn.disabled = false;
-                btn.textContent = originalText;
-            }
+                try {
+                    if (!window.db) throw new Error("Database not initialized");
+                    const { error } = await window.db.from('consultations').insert([formDataObj]);
+                    if (error) throw error;
+
+                    fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+                    showToast('Appointment booked successfully!', 'success');
+                    appointmentForm.reset();
+                    document.querySelectorAll('.selected-tag').forEach(el => el.remove());
+                    const triggerLabel = appointmentForm.querySelector('.trigger-label');
+                    if (triggerLabel) triggerLabel.style.display = 'block';
+                    const hiddenInput = appointmentForm.querySelector('input[name="services"]');
+                    if (hiddenInput) hiddenInput.value = '';
+                    
+                    // Close modal if this form was inside a modal
+                    const modal = document.getElementById('globalAppointmentModal');
+                    if (modal && modal.style.display === 'flex') {
+                        setTimeout(() => modal.style.display = 'none', 1500);
+                    }
+                } catch (err) {
+                    showToast('Failed to book appointment', 'error');
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = originalText;
+                }
+            });
         });
     }
+
+    // Bind initially
+    bindAppointmentForms();
+
+    /* ═══ DYNAMIC APPOINTMENT MODAL INJECTION & LOGIC ═══ */
+    const modalHTML = `
+    <div class="modal-overlay appointment-modal-overlay" id="globalAppointmentModal">
+        <div class="modal-content appointment-modal-content">
+            <div class="modal-header">
+                <h3>BOOK AN APPOINTMENT</h3>
+                <button type="button" class="btn-close" id="closeAppointmentModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="appointment-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="4f9f5e56-d1e3-4df7-9859-7ccb1e1ccc33">
+                    <input type="hidden" name="subject" value="New Appointment Request - Global Modal">
+
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <input type="text" class="form-input" name="name" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <input type="tel" class="form-input" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <input type="email" class="form-input" name="email" placeholder="E-mail Address" required>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:20px;">
+                        <textarea name="message" class="form-input" required placeholder="Briefly Describe Your Project or Goals" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="book-appointment-btn" style="width:100%;">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    const mainModal = document.getElementById('globalAppointmentModal');
+    const closeBtn = document.getElementById('closeAppointmentModal');
+
+    // Re-bind forms since we just appended a new one
+    bindAppointmentForms();
+
+    // Event listener to open modal via any trigger
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.open-modal-btn');
+        if (trigger) {
+            e.preventDefault(); // prevent navigation if it's an <a> tag
+            mainModal.style.display = 'flex';
+        }
+    });
+
+    // Close logic
+    if(closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            mainModal.style.display = 'none';
+        });
+    }
+    
+    // Clicking outside modal body
+    mainModal.addEventListener('click', (e) => {
+        if (e.target === mainModal) {
+            mainModal.style.display = 'none';
+        }
+    });
+
 
     /* ═══ GLOBAL ANALYTICS TRACKER ═══ */
     (async function () {

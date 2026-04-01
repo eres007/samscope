@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TCG7JY6HR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TCG7JY6HR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-1TCG7JY6HR');
-</script>
+        gtag('config', 'G-1TCG7JY6HR');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Study | Samscope Digital Marketing Demonstration</title>
@@ -69,26 +69,17 @@
     </script>
 </head>
 
-                    <div class="form-group full-width">
-                        <textarea name="message" class="form-input" required placeholder="Briefly Describe Your Project or Goals" rows="4"></textarea>
-                    </div>
-
-                    <button type="submit" class="book-appointment-btn" style="width:100%;">Book an Appointment</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
+<body>
     <header class="header">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TCG7JY6HR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TCG7JY6HR"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
 
-  gtag('config', 'G-1TCG7JY6HR');
-</script>
+            gtag('config', 'G-1TCG7JY6HR');
+        </script>
         <nav class="navbar">
             <a href="/" class="logo">
                 <img src="full-logo-white.webp" alt="SAMSCOPE Logo" class="logo-image">
@@ -273,7 +264,7 @@
                     will analyze your business, identify opportunities, and provide actionable guidelines— all
                     completely free.
                 </p>
-                <a href="contact" class="btn-cta">Book Free Consultation</a>
+                <a href="#" class="btn-cta open-modal-btn">Book Free Consultation</a>
             </div>
         </div>
     </section>
@@ -570,110 +561,97 @@
     <script src="script.js"></script>
 
 
-<script>
-(function() {
-    const SB_URL = 'https://ocaeyapzahotesvybfon.supabase.co';
-    const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k';
-    const sb = typeof supabase !== 'undefined' ? supabase.createClient(SB_URL, SB_KEY) : null;
+    <script>
+        (function () {
+            const SB_URL = 'https://ocaeyapzahotesvybfon.supabase.co';
+            const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k';
+            const sb = typeof supabase !== 'undefined' ? supabase.createClient(SB_URL, SB_KEY) : null;
 
-    async function trackView() {
-        if(!sb) return;
-        const path = (window.location.pathname.split('/').pop() || 'index.html') + window.location.search;
-        await sb.from('page_views').insert([{ page_path: path }]);
-    }
-
-    window.addEventListener('load', trackView);
-
-    document.addEventListener('click', async (e) => {
-        const a = e.target.closest('a');
-        if (a && sb) {
-            await sb.from('link_clicks').insert([{ 
-                link_url: a.href, 
-                link_text: a.innerText.trim().substring(0, 50),
-                page_path: window.location.pathname.split('/').pop() || 'index.html'
-            }]);
-        }
-    });
-})();
-</script>
-
-<!-- Analytics Tracking (Enhanced) -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-(function() {
-    const SB_URL = 'https://ocaeyapzahotesvybfon.supabase.co';
-    const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k';
-    
-    let sb = null;
-    let userIP = 'unknown';
-
-    async function initTracking() {
-        if (typeof supabase !== 'undefined') {
-            sb = supabase.createClient(SB_URL, SB_KEY);
-            
-            // Get IP address
-            try {
-                const res = await fetch('https://api.ipify.org?format=json');
-                const json = await res.json();
-                userIP = json.ip;
-            } catch (e) { console.warn('Analytics: Could not fetch IP'); }
-
-            trackView();
-        } else {
-            // Retry if supabase isn't loaded yet
-            setTimeout(initTracking, 500);
-        }
-    }
-
-    async function trackView() {
-        if(!sb) return;
-        const path = (window.location.pathname.split('/').pop() || 'index.html') + window.location.search;
-        await sb.from('page_views').insert([{ 
-            page_path: path,
-            ip_address: userIP,
-            user_agent: navigator.userAgent
-        }]);
-    }
-
-    // Start tracking when DOM is ready
-    if (document.readyState === 'complete') initTracking();
-    else window.addEventListener('load', initTracking);
-
-    document.addEventListener('click', async (e) => {
-        const a = e.target.closest('a');
-        if (a && sb) {
-            const clickData = { 
-                link_url: a.href, 
-                link_text: a.innerText.trim().substring(0, 50),
-                page_path: window.location.pathname.split('/').pop() || 'index.html',
-                ip_address: userIP
-            };
-            
-            // Use fetch with keepalive if possible for better reliability during navigation
-            try {
-                await sb.from('link_clicks').insert([clickData]);
-            } catch (e) {
-                console.warn('Analytics: Click tracking failed');
+            async function trackView() {
+                if (!sb) return;
+                const path = (window.location.pathname.split('/').pop() || 'index.html') + window.location.search;
+                await sb.from('page_views').insert([{ page_path: path }]);
             }
-        }
-    });
-})();
-</script>
 
-                    <div class="form-group full-width">
-                        <textarea name="message" class="form-input" required placeholder="Briefly Describe Your Project or Goals" rows="4"></textarea>
-                    </div>
+            window.addEventListener('load', trackView);
 
-                    <button type="submit" class="book-appointment-btn" style="width:100%;">Book an Appointment</button>
-                </form>
-            </div>
-        </div>
-    </div>
+            document.addEventListener('click', async (e) => {
+                const a = e.target.closest('a');
+                if (a && sb) {
+                    await sb.from('link_clicks').insert([{
+                        link_url: a.href,
+                        link_text: a.innerText.trim().substring(0, 50),
+                        page_path: window.location.pathname.split('/').pop() || 'index.html'
+                    }]);
+                }
+            });
+        })();
+    </script>
+
+    <!-- Analytics Tracking (Enhanced) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        (function () {
+            const SB_URL = 'https://ocaeyapzahotesvybfon.supabase.co';
+            const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k';
+
+            let sb = null;
+            let userIP = 'unknown';
+
+            async function initTracking() {
+                if (typeof supabase !== 'undefined') {
+                    sb = supabase.createClient(SB_URL, SB_KEY);
+
+                    // Get IP address
+                    try {
+                        const res = await fetch('https://api.ipify.org?format=json');
+                        const json = await res.json();
+                        userIP = json.ip;
+                    } catch (e) { console.warn('Analytics: Could not fetch IP'); }
+
+                    trackView();
+                } else {
+                    // Retry if supabase isn't loaded yet
+                    setTimeout(initTracking, 500);
+                }
+            }
+
+            async function trackView() {
+                if (!sb) return;
+                const path = (window.location.pathname.split('/').pop() || 'index.html') + window.location.search;
+                await sb.from('page_views').insert([{
+                    page_path: path,
+                    ip_address: userIP,
+                    user_agent: navigator.userAgent
+                }]);
+            }
+
+            // Start tracking when DOM is ready
+            if (document.readyState === 'complete') initTracking();
+            else window.addEventListener('load', initTracking);
+
+            document.addEventListener('click', async (e) => {
+                const a = e.target.closest('a');
+                if (a && sb) {
+                    const clickData = {
+                        link_url: a.href,
+                        link_text: a.innerText.trim().substring(0, 50),
+                        page_path: window.location.pathname.split('/').pop() || 'index.html',
+                        ip_address: userIP
+                    };
+
+                    // Use fetch with keepalive if possible for better reliability during navigation
+                    try {
+                        await sb.from('link_clicks').insert([clickData]);
+                    } catch (e) {
+                        console.warn('Analytics: Click tracking failed');
+                    }
+                }
+            });
+        })();
+    </script>
+
+
 </body>
 
 </html>
-
-
-
-
-

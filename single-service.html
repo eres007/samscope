@@ -43,7 +43,7 @@
     <meta property="og:image" content="https://samscope.netlify.app/Portfolio%20(Desktop).webp">
     <meta property="og:site_name" content="Samscope Agency">
     <meta property="og:locale" content="en_US">
-    
+
     <style>
         /* Mobile Optimization Overrides */
         @media (max-width: 992px) {
@@ -51,12 +51,16 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+
             .details-sidebar {
-                order: 2; /* Move sidebar below main content */
+                order: 2;
+                /* Move sidebar below main content */
             }
+
             .details-content {
                 order: 1;
             }
+
             .service-hero-title {
                 font-size: 3.5rem !important;
             }
@@ -67,29 +71,37 @@
                 padding: 120px 20px 60px 20px;
                 text-align: center;
             }
+
             .service-hero-title {
                 font-size: 2.8rem !important;
             }
+
             .service-hero-desc {
                 font-size: 1rem;
             }
+
             .be-text-grid {
                 grid-template-columns: 1fr !important;
                 padding-left: 0 !important;
             }
+
             .content-text {
                 padding-left: 0 !important;
                 font-size: 1.05rem !important;
             }
+
             .be-content-block {
                 padding-left: 10px !important;
             }
+
             .be-content-block h2 {
                 font-size: 2.22rem !important;
             }
+
             .expected-outcomes-section {
                 padding: 50px 20px !important;
             }
+
             .expected-outcomes-section h2 {
                 font-size: 2.5rem !important;
             }
@@ -99,9 +111,11 @@
             .service-hero-title {
                 font-size: 2.2rem !important;
             }
+
             .be-text-grid-item {
                 padding: 20px !important;
             }
+
             .btn-cta {
                 width: 100%;
                 text-align: center;
@@ -123,19 +137,25 @@
                 align-items: center;
                 cursor: pointer;
                 padding-bottom: 15px;
-                border-bottom: 2px solid rgba(255,255,255,0.05); /* Separator on mobile */
+                border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+                /* Separator on mobile */
             }
+
             .service-dropdown-widget .dropdown-icon {
                 display: inline-block;
             }
+
             .service-dropdown-widget .service-list {
-                display: none; /* Hide by default on mobile */
+                display: none;
+                /* Hide by default on mobile */
                 margin-top: 20px;
                 padding-left: 10px;
             }
+
             .service-dropdown-widget.active .service-list {
                 display: block;
             }
+
             .service-dropdown-widget.active .dropdown-icon {
                 transform: rotate(180deg);
             }
@@ -169,7 +189,10 @@
         <div class="service-hero-content">
             <h1 class="service-hero-title">STRATEGIC BRAND BUILDING</h1>
             <p class="service-hero-desc">
-                We build powerful brand foundations that create long-term market authority and differentiation. Our strategic brand-building process defines your positioning, clarifies your value proposition, and aligns your messaging with your target audience. From brand architecture to communication frameworks, we ensure consistency across every touchpoint to establish trust, recognition, and competitive strength.
+                We build powerful brand foundations that create long-term market authority and differentiation. Our
+                strategic brand-building process defines your positioning, clarifies your value proposition, and aligns
+                your messaging with your target audience. From brand architecture to communication frameworks, we ensure
+                consistency across every touchpoint to establish trust, recognition, and competitive strength.
             </p>
             <div class="breadcrumbs">
                 <a href="/">Home</a>
@@ -179,7 +202,7 @@
                 <span class="current">Strategic Brand Building</span>
             </div>
             <div style="margin-top: 30px;">
-                <a href="contact" class="btn-cta">Book Free Consultation</a>
+                <a href="#" class="btn-cta open-modal-btn">Book Free Consultation</a>
             </div>
         </div>
 
@@ -231,13 +254,20 @@
                             <i class="fas fa-chevron-down dropdown-icon"></i>
                         </h4>
                         <ul class="service-list" id="mobileServiceList">
-                            <li><a href="single-service" class="active"><i class="fas fa-chevron-right"></i> Strategic Brand Building</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Web Design &amp; Development</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Social Media Content Development</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Social Media Management</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Social Media Advertising</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Search Engine Optimization</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Search Engine Advertising</a></li>
+                            <li><a href="single-service" class="active"><i class="fas fa-chevron-right"></i> Strategic
+                                    Brand Building</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Web Design &amp;
+                                    Development</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Social Media Content
+                                    Development</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Social Media Management</a>
+                            </li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Social Media Advertising</a>
+                            </li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Search Engine
+                                    Optimization</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Search Engine Advertising</a>
+                            </li>
                             <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic Email Marketing</a></li>
                             <li><a href="#"><i class="fas fa-chevron-right"></i> Strategic SMS Marketing</a></li>
                         </ul>
@@ -269,15 +299,26 @@
                 <div class="details-content">
                     <!-- Service Details -->
                     <div style="margin-bottom: 50px;">
-                        <div class="be-content-block" style="margin-bottom: 25px; border-left: 4px solid var(--accent); padding-left: 15px;">
-                            <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; letter-spacing:2px; color:#fff; margin:0;">SERVICE DETAILS</h2>
+                        <div class="be-content-block"
+                            style="margin-bottom: 25px; border-left: 4px solid var(--accent); padding-left: 15px;">
+                            <h2
+                                style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; letter-spacing:2px; color:#fff; margin:0;">
+                                SERVICE DETAILS</h2>
                         </div>
-                        <div class="content-text" style="color:#b0c4de; line-height:1.9; font-size:1.15rem; padding-left: 19px;">
-                            This service is designed to build and position your brand with a clear, structured approach that ensures long-term market impact. We begin by deeply analyzing your brand—understanding the core problem it aims to solve and the purpose behind its existence.
+                        <div class="content-text"
+                            style="color:#b0c4de; line-height:1.9; font-size:1.15rem; padding-left: 19px;">
+                            This service is designed to build and position your brand with a clear, structured approach
+                            that ensures long-term market impact. We begin by deeply analyzing your brand—understanding
+                            the core problem it aims to solve and the purpose behind its existence.
                             <br><br>
-                            From there, we conduct comprehensive audience, market, and competitor analysis to identify opportunities and define a strong, differentiated positioning strategy. Based on these insights, we develop a well-structured market positioning plan supported by a cohesive brand identity, ensuring your audience clearly understands your brand’s purpose and value.
+                            From there, we conduct comprehensive audience, market, and competitor analysis to identify
+                            opportunities and define a strong, differentiated positioning strategy. Based on these
+                            insights, we develop a well-structured market positioning plan supported by a cohesive brand
+                            identity, ensuring your audience clearly understands your brand’s purpose and value.
                             <br><br>
-                            Additionally, we provide strategic guidelines and tailored marketing materials aligned with your brand identity, enabling consistent communication and effective execution across all channels.
+                            Additionally, we provide strategic guidelines and tailored marketing materials aligned with
+                            your brand identity, enabling consistent communication and effective execution across all
+                            channels.
                         </div>
                     </div>
 
@@ -285,115 +326,218 @@
 
                     <!-- Service Process -->
                     <div style="margin-bottom: 50px;">
-                        <div class="be-content-block" style="margin-bottom: 25px; border-left: 4px solid var(--accent); padding-left: 15px;">
-                            <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; letter-spacing:2px; color:#fff; margin:0;">SERVICE PROCESS</h2>
+                        <div class="be-content-block"
+                            style="margin-bottom: 25px; border-left: 4px solid var(--accent); padding-left: 15px;">
+                            <h2
+                                style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; letter-spacing:2px; color:#fff; margin:0;">
+                                SERVICE PROCESS</h2>
                         </div>
-                        <p class="content-text" style="color:#b0c4de; margin-bottom: 30px; padding-left: 19px;">Our service process is designed to build a strong, scalable brand through a structured, data-driven approach. Each step ensures clarity, consistency, and effective market positioning.</p>
-                        
-                        <div class="be-text-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; width:100%; padding-left: 19px;">
-                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 1</span>
-                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">BRAND ANALYSIS</h4>
-                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We begin by analyzing the brand to understand its core purpose—why it exists and the problem it aims to solve.</div>
-                            </div>
-                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 2</span>
-                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">FOUNDATION DEVELOPMENT</h4>
-                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">Based on the insights gathered, we develop a solid brand foundation, defining key elements such as mission, vision, and core values.</div>
-                            </div>
-                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 3</span>
-                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">MARKET RESEARCH</h4>
-                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We conduct in-depth research on the target audience, market landscape, and competitors to identify gaps, trends, and growth opportunities.</div>
-                            </div>
-                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 4</span>
-                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">POSITIONING PLANNING</h4>
-                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">Using research-driven insights, we create a structured market positioning strategy to clearly define how the brand will stand out.</div>
-                            </div>
-                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 5</span>
-                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">VISUAL IDENTITY</h4>
-                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We design a compelling visual identity that reflects the brand’s personality and resonates with the target audience.</div>
-                            </div>
-                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 6</span>
-                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">VERBAL IDENTITY</h4>
-                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We craft the brand’s tone of voice and messaging framework to ensure consistent and engaging communication.</div>
-                            </div>
-                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 7</span>
-                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">MARKETING MATERIALS</h4>
-                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We create marketing assets aligned with the brand’s identity to support effective communication across channels.</div>
-                            </div>
-                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 8</span>
-                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">PERFORMANCE INDICATORS</h4>
-                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">Finally, we establish key performance indicators (KPIs) to measure brand growth, track performance, and guide future improvements.</div>
-                            </div>
-                        </div>
-                    </div>      </div>
+                        <p class="content-text" style="color:#b0c4de; margin-bottom: 30px; padding-left: 19px;">Our
+                            service process is designed to build a strong, scalable brand through a structured,
+                            data-driven approach. Each step ensures clarity, consistency, and effective market
+                            positioning.</p>
 
-                </div> <!-- End Main Content -->
-            </div> <!-- End details-grid -->
+                        <div class="be-text-grid"
+                            style="display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; width:100%; padding-left: 19px;">
+                            <div class="be-text-grid-item"
+                                style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span
+                                    style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP
+                                    1</span>
+                                <h4
+                                    style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">
+                                    BRAND ANALYSIS</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We begin by
+                                    analyzing the brand to understand its core purpose—why it exists and the problem it
+                                    aims to solve.</div>
+                            </div>
+                            <div class="be-text-grid-item"
+                                style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span
+                                    style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP
+                                    2</span>
+                                <h4
+                                    style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">
+                                    FOUNDATION DEVELOPMENT</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">Based on the
+                                    insights gathered, we develop a solid brand foundation, defining key elements such
+                                    as mission, vision, and core values.</div>
+                            </div>
+                            <div class="be-text-grid-item"
+                                style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span
+                                    style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP
+                                    3</span>
+                                <h4
+                                    style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">
+                                    MARKET RESEARCH</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We conduct
+                                    in-depth research on the target audience, market landscape, and competitors to
+                                    identify gaps, trends, and growth opportunities.</div>
+                            </div>
+                            <div class="be-text-grid-item"
+                                style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span
+                                    style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP
+                                    4</span>
+                                <h4
+                                    style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">
+                                    POSITIONING PLANNING</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">Using
+                                    research-driven insights, we create a structured market positioning strategy to
+                                    clearly define how the brand will stand out.</div>
+                            </div>
+                            <div class="be-text-grid-item"
+                                style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span
+                                    style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP
+                                    5</span>
+                                <h4
+                                    style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">
+                                    VISUAL IDENTITY</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We design a
+                                    compelling visual identity that reflects the brand’s personality and resonates with
+                                    the target audience.</div>
+                            </div>
+                            <div class="be-text-grid-item"
+                                style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span
+                                    style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP
+                                    6</span>
+                                <h4
+                                    style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">
+                                    VERBAL IDENTITY</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We craft the
+                                    brand’s tone of voice and messaging framework to ensure consistent and engaging
+                                    communication.</div>
+                            </div>
+                            <div class="be-text-grid-item"
+                                style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span
+                                    style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP
+                                    7</span>
+                                <h4
+                                    style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">
+                                    MARKETING MATERIALS</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We create
+                                    marketing assets aligned with the brand’s identity to support effective
+                                    communication across channels.</div>
+                            </div>
+                            <div class="be-text-grid-item"
+                                style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span
+                                    style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP
+                                    8</span>
+                                <h4
+                                    style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">
+                                    PERFORMANCE INDICATORS</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">Finally, we
+                                    establish key performance indicators (KPIs) to measure brand growth, track
+                                    performance, and guide future improvements.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End Main Content -->
+        </div> <!-- End details-grid -->
         </div> <!-- End Demonstration-details-container -->
     </section>
 
     <!-- Section: Expected Outcomes -->
     <section class="expected-outcomes-section" style="padding: 80px 0;">
         <div class="Demonstration-details-container">
-            <div class="be-content-block" style="margin-bottom: 40px; border-left: 4px solid var(--accent); padding-left: 0; text-align: center; border-left: none;">
-                <h2 style="font-family:'Bebas Neue',sans-serif; font-size:3.5rem; letter-spacing:2px; color:#fff; margin:0;">EXPECTED OUTCOMES</h2>
+            <div class="be-content-block"
+                style="margin-bottom: 40px; border-left: 4px solid var(--accent); padding-left: 0; text-align: center; border-left: none;">
+                <h2
+                    style="font-family:'Bebas Neue',sans-serif; font-size:3.5rem; letter-spacing:2px; color:#fff; margin:0;">
+                    EXPECTED OUTCOMES</h2>
             </div>
-            <p class="content-text" style="color:#b0c4de; margin-bottom: 50px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; font-size: 1.15rem;">
-                This service is designed to deliver a well-structured, strategically positioned brand with clear direction, strong identity, and measurable growth potential.
+            <p class="content-text"
+                style="color:#b0c4de; margin-bottom: 50px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; font-size: 1.15rem;">
+                This service is designed to deliver a well-structured, strategically positioned brand with clear
+                direction, strong identity, and measurable growth potential.
             </p>
-            
+
             <div class="be-text-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; width:100%;">
-                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Clear Brand Positioning</h5>
-                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">A well-defined position in the market that differentiates your brand from competitors.</p>
+                <div
+                    style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <h5
+                        style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">
+                        Clear Brand Positioning</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">A well-defined position in
+                        the market that differentiates your brand from competitors.</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Strong Brand Foundation</h5>
-                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Clearly established mission, vision, values, and purpose to guide all business and marketing decisions.</p>
+                <div
+                    style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <h5
+                        style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">
+                        Strong Brand Foundation</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Clearly established mission,
+                        vision, values, and purpose to guide all business and marketing decisions.</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Deep Market & Audience Insights</h5>
-                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Comprehensive understanding of your target audience, market dynamics, and competitive landscape.</p>
+                <div
+                    style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <h5
+                        style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">
+                        Deep Market & Audience Insights</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Comprehensive understanding
+                        of your target audience, market dynamics, and competitive landscape.</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Consistent Brand Identity</h5>
-                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">A cohesive visual and verbal identity that ensures consistency across all touchpoints.</p>
+                <div
+                    style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <h5
+                        style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">
+                        Consistent Brand Identity</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">A cohesive visual and verbal
+                        identity that ensures consistency across all touchpoints.</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Effective Communication Strategy</h5>
-                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Clear messaging and tone of voice that resonates with and engages your audience.</p>
+                <div
+                    style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <h5
+                        style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">
+                        Effective Communication Strategy</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Clear messaging and tone of
+                        voice that resonates with and engages your audience.</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Professional Marketing Materials</h5>
-                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">High-quality, brand-aligned assets ready for use across digital and offline channels.</p>
+                <div
+                    style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <h5
+                        style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">
+                        Professional Marketing Materials</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">High-quality, brand-aligned
+                        assets ready for use across digital and offline channels.</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Structured Growth Roadmap</h5>
-                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">A strategic plan that guides your brand’s growth and long-term positioning.</p>
+                <div
+                    style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <h5
+                        style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">
+                        Structured Growth Roadmap</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">A strategic plan that guides
+                        your brand’s growth and long-term positioning.</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Measurable Performance Metrics</h5>
-                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Defined KPIs to track brand performance, evaluate success, and optimize future strategies.</p>
+                <div
+                    style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <h5
+                        style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">
+                        Measurable Performance Metrics</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Defined KPIs to track brand
+                        performance, evaluate success, and optimize future strategies.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Work Demonstration Section -->
-    <section class="work-demo-section" style="background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05);">
+    <section class="work-demo-section"
+        style="background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="work-demo-container">
             <div class="work-demo-header">
                 <div class="section-label">Work Demonstration</div>
                 <h2 class="work-demo-title">OUR WORK IN ACTION</h2>
                 <p class="work-demo-description">
-                    Explore how our strategic digital marketing solutions have transformed brands and driven measurable results across industries.
+                    Explore how our strategic digital marketing solutions have transformed brands and driven measurable
+                    results across industries.
                 </p>
             </div>
 
@@ -657,9 +801,14 @@
                     </button>
                     <div class="faq-answer">
                         <p>
-                            To get in touch with Samscope, please visit our <a href="contact" style="color: #4f8ef7; text-decoration: none;">Contact Page</a> and fill out the form with your
+                            To get in touch with Samscope, please visit our <a href="contact"
+                                style="color: #4f8ef7; text-decoration: none;">Contact Page</a> and fill out the form
+                            with your
                             details and project information. Our team will review your submission and respond to you
-                            promptly via <a href="mailto:info@samscope.com" style="color: #4f8ef7; text-decoration: none;">email</a> or <a href="https://wa.me/8801751973367" style="color: #4f8ef7; text-decoration: none;" target="_blank">WhatsApp</a>.
+                            promptly via <a href="mailto:info@samscope.com"
+                                style="color: #4f8ef7; text-decoration: none;">email</a> or <a
+                                href="https://wa.me/8801751973367" style="color: #4f8ef7; text-decoration: none;"
+                                target="_blank">WhatsApp</a>.
                         </p>
                     </div>
                 </div>
@@ -710,7 +859,10 @@
                     <div class="faq-answer">
                         <p>
                             Yes, we work with businesses globally. Our team collaborates with clients through online
-                            meetings, <a href="mailto:info@samscope.com" style="color: #4f8ef7; text-decoration: none;">email</a> and <a href="https://wa.me/8801751973367" style="color: #4f8ef7; text-decoration: none;" target="_blank">WhatsApp</a>.
+                            meetings, <a href="mailto:info@samscope.com"
+                                style="color: #4f8ef7; text-decoration: none;">email</a> and <a
+                                href="https://wa.me/8801751973367" style="color: #4f8ef7; text-decoration: none;"
+                                target="_blank">WhatsApp</a>.
                         </p>
                     </div>
                 </div>
@@ -728,7 +880,7 @@
                     will analyze your business, identify opportunities, and provide actionable guidelines— all
                     completely free.
                 </p>
-                <a href="contact" class="btn-cta">Book Free Consultation</a>
+                <a href="#" class="btn-cta open-modal-btn">Book Free Consultation</a>
             </div>
         </div>
     </section>
@@ -825,12 +977,12 @@
         });
 
         // Mobile Service Dropdown Toggle
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const dropdownTitle = document.getElementById('serviceDropdownTitle');
             const dropdownWidget = document.querySelector('.service-dropdown-widget');
-            
+
             if (dropdownTitle && dropdownWidget) {
-                dropdownTitle.addEventListener('click', function() {
+                dropdownTitle.addEventListener('click', function () {
                     // Only toggle on mobile viewports
                     if (window.innerWidth <= 992) {
                         dropdownWidget.classList.toggle('active');
