@@ -174,10 +174,71 @@
                     <!-- Make an Appointment Widget -->
                     <div class="sidebar-widget" id="appointment-widget">
                         <h4 class="widget-title">MAKE AN APPOINTMENT</h4>
-                        <p style="color: #b0c4de; margin-bottom: 20px; font-size: 0.95rem;">
+                        <p style="color: #b0c4de; margin-bottom: 15px; font-size: 0.9rem;">
                             Ready to grow your brand? Book a dedicated session with our strategic experts.
                         </p>
-                        <button class="book-appointment-btn btn-open-modal" style="width: 100%;">Book an Appointment</button>
+                        
+                        <form class="sidebar-appointment-form" id="sidebarForm">
+                            <!-- Web3Forms Config -->
+                            <input type="hidden" name="access_key" value="4f9f5e56-d1e3-4df7-9859-7ccb1e1ccc33">
+                            <input type="hidden" name="subject" value="New Appointment Request (Sidebar) - Demonstration Page">
+                            <input type="hidden" name="from_name" value="Samscope Website (Sidebar)">
+
+                            <div class="sidebar-input-group">
+                                <input type="text" name="name" class="sidebar-input-field" placeholder="Full Name" required>
+                            </div>
+
+                            <div class="sidebar-input-group">
+                                <input type="tel" name="phone" class="sidebar-input-field" placeholder="Phone Number" required>
+                            </div>
+
+                            <div class="sidebar-input-group">
+                                <input type="tel" name="whatsapp" class="sidebar-input-field" placeholder="Whatsapp Number" required>
+                            </div>
+
+                            <div class="sidebar-input-group">
+                                <input type="email" name="email" class="sidebar-input-field" placeholder="E-mail Address" required>
+                            </div>
+
+                            <div class="sidebar-input-group sidebar-custom-select">
+                                <div class="sidebar-input-field sidebar-select-trigger" id="sidebarServiceTrigger">
+                                    <span class="trigger-label">Select Service</span>
+                                    <div class="selected-items"></div>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="custom-select-options" id="sidebarServiceOptions">
+                                    <div class="select-option" data-value="strategic-brand-building">Strategic Brand Building</div>
+                                    <div class="select-option" data-value="strategic-web-design-development">Strategic Web Design & Development</div>
+                                    <div class="select-option" data-value="strategic-social-media-content-development">Strategic Social Media Content Development</div>
+                                    <div class="select-option" data-value="strategic-social-media-management">Strategic Social Media Management</div>
+                                    <div class="select-option" data-value="strategic-social-media-advertising">Strategic Social Media Advertising</div>
+                                    <div class="select-option" data-value="strategic-search-engine-optimization">Strategic Search Engine Optimization</div>
+                                    <div class="select-option" data-value="strategic-search-engine-advertising">Strategic Search Engine Advertising</div>
+                                    <div class="select-option" data-value="strategic-email-marketing">Strategic Email Marketing</div>
+                                    <div class="select-option" data-value="strategic-sms-marketing">Strategic SMS Marketing</div>
+                                </div>
+                                <input type="hidden" name="services" id="sidebarSelectedServices" required>
+                            </div>
+
+                            <div class="sidebar-form-row">
+                                <div class="sidebar-input-group">
+                                    <input type="text" class="sidebar-input-field with-icon" id="sidebarAppointmentDate" name="Appointment Date" placeholder="Appointment Date" readonly required>
+                                    <i class="far fa-calendar-alt sidebar-input-icon"></i>
+                                    <div class="calendar-dropdown" id="sidebarCalendarDropdown"></div>
+                                </div>
+                                <div class="sidebar-input-group">
+                                    <input type="text" class="sidebar-input-field with-icon" id="sidebarAppointmentTime" name="Appointment Time" placeholder="Appointment Time" readonly required>
+                                    <i class="far fa-clock sidebar-input-icon"></i>
+                                    <div class="timepicker-dropdown" id="sidebarTimepickerDropdown"></div>
+                                </div>
+                            </div>
+
+                            <div class="sidebar-input-group">
+                                <textarea name="message" class="sidebar-input-field sidebar-textarea" placeholder="How can we help you?" required></textarea>
+                            </div>
+
+                            <button type="submit" class="sidebar-btn-submit">BOOK AN APPOINTMENT</button>
+                        </form>
                     </div>
                 </aside>
 
