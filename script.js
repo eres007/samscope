@@ -486,6 +486,201 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Sidebar Form Logic ---
+    const sidebarServiceTrigger = document.getElementById('sidebarServiceTrigger');
+    const sidebarServiceOptions = document.getElementById('sidebarServiceOptions');
+    const sidebarSelectedServicesInput = document.getElementById('sidebarSelectedServices');
+    const sidebarSelectedItemsContainer = sidebarServiceTrigger?.querySelector('.selected-items');
+
+    if (sidebarServiceTrigger && sidebarServiceOptions) {
+        sidebarServiceTrigger.addEventListener('click', () => {
+            const isHidden = sidebarServiceOptions.style.display === 'none';
+            sidebarServiceOptions.style.display = isHidden ? 'block' : 'none';
+            sidebarServiceTrigger.classList.toggle('active');
+        });
+
+        sidebarServiceOptions.querySelectorAll('.select-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                option.classList.toggle('selected');
+                updateSidebarSelectedServices();
+            });
+        });
+
+        function updateSidebarSelectedServices() {
+            const selected = Array.from(sidebarServiceOptions.querySelectorAll('.select-option.selected'));
+            const values = selected.map(opt => opt.getAttribute('data-value'));
+            const texts = selected.map(opt => opt.textContent);
+            sidebarSelectedServicesInput.value = values.join(',');
+
+            sidebarSelectedItemsContainer.innerHTML = '';
+            const label = sidebarServiceTrigger.querySelector('.trigger-label');
+
+            if (values.length > 0) {
+                label.style.display = 'none';
+                if (values.length <= 1) {
+                    texts.forEach(text => {
+                        const tag = document.createElement('span');
+                        tag.className = 'selected-tag';
+                        tag.textContent = text;
+                        sidebarSelectedItemsContainer.appendChild(tag);
+                    });
+                } else {
+                    const tag = document.createElement('span');
+                    tag.className = 'selected-tag';
+                    tag.textContent = `${values.length} Selected`;
+                    sidebarSelectedItemsContainer.appendChild(tag);
+                }
+            } else {
+                label.style.display = 'block';
+            }
+        }
+    }
+
+    // Sidebar Calendar
+    const sDateInput = document.getElementById('sidebarAppointmentDate');
+    const sCalendar = document.getElementById('sidebarCalendarDropdown');
+    const today = new Date();
+    let sMonth = today.getMonth();
+    let sYear = today.getFullYear();
+
+    if (sDateInput && sCalendar) {
+        sDateInput.addEventListener('click', () => {
+            const isHidden = sCalendar.style.display === 'none';
+            sCalendar.style.display = isHidden ? 'block' : 'none';
+            if (isHidden) generateSidebarCalendar(sMonth, sYear);
+        });
+
+        function generateSidebarCalendar(month, year) {
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            
+            sCalendar.innerHTML = `
+                <div class="calendar-header">
+                    <span class="calendar-month-year">${monthNames[month]} ${year}</span>
+                    <div class="calendar-nav">
+                        <button id="sPrevMonth" type="button"><i class="fas fa-chevron-left"></i></button>
+                        <button id="sNextMonth" type="button"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="calendar-weekdays">
+                    <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+                </div>
+                <div class="calendar-days" id="sCalendarDays"></div>`;
+            
+            const daysContainer = document.getElementById('sCalendarDays');
+            for (let i = 0; i < firstDay; i++) daysContainer.appendChild(Object.assign(document.createElement('div'), {className:'calendar-day empty'}));
+            for (let i = 1; i <= daysInMonth; i++) {
+                const day = document.createElement('div');
+                day.className = 'calendar-day';
+                day.textContent = i;
+                const ds = `${i} ${monthNames[month]} ${year}`;
+                if (sDateInput.value === ds) day.classList.add('active');
+                day.addEventListener('click', () => { 
+                    sDateInput.value = ds; 
+                    sCalendar.style.display = 'none'; 
+                });
+                daysContainer.appendChild(day);
+            }
+
+            document.getElementById('sPrevMonth').onclick = (e) => { 
+                e.stopPropagation(); 
+                sMonth--; 
+                if(sMonth < 0){ sMonth = 11; sYear--; } 
+                generateSidebarCalendar(sMonth, sYear); 
+            };
+            document.getElementById('sNextMonth').onclick = (e) => { 
+                e.stopPropagation(); 
+                sMonth++; 
+                if(sMonth > 11){ sMonth = 0; sYear++; } 
+                generateSidebarCalendar(sMonth, sYear); 
+            };
+        }
+    }
+
+    // Sidebar Time Picker
+    const sTimeInput = document.getElementById('sidebarAppointmentTime');
+    const sTimePicker = document.getElementById('sidebarTimepickerDropdown');
+    if (sTimeInput && sTimePicker) {
+        sTimeInput.addEventListener('click', () => {
+            const isHidden = sTimePicker.style.display === 'none';
+            sTimePicker.style.display = isHidden ? 'block' : 'none';
+            if (isHidden) {
+                const slots = ["09:00 AM (UTC+6)", "10:00 AM (UTC+6)", "11:00 AM (UTC+6)", "12:00 PM (UTC+6)", "01:00 PM (UTC+6)", "02:00 PM (UTC+6)", "03:00 PM (UTC+6)", "04:00 PM (UTC+6)", "05:00 PM (UTC+6)"];
+                sTimePicker.innerHTML = '<div class="timepicker-list"></div>';
+                const list = sTimePicker.querySelector('.timepicker-list');
+                slots.forEach(slot => {
+                    const el = document.createElement('div');
+                    el.className = 'time-slot';
+                    el.textContent = slot;
+                    if (sTimeInput.value === slot) el.classList.add('active');
+                    el.addEventListener('click', () => { 
+                        sTimeInput.value = slot; 
+                        sTimePicker.style.display = 'none'; 
+                    });
+                    list.appendChild(el);
+                });
+            }
+        });
+    }
+
+    // Sidebar Form Submission
+    const sidebarForm = document.getElementById('sidebarForm');
+    if (sidebarForm) {
+        sidebarForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = sidebarForm.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> &nbsp;Booking...';
+
+            const formData = new FormData(sidebarForm);
+            const formDataObj = {
+                full_name: formData.get('name'),
+                phone: formData.get('phone'),
+                whatsapp: formData.get('whatsapp'),
+                email: formData.get('email'),
+                service: formData.get('services'),
+                appointment_date: formData.get('Appointment Date'),
+                appointment_time: formData.get('Appointment Time'),
+                message: formData.get('message')
+            };
+
+            try {
+                if (window.db) {
+                    const { error } = await window.db.from('consultations').insert([formDataObj]);
+                    if (error) throw error;
+                }
+                await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+                showToast('Appointment booked successfully!', 'success');
+                sidebarForm.reset();
+                if (sidebarSelectedItemsContainer) sidebarSelectedItemsContainer.innerHTML = '';
+                const triggerLabel = sidebarServiceTrigger?.querySelector('.trigger-label');
+                if (triggerLabel) triggerLabel.style.display = 'block';
+                sidebarServiceOptions?.querySelectorAll('.select-option.selected').forEach(opt => opt.classList.remove('selected'));
+            } catch (err) {
+                showToast('Failed to book appointment', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = originalText;
+            }
+        });
+    }
+
+    // Update global click listener for sidebar dropdowns
+    document.addEventListener('click', (e) => {
+        if (sidebarServiceTrigger && !sidebarServiceTrigger.contains(e.target) && !sidebarServiceOptions.contains(e.target)) {
+            sidebarServiceOptions.style.display = 'none';
+        }
+        if (sDateInput && !sDateInput.contains(e.target) && !sCalendar.contains(e.target)) {
+            sCalendar.style.display = 'none';
+        }
+        if (sTimeInput && !sTimeInput.contains(e.target) && !sTimePicker.contains(e.target)) {
+            sTimePicker.style.display = 'none';
+        }
+    });
+
 });
 
 /* ═══ GLOBAL UTILITIES ═══ */
