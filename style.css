@@ -4981,6 +4981,11 @@ a span[class*="fa-"],
     /* If the sidebar is wide enough, keep some rows side-by-side if needed, but per-widget forms usually stay stacked */
 }
 
+#appointment-widget {
+    position: relative;
+    z-index: 10;
+}
+
 /* Reusing modal dropdown styles for sidebar forms */
 .sidebar-custom-select .custom-select-options,
 .sidebar-input-group .calendar-dropdown,
@@ -4989,4 +4994,12 @@ a span[class*="fa-"],
     background: #0a1832;
     border: 1px solid rgba(255,255,255,0.1);
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    z-index: 1001; /* Ensure show above everything */
+}
+
+.sidebar-custom-select .custom-select-options.show,
+.sidebar-input-group .calendar-dropdown.show,
+.sidebar-input-group .timepicker-dropdown.show {
+    display: block !important;
+    animation: slideDownFade 0.3s ease;
 }

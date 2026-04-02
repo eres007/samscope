@@ -494,8 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sidebarServiceTrigger && sidebarServiceOptions) {
         sidebarServiceTrigger.addEventListener('click', () => {
-            const isHidden = sidebarServiceOptions.style.display === 'none';
-            sidebarServiceOptions.style.display = isHidden ? 'block' : 'none';
+            sidebarServiceOptions.classList.toggle('show');
             sidebarServiceTrigger.classList.toggle('active');
         });
 
@@ -546,9 +545,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sDateInput && sCalendar) {
         sDateInput.addEventListener('click', () => {
-            const isHidden = sCalendar.style.display === 'none';
-            sCalendar.style.display = isHidden ? 'block' : 'none';
-            if (isHidden) generateSidebarCalendar(sMonth, sYear);
+            const isOpening = !sCalendar.classList.contains('show');
+            sCalendar.classList.toggle('show');
+            if (isOpening) generateSidebarCalendar(sMonth, sYear);
         });
 
         function generateSidebarCalendar(month, year) {
@@ -579,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (sDateInput.value === ds) day.classList.add('active');
                 day.addEventListener('click', () => { 
                     sDateInput.value = ds; 
-                    sCalendar.style.display = 'none'; 
+                    sCalendar.classList.remove('show'); 
                 });
                 daysContainer.appendChild(day);
             }
@@ -604,9 +603,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sTimePicker = document.getElementById('sidebarTimepickerDropdown');
     if (sTimeInput && sTimePicker) {
         sTimeInput.addEventListener('click', () => {
-            const isHidden = sTimePicker.style.display === 'none';
-            sTimePicker.style.display = isHidden ? 'block' : 'none';
-            if (isHidden) {
+            const isOpening = !sTimePicker.classList.contains('show');
+            sTimePicker.classList.toggle('show');
+            if (isOpening) {
                 const slots = ["09:00 AM (UTC+6)", "10:00 AM (UTC+6)", "11:00 AM (UTC+6)", "12:00 PM (UTC+6)", "01:00 PM (UTC+6)", "02:00 PM (UTC+6)", "03:00 PM (UTC+6)", "04:00 PM (UTC+6)", "05:00 PM (UTC+6)"];
                 sTimePicker.innerHTML = '<div class="timepicker-list"></div>';
                 const list = sTimePicker.querySelector('.timepicker-list');
@@ -617,7 +616,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (sTimeInput.value === slot) el.classList.add('active');
                     el.addEventListener('click', () => { 
                         sTimeInput.value = slot; 
-                        sTimePicker.style.display = 'none'; 
+                        sTimePicker.classList.remove('show'); 
                     });
                     list.appendChild(el);
                 });
@@ -671,13 +670,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update global click listener for sidebar dropdowns
     document.addEventListener('click', (e) => {
         if (sidebarServiceTrigger && !sidebarServiceTrigger.contains(e.target) && !sidebarServiceOptions.contains(e.target)) {
-            sidebarServiceOptions.style.display = 'none';
+            sidebarServiceOptions.classList.remove('show');
         }
         if (sDateInput && !sDateInput.contains(e.target) && !sCalendar.contains(e.target)) {
-            sCalendar.style.display = 'none';
+            sCalendar.classList.remove('show');
         }
         if (sTimeInput && !sTimeInput.contains(e.target) && !sTimePicker.contains(e.target)) {
-            sTimePicker.style.display = 'none';
+            sTimePicker.classList.remove('show');
         }
     });
 
