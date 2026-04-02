@@ -410,10 +410,6 @@
                         const scopeTitleEl = document.getElementById('sidebar-scope-title');
                         if (scopeTitleEl && post.scope_title) scopeTitleEl.innerText = post.scope_title;
 
-                        const apptWidget = document.getElementById('appointment-widget');
-                        if (apptWidget) {
-                            apptWidget.style.display = post.show_appointment !== false ? 'block' : 'none';
-                        }
 
                         const hasBlocks = post.scope_items && (typeof post.scope_items === 'string' ? post.scope_items !== '[]' : post.scope_items.length > 0);
 

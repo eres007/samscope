@@ -311,12 +311,6 @@
                 scopeTitleEl.innerText = post.scope_title === 'SCOPE OF WORK' ? 'TABLE OF CONTENT' : post.scope_title;
             }
 
-            // Toggle Appointment Widget
-            const apptWidget = document.getElementById('appointment-widget');
-            if (apptWidget) {
-                const show = post.show_appointment === true || post.show_appointment === null || post.show_appointment === undefined;
-                apptWidget.style.display = show ? 'block' : 'none';
-            }
 
             const mainContent = document.getElementById('main-content');
             const hasBlocks = post.scope_items && (typeof post.scope_items === 'string' ? post.scope_items !== '[]' : post.scope_items.length > 0);

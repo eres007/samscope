@@ -294,11 +294,9 @@
                     <div class="sidebar-widget">
                         <h4 class="widget-title" id="sidebar-scope-title">STRATEGIC PHILOSOPHY</h4>
                         <ul class="service-list" id="scope-list">
-                            <li><a href="#philosophy" class="active"><i class="fas fa-chevron-right"></i> Our
-                                    Philosophy</a></li>
+                            <li><a href="#philosophy" class="active"><i class="fas fa-chevron-right"></i> Our Philosophy</a></li>
                             <li><a href="#mission"><i class="fas fa-chevron-right"></i> Our Mission</a></li>
-                            <li><a href="#who-we-work-with"><i class="fas fa-chevron-right"></i> Who We Work With</a>
-                            </li>
+                            <li><a href="#who-we-work-with"><i class="fas fa-chevron-right"></i> Who We Work With</a></li>
                         </ul>
                     </div>
 
@@ -613,11 +611,6 @@
                         const scopeTitleEl = document.getElementById('sidebar-scope-title');
                         if (scopeTitleEl && post.scope_title) scopeTitleEl.innerText = post.scope_title;
 
-                        // Toggle Appointment Widget
-                        const apptWidget = document.getElementById('appointment-widget');
-                        if (apptWidget) {
-                            apptWidget.style.display = post.show_appointment !== false ? 'block' : 'none';
-                        }
 
                         const hasBlocks = post.scope_items && (typeof post.scope_items === 'string' ? post.scope_items !== '[]' : post.scope_items.length > 0);
 
