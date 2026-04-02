@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TCG7JY6HR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1TCG7JY6HR');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Social Media Advertising | Samscope Strategic Digital Marketing</title>
+    <link rel="icon" type="image/webp" href="Samscope Agency Logo Favicon Cropped.webp">
+    <link rel="apple-touch-icon" href="Samscope Agency Logo Favicon Cropped.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Samscope's Strategic Social Media Advertising service delivers data-driven advertising systems designed to maximize ROI, scalability, and sustainable customer acquisition.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Samscope Agency">
+    <link rel="canonical" href="https://samscope.netlify.app/single-service-social-advertising">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Strategic Social Media Advertising | Samscope Strategic Digital Marketing">
+    <meta property="og:description" content="Samscope's Strategic Social Media Advertising service delivers data-driven advertising systems designed to maximize ROI and drive sustainable brand growth.">
+    <meta property="og:url" content="https://samscope.netlify.app/single-service-social-advertising.html">
+    <meta property="og:image" content="https://samscope.netlify.app/Portfolio%20(Desktop).webp">
+    <meta property="og:site_name" content="Samscope Agency">
+    <meta property="og:locale" content="en_US">
+
+    <style>
+        @media (max-width: 992px) {
+            .details-grid { grid-template-columns: 1fr; gap: 40px; }
+            .details-sidebar { order: 2; }
+            .details-content { order: 1; }
+            .service-hero-title { font-size: 3.5rem !important; }
+        }
+        @media (max-width: 768px) {
+            .service-hero { padding: 120px 20px 60px 20px; text-align: center; }
+            .service-hero-title { font-size: 2.8rem !important; }
+            .service-hero-desc { font-size: 1rem; }
+            .be-text-grid { grid-template-columns: 1fr !important; padding-left: 0 !important; }
+            .content-text { padding-left: 0 !important; font-size: 1.05rem !important; }
+            .be-content-block { padding-left: 10px !important; }
+            .be-content-block h2 { font-size: 2.22rem !important; }
+            .expected-outcomes-section { padding: 50px 20px !important; }
+            .expected-outcomes-section h2 { font-size: 2.5rem !important; }
+        }
+        @media (max-width: 480px) {
+            .service-hero-title { font-size: 2.2rem !important; }
+            .be-text-grid-item { padding: 20px !important; }
+            .btn-cta { width: 100%; text-align: center; }
+        }
+        .service-dropdown-widget .dropdown-icon {
+            display: none;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.8rem; margin-left: 10px;
+        }
+        @media (max-width: 992px) {
+            .service-dropdown-widget {
+                background: transparent !important; border: none !important;
+                box-shadow: none !important; backdrop-filter: none !important;
+                padding: 0 !important; margin-bottom: 30px;
+            }
+            .service-dropdown-widget .widget-title {
+                display: inline-flex; width: 100%; justify-content: space-between;
+                align-items: center; cursor: pointer; padding: 16px 30px !important;
+                background: rgba(255,255,255,0.05) !important;
+                border: 1px solid rgba(255,255,255,0.15) !important;
+                border-top: 1px solid rgba(255,255,255,0.3) !important;
+                border-radius: 50px !important; margin-bottom: 0 !important;
+                font-size: 1.1rem !important; color: #fff !important;
+                backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+                transition: all 0.3s ease;
+            }
+            .service-dropdown-widget .widget-title::after { display: none; }
+            .service-dropdown-widget .dropdown-icon { display: inline-block; }
+            .service-dropdown-widget .service-list {
+                display: none; margin-top: 15px;
+                background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+                border: 1px solid rgba(255,255,255,0.12); border-radius: 20px;
+                padding: 15px 25px !important; backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px); box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+                animation: slideDownFade 0.3s ease forwards;
+            }
+            .service-dropdown-widget.active .service-list { display: block; }
+            .service-dropdown-widget.active .dropdown-icon { transform: rotate(180deg); }
+            .service-dropdown-widget.active .widget-title {
+                border-color: rgba(255,255,255,0.4) !important;
+                background: rgba(255,255,255,0.1) !important;
+            }
+        }
+        @keyframes slideDownFade {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="/" class="logo"><img src="full-logo-white.webp" alt="SAMSCOPE Logo" class="logo-image"></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="service" class="active">Service</a></li>
+                <li><a href="demonstration">Demonstration</a></li>
+                <li><a href="about">About Us</a></li>
+                <li><a href="guidelines">Guidelines</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+            <div class="hamburger-menu"><i class="fas fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <h1 class="service-hero-title">STRATEGIC SOCIAL MEDIA ADVERTISING</h1>
+            <p class="service-hero-desc">
+                We develop data-driven advertising systems designed to maximize ROI and scalability. Our strategy includes audience segmentation, funnel-based campaign structure, creative optimization, and continuous performance analysis. We focus on sustainable customer acquisition while maintaining cost efficiency and measurable returns.
+            </p>
+            <div class="breadcrumbs">
+                <a href="/">Home</a>
+                <span class="separator"></span>
+                <a href="service">Service</a>
+                <span class="separator"></span>
+                <span class="current">Strategic Social Media Advertising</span>
+            </div>
+            <div style="margin-top: 30px;">
+                <button class="btn-cta btn-open-modal">Book Free Consultation</button>
+            </div>
+        </div>
+        <div class="service-hero-bg">
+            <svg class="wave-chart-svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradientSingle4" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(0,163,255,0);stop-opacity:0" />
+                        <stop offset="20%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:rgba(255,255,255,0.9);stop-opacity:1" />
+                        <stop offset="80%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(0,163,255,0);stop-opacity:0" />
+                    </linearGradient>
+                    <filter id="glowSingle4">
+                        <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+                        <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                    </filter>
+                </defs>
+                <path d="M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450"
+                    fill="none" stroke="url(#waveGradientSingle4)" stroke-width="3" filter="url(#glowSingle4)" stroke-linecap="round" stroke-linejoin="round">
+                    <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                        values="M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450;M-100,460 C100,460 200,410 300,430 C400,450 450,310 500,410 C580,570 620,110 680,160 C740,210 780,460 850,360 C920,260 980,310 1050,330 C1150,360 1200,210 1300,260 C1400,310 1500,460 1600,460;M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450" />
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="Demonstration-details-section">
+        <div class="Demonstration-details-container">
+            <div class="details-grid">
+
+                <!-- Sidebar -->
+                <aside class="details-sidebar">
+                    <div class="sidebar-widget service-dropdown-widget">
+                        <h4 class="widget-title" id="serviceDropdownTitle">
+                            OUR SERVICES
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </h4>
+                        <ul class="service-list" id="mobileServiceList">
+                            <li><a href="single-service.html"><i class="fas fa-chevron-right"></i> Strategic Brand Building</a></li>
+                            <li><a href="single-service-content-development.html"><i class="fas fa-chevron-right"></i> Strategic Social Media Content Development</a></li>
+                            <li><a href="single-service-social-management.html"><i class="fas fa-chevron-right"></i> Strategic Social Media Management</a></li>
+                            <li><a href="single-service-social-advertising.html" class="active"><i class="fas fa-chevron-right"></i> Strategic Social Media Advertising</a></li>
+                            <li><a href="single-service-web-design.html"><i class="fas fa-chevron-right"></i> Strategic Web Design &amp; Development</a></li>
+                            <li><a href="service.html"><i class="fas fa-chevron-right"></i> Strategic Search Engine Optimization</a></li>
+                            <li><a href="service.html"><i class="fas fa-chevron-right"></i> Strategic Search Engine Advertising</a></li>
+                            <li><a href="service.html"><i class="fas fa-chevron-right"></i> Strategic Email Marketing</a></li>
+                            <li><a href="service.html"><i class="fas fa-chevron-right"></i> Strategic SMS Marketing</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget" id="appointment-widget">
+                        <h4 class="widget-title">MAKE AN APPOINTMENT</h4>
+                        <p style="color:#b0c4de; margin-bottom:20px; font-size:0.95rem;">Ready to grow your brand? Book a dedicated session with our strategic experts.</p>
+                        <button class="book-appointment-btn btn-open-modal" style="width:100%;">Book an Appointment</button>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="details-content">
+                    <!-- Service Overview -->
+                    <div style="margin-bottom: 50px;">
+                        <div class="be-content-block" style="margin-bottom:25px; border-left:4px solid var(--accent); padding-left:15px;">
+                            <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; letter-spacing:2px; color:#fff; margin:0;">SERVICE OVERVIEW</h2>
+                        </div>
+                        <div class="content-text" style="color:#b0c4de; line-height:1.9; font-size:1.15rem; padding-left:19px;">
+                            This service is designed to deliver strategic social media advertising that maximizes ROI and drives sustainable brand growth. We begin with a comprehensive brand analysis to clearly understand your positioning, offerings, and business objectives.
+                            <br><br>
+                            Next, we conduct in-depth audience analysis to identify behaviors, preferences, and targeting opportunities. This is followed by competitor analysis to evaluate market activity, communication strategies, and offers, allowing us to identify gaps and competitive advantages.
+                            <br><br>
+                            Based on these insights, we develop a structured campaign plan aligned with your goals, outlining how each objective will be achieved. We then collect or guide the creation of content based on campaign requirements and set up the appropriate destination according to the campaign objective. Once everything is in place, we launch and manage the campaigns. Our team continuously monitors performance, optimizes campaigns for better results, and ensures efficient budget utilization. Finally, we provide detailed reports highlighting performance, insights, and recommendations for ongoing improvement.
+                        </div>
+                    </div>
+
+                    <!-- Service Process -->
+                    <div style="margin-bottom: 50px;">
+                        <div class="be-content-block" style="margin-bottom:25px; border-left:4px solid var(--accent); padding-left:15px;">
+                            <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; letter-spacing:2px; color:#fff; margin:0;">SERVICE PROCESS</h2>
+                        </div>
+                        <p class="content-text" style="color:#b0c4de; margin-bottom:30px; padding-left:19px;">Our process is designed to execute high-performing, data-driven social media advertising campaigns that deliver measurable results and maximize ROI.</p>
+
+                        <div class="be-text-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px; width:100%; padding-left:19px;">
+                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 1</span>
+                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">BRAND ANALYSIS</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We begin by analyzing the brand to understand its positioning, offerings, and advertising objectives.</div>
+                            </div>
+                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 2</span>
+                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">AUDIENCE ANALYSIS</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We evaluate the target audience to understand their behavior, interests, and conversion triggers, enabling precise targeting.</div>
+                            </div>
+                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 3</span>
+                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">COMPETITOR ANALYSIS</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We assess competitor campaigns to understand their strategies, offers, communication, and conversion approaches, identifying opportunities for differentiation.</div>
+                            </div>
+                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 4</span>
+                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">CAMPAIGN PLANNING</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">Based on insights, we develop a structured campaign plan outlining how to achieve defined goals and objectives effectively.</div>
+                            </div>
+                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 5</span>
+                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">CONTENT COLLECTION</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We collect content from the client aligned with campaign needs and provide clear guidance to ensure it meets performance and platform standards.</div>
+                            </div>
+                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 6</span>
+                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">CAMPAIGN SETUP</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We set up campaigns according to the approved strategy, including targeting, creatives, placements, and tracking configurations.</div>
+                            </div>
+                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 7</span>
+                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">CAMPAIGN MONITORING &amp; OPTIMIZATION</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">We continuously monitor campaign performance, optimize for better results, and manage ad spend efficiently to maximize returns.</div>
+                            </div>
+                            <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
+                                <span style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.2rem; display:block; margin-bottom:5px;">STEP 8</span>
+                                <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; margin-bottom:10px; letter-spacing:1px;">REPORTING</h4>
+                                <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">Finally, we provide detailed reports highlighting key performance metrics, insights, and recommendations for ongoing improvement.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expected Results -->
+    <section class="expected-outcomes-section" style="padding:80px 0;">
+        <div class="Demonstration-details-container">
+            <div class="be-content-block" style="margin-bottom:40px; text-align:center; border-left:none;">
+                <h2 style="font-family:'Bebas Neue',sans-serif; font-size:3.5rem; letter-spacing:2px; color:#fff; margin:0;">EXPECTED RESULTS</h2>
+            </div>
+            <p class="content-text" style="color:#b0c4de; margin-bottom:50px; text-align:center; max-width:800px; margin-left:auto; margin-right:auto; font-size:1.15rem;">
+                This service is designed to deliver high-performing, ROI-focused social media advertising campaigns that drive measurable business growth and brand visibility.
+            </p>
+            <div class="be-text-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px; width:100%;">
+                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition:transform 0.3s ease; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Maximized Return on Investment (ROI)</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Efficient budget utilization with optimized campaigns to achieve the highest possible returns.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition:transform 0.3s ease; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Targeted Audience Reach</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Precise audience targeting to reach the most relevant and high-potential customers.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition:transform 0.3s ease; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Improved Conversion Rates</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Data-driven strategies and optimized campaigns that increase leads, sales, or desired actions.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition:transform 0.3s ease; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Strategic Campaign Execution</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Well-structured campaigns aligned with clear objectives and performance goals.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition:transform 0.3s ease; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Competitive Advantage</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Insights-driven approach to outperform competitors and capture market opportunities.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition:transform 0.3s ease; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Optimized Ad Performance</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Continuous monitoring and optimization to improve results and reduce wasted ad spend.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition:transform 0.3s ease; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Clear Performance Insights</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">Transparent reporting with actionable insights to guide future campaign strategies.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.03); padding:30px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); transition:transform 0.3s ease; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+                    <h5 style="color:var(--accent); font-family:'Bebas Neue'; font-size:1.8rem; margin-bottom:12px; letter-spacing:1px;">Scalable Growth Opportunities</h5>
+                    <p style="font-size:1.05rem; color:#b0c4de; margin:0; line-height:1.6;">A foundation for scaling successful campaigns and expanding brand reach over time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Demonstration Section -->
+    <section class="work-demo-section" style="background:var(--bg-dark); border-top:1px solid rgba(255,255,255,0.05);">
+        <div class="work-demo-container">
+            <div class="work-demo-header">
+                <div class="section-label">Work Demonstration</div>
+                <h2 class="work-demo-title">OUR WORK IN ACTION</h2>
+                <p class="work-demo-description">Explore how our strategic digital marketing solutions have transformed brands and driven measurable results across industries.</p>
+            </div>
+            <div class="work-demo-content">
+                <div class="Demonstration-grid" id="service-demo-grid">
+                    <div class="Demonstration-card skeleton-card">
+                        <div class="Demonstration-img-wrapper skeleton"></div>
+                        <div class="Demonstration-content"><div class="Demonstration-info">
+                            <div class="skeleton" style="height:24px;width:60%;margin-bottom:15px;"></div>
+                            <div class="skeleton" style="height:16px;width:90%;margin-bottom:8px;"></div>
+                            <div class="skeleton" style="height:16px;width:75%;"></div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                (async function () {
+                    const grid = document.getElementById('service-demo-grid');
+                    const CACHE_KEY = 'samscope_demo_posts_service';
+                    const renderCards = (posts) => {
+                        if (!grid || !posts || posts.length === 0) return;
+                        grid.innerHTML = '';
+                        posts.forEach(p => {
+                            const card = document.createElement('div');
+                            card.className = 'Demonstration-card';
+                            card.innerHTML = `<div class="Demonstration-img-wrapper"><img src="${p.img_url || 'image-removebg-preview.webp'}" alt="${p.title}" class="Demonstration-img" onload="this.style.opacity=1" style="opacity:0;transition:opacity 0.3s ease;"></div><div class="Demonstration-content"><div class="Demonstration-info"><h3 class="Demonstration-card-title">${p.title.toUpperCase()}</h3><p class="Demonstration-card-desc">${p.description}</p></div><a href="single-demonstration.html?id=${p.id}" class="Demonstration-link-btn"><i class="fas fa-arrow-right"></i></a></div>`;
+                            grid.appendChild(card);
+                        });
+                    };
+                    const cached = localStorage.getItem(CACHE_KEY);
+                    if (cached) { try { renderCards(JSON.parse(cached)); } catch (e) { localStorage.removeItem(CACHE_KEY); } }
+                    try {
+                        if (!window.supabase) return;
+                        const db = supabase.createClient('https://ocaeyapzahotesvybfon.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k');
+                        const { data: posts, error } = await db.from('demo_posts').select('*').order('created_at', { ascending: false }).limit(4);
+                        if (!error && posts && posts.length > 0) { const fs = JSON.stringify(posts); if (fs !== cached) { localStorage.setItem(CACHE_KEY, fs); renderCards(posts); } }
+                        else if ((!posts || posts.length === 0) && !cached) { grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--muted);padding:40px;">No work demonstrations found yet.</div>'; }
+                    } catch (err) { console.error('Demo Error:', err); }
+                })();
+            </script>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="experts-section">
+        <div class="experts-container">
+            <div class="experts-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="experts-title">EXPERTS DIGITAL MARKETING <br> SOLUTIONS TO GROW BUSINESS</h2>
+                <p class="experts-description">Choosing the right digital marketing partner determines whether your brand experiences temporary growth or long-term success. At Samscope, we do not rely on random tactics or short-term trends. We build structured, data-driven systems designed for sustainable growth and measurable impact.</p>
+            </div>
+            <div class="experts-grid">
+                <div class="experts-column-left">
+                    <div class="info-card"><h3 class="info-card-title">STRUCTURED WORK PROCESS</h3><p class="info-card-text">We start with Brand, Market, and Audience Analysis, followed by Positioning Planning and Structure Building. Then we move to Implementation, track performance, and finally scale the market reach.</p></div>
+                    <div class="info-card"><h3 class="info-card-title">STRATEGY APPROACH</h3><p class="info-card-text">We do not execute without direction. Every project begins with analysis, positioning, and structural planning. Our decisions are backed by research, data, and market intelligence — not assumptions.</p></div>
+                    <div class="info-card"><h3 class="info-card-title">SUSTAINABLE GROWTH FOCUS</h3><p class="info-card-text">Many agencies focus only on short-term performance metrics. We focus on building scalable systems that generate consistent results over time.</p></div>
+                </div>
+                <div class="experts-column-left">
+                    <div class="info-card"><h3 class="info-card-title">DATA-DRIVEN DECISION MAKING</h3><p class="info-card-text">We continuously monitor KPIs, conversion metrics, ROI, CAC, and performance trends. Optimization is not optional — it is embedded into our system. Every campaign is refined based on performance analytics to maximize efficiency and return.</p></div>
+                    <div class="info-card"><h3 class="info-card-title">CONVERSION &amp; ROI FOCUS</h3><p class="info-card-text">Visibility without conversion has no business value. We build marketing funnels, optimize user journeys, and align messaging with audience intent to ensure measurable business outcomes — not just impressions.</p></div>
+                    <div class="info-card"><h3 class="info-card-title">LONG-TERM PARTNERSHIP MINDSET</h3><p class="info-card-text">We work as strategic partners, not service vendors. Our objective is to understand your business deeply, align with your goals, and contribute to sustainable expansion. Your growth becomes our performance benchmark.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <span class="section-tag">Testimonial</span>
+                <h2 class="testimonials-title">VOICES OF SATISFACTION</h2>
+                <p class="testimonials-description">These stories showcase real results, proven strategies, and the lasting value we create — because nothing is more important than our clients' satisfaction.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card"><div class="client-info"><div class="client-details"><h4 class="client-name">RAFIUL KADER CHISTY</h4><span class="client-role">Founder <strong>Well Suited</strong></span></div></div><p class="testimonial-text">Samscope is one of the best digital marketing agencies we have partnered with. Their process is smooth, delivery is prompt, and the results are outstanding. Highly recommended.</p></div>
+                <div class="testimonial-card"><div class="client-info"><div class="client-details"><h4 class="client-name">AYESHA HOSSAIN</h4><span class="client-role">Founder <strong>Oz Beauty Deals</strong></span></div></div><p class="testimonial-text">Working with Samscope has been an excellent experience. Their service is impressive, and the team is extremely helpful and cooperative. We look forward to continuing our collaboration.</p></div>
+                <div class="testimonial-card"><div class="client-info"><div class="client-details"><h4 class="client-name">BONI YEAMIN</h4><span class="client-role">CEO <strong>Yeamino Fabric</strong></span></div></div><p class="testimonial-text">Samscope team transformed our social media presence through engaging content and well-targeted advertising campaigns. Our followers and engagement increased significantly, leading to a noticeable boost in sales.</p></div>
+                <div class="testimonial-card"><div class="client-info"><div class="client-details"><h4 class="client-name">ISHAQ TOKI</h4><span class="client-role">CEO <strong>Al Zayeem Cattle Ranch</strong></span></div></div><p class="testimonial-text">Samscope has a highly professional and supportive IT team. We are very satisfied with their service and overall performance. Highly recommended.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <span class="section-tag-center">FAQ</span>
+                <h2 class="faq-title">Frequently Asked Questions (FAQ)</h2>
+                <p class="faq-desc">Find answers to the most common questions our clients have about our services.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item"><button class="faq-question"><div class="faq-question-text"><span class="faq-number">1.</span>How can I contact Samscope?</div><i class="fas fa-chevron-down faq-chevron"></i></button><div class="faq-answer"><p>Visit our <a href="contact" style="color:#4f8ef7;text-decoration:none;">Contact Page</a> and fill out the form. Our team will respond via <a href="mailto:info@samscope.com" style="color:#4f8ef7;text-decoration:none;">email</a> or <a href="https://wa.me/8801751973367" style="color:#4f8ef7;text-decoration:none;" target="_blank">WhatsApp</a>.</p></div></div>
+                <div class="faq-item"><button class="faq-question"><div class="faq-question-text"><span class="faq-number">2.</span>Do you offer free consultations?</div><i class="fas fa-chevron-down faq-chevron"></i></button><div class="faq-answer"><p>Yes, Samscope offers a free initial consultation to understand your business goals and suggest the best digital marketing strategy tailored to your needs.</p></div></div>
+                <div class="faq-item"><button class="faq-question"><div class="faq-question-text"><span class="faq-number">3.</span>Can I request a custom proposal?</div><i class="fas fa-chevron-down faq-chevron"></i></button><div class="faq-answer"><p>Absolutely. After discussing your requirements, our team will prepare a customized proposal outlining strategy, deliverables, timeline, and pricing.</p></div></div>
+                <div class="faq-item"><button class="faq-question"><div class="faq-question-text"><span class="faq-number">4.</span>Do you work with international clients?</div><i class="fas fa-chevron-down faq-chevron"></i></button><div class="faq-answer"><p>Yes, we work with businesses globally via online meetings, <a href="mailto:info@samscope.com" style="color:#4f8ef7;text-decoration:none;">email</a> and <a href="https://wa.me/8801751973367" style="color:#4f8ef7;text-decoration:none;" target="_blank">WhatsApp</a>.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-card">
+                <h2 class="cta-title">BOOK A FREE CONSULTATION</h2>
+                <p class="cta-text">Take the first step toward growing your brand strategically and sustainably. Our team at Samscope will analyze your business, identify opportunities, and provide actionable guidelines— all completely free.</p>
+                <button class="btn-cta btn-open-modal">Book Free Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo"><img src="full-logo-white.webp" alt="SAMSCOPE Logo" class="logo-image"></div>
+                    <p class="brand-desc">Samscope is a strategic digital marketing agency dedicated to helping brands achieve sustainable and measurable growth through structured, data-driven marketing strategies.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/samscopeagency" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/samscope_agency" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/98774287" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Important Links</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="/">Home</a></li><li><a href="service">Services</a></li>
+                        <li><a href="demonstration">Demonstration</a></li><li><a href="about">About Us</a></li>
+                        <li><a href="guidelines">Brand Guidelines</a></li><li><a href="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="single-service.html">Strategic Brand Building</a></li>
+                        <li><a href="single-service-content-development.html">Strategic Social Media Content Development</a></li>
+                        <li><a href="single-service-social-management.html">Strategic Social Media Management</a></li>
+                        <li><a href="single-service-social-advertising.html">Strategic Social Media Advertising</a></li>
+                        <li><a href="single-service-web-design.html">Strategic Web Design &amp; Development</a></li>
+                        <li><a href="service.html">Strategic Search Engine Optimization</a></li>
+                        <li><a href="service.html">Strategic Search Engine Advertising</a></li>
+                        <li><a href="service.html">Strategic Email Marketing</a></li>
+                        <li><a href="service.html">Strategic SMS Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-envelope"></i><a href="mailto:info@samscope.com">info@samscope.com</a></li>
+                        <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/8801751973367" target="_blank">+8801751973367</a></li>
+                        <li><i class="fas fa-globe"></i><a href="https://samscope.com" target="_blank" rel="noopener noreferrer">samscope.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Samscope Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownTitle = document.getElementById('serviceDropdownTitle');
+            const dropdownWidget = document.querySelector('.service-dropdown-widget');
+            if (dropdownTitle && dropdownWidget) {
+                dropdownTitle.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) { dropdownWidget.classList.toggle('active'); }
+                });
+            }
+        });
+    </script>
+
+    <!-- Appointment Modal -->
+    <div class="appointment-modal-overlay">
+        <div class="appointment-modal-content">
+            <button class="appointment-modal-close" aria-label="Close Modal">&times;</button>
+            <h2 class="appointment-modal-title">MAKE AN APPOINTMENT</h2>
+            <form class="appointment-modal-form" id="modalForm">
+                <input type="hidden" name="access_key" value="4f9f5e56-d1e3-4df7-9859-7ccb1e1ccc33">
+                <input type="hidden" name="subject" value="New Appointment Request - Samscope Website">
+                <input type="hidden" name="from_name" value="Samscope Website">
+                <div class="modal-input-group"><input type="text" name="name" class="modal-input-field" placeholder="Full Name" required></div>
+                <div class="modal-input-group"><input type="tel" name="phone" class="modal-input-field" placeholder="Phone Number" required></div>
+                <div class="modal-input-group"><input type="tel" name="whatsapp" class="modal-input-field" placeholder="Whatsapp Number" required></div>
+                <div class="modal-input-group"><input type="email" name="email" class="modal-input-field" placeholder="E-mail Address" required></div>
+                <div class="modal-input-group modal-custom-select">
+                    <div class="modal-input-field modal-select-trigger" id="modalServiceTrigger">
+                        <span class="trigger-label">Service</span><div class="selected-items"></div><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="custom-select-options" id="modalServiceOptions">
+                        <div class="select-option" data-value="strategic-brand-building">Strategic Brand Building</div>
+                        <div class="select-option" data-value="strategic-web-design-development">Strategic Web Design &amp; Development</div>
+                        <div class="select-option" data-value="strategic-social-media-content-development">Strategic Social Media Content Development</div>
+                        <div class="select-option" data-value="strategic-social-media-management">Strategic Social Media Management</div>
+                        <div class="select-option" data-value="strategic-social-media-advertising">Strategic Social Media Advertising</div>
+                        <div class="select-option" data-value="strategic-search-engine-optimization">Strategic Search Engine Optimization</div>
+                        <div class="select-option" data-value="strategic-search-engine-advertising">Strategic Search Engine Advertising</div>
+                        <div class="select-option" data-value="strategic-email-marketing">Strategic Email Marketing</div>
+                        <div class="select-option" data-value="strategic-sms-marketing">Strategic SMS Marketing</div>
+                    </div>
+                    <input type="hidden" name="services" id="modalSelectedServices" required>
+                </div>
+                <div class="modal-form-row">
+                    <div class="modal-input-group modal-input-with-icon">
+                        <input type="text" class="modal-input-field with-icon" id="modalAppointmentDate" name="Appointment Date" placeholder="Appointment Date" readonly required>
+                        <i class="far fa-calendar-alt modal-input-icon"></i>
+                        <div class="calendar-dropdown" id="modalCalendarDropdown"></div>
+                    </div>
+                    <div class="modal-input-group modal-input-with-icon">
+                        <input type="text" class="modal-input-field with-icon" id="modalAppointmentTime" name="Appointment Time" placeholder="Appointment Time" readonly required>
+                        <i class="far fa-clock modal-input-icon"></i>
+                        <div class="timepicker-dropdown" id="modalTimepickerDropdown"></div>
+                    </div>
+                </div>
+                <div class="modal-input-group"><textarea name="message" class="modal-input-field modal-textarea" placeholder="Briefly Describe Your Project or Goals" required></textarea></div>
+                <button type="submit" class="modal-btn-submit">BOOK AN APPOINTMENT</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
