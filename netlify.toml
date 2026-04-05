@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+  command = "" # No build command for this static site
+
+[[redirects]]
+  from = "/free-guide"
+  to = "/guidelines"
+  status = 301
+
+[[redirects]]
+  from = "/free-guide.html"
+  to = "/guidelines.html"
+  status = 301
+
+[[redirects]]
+  from = "/single-free-guide"
+  to = "/single-guidelines"
+  status = 301
+
+[[redirects]]
+  from = "/single-free-guide.html"
+  to = "/single-guidelines.html"
+  status = 301
