@@ -251,6 +251,88 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <span class="section-tag-center">FAQ</span>
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                <p class="faq-desc">Find answers to the most common questions our clients have about our demonstrations and services.</p>
+            </div>
+
+            <div class="faq-grid">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">1.</span>
+                            How can I contact Samscope?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            To get in touch with Samscope, please visit our <a href="contact.html" style="color: #4f8ef7; text-decoration: none;">Contact Page</a> and fill out the form with your
+                            details and project information. Our team will review your submission and respond to you
+                            promptly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">2.</span>
+                            Do you offer free consultations?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Yes, Samscope offers a free initial consultation to understand your business goals and
+                            suggest the best digital marketing strategy solutions tailored to your needs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">3.</span>
+                            Can I request a custom proposal?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Absolutely. After discussing your requirements, our team will prepare a customized proposal
+                            outlining strategy, deliverables, timeline, and pricing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">4.</span>
+                            Do you work with international clients?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Yes, we work with businesses globally. Our team collaborates with clients through online
+                            meetings, email and WhatsApp to ensure smooth communication and project execution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Bottom CTA Section -->
     <section class="cta-section">
         <div class="cta-container">
@@ -349,18 +431,15 @@
                                     sec.style.scrollMarginTop = '100px';
                                     sec.style.clear = 'both';
 
-                                    let hSize = tag === 'h1' ? '3.5rem' : tag === 'h3' ? '2rem' : tag === 'h4' ? '1.5rem' : tag === 'h5' ? '1.25rem' : tag === 'h6' ? '1rem' : '2.8rem';
-                                    sec.style.borderLeft = '4px solid var(--accent)';
-                                    sec.style.paddingLeft = '0';
-                                    sec.innerHTML = `<${tag} style="font-family:'Bebas Neue',sans-serif; font-size:${hSize}; letter-spacing:2px; color:${item.color || '#fff'}; margin:0;"></${tag}>`;
-                                    sec.querySelector(tag).innerHTML = item.content;
+                                    sec.className += ' be-content-block';
+                                    sec.innerHTML = `<${tag} class="be-section-title">${item.content}</${tag}>`;
                                 } else if (item.type === 'text') {
                                     let tContent = (item.content || '')
                                         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                                         .replace(/_(.*?)_/g, '<em>$1</em>')
                                         .replace(/\n/g, '<br>');
 
-                                    sec.innerHTML = `<div style="color:${item.color || '#b0c4de'}; line-height:1.9; font-size:1.15rem;">${tContent}</div>`;
+                                    sec.innerHTML = `<div class="content-text be-content-container" style="color:${item.color || '#b0c4de'}; line-height:1.8;">${tContent}</div>`;
                                 } else if (item.type === 'image') {
                                     if (!item.imgUrl) return;
                                     const widthVal = item.imgWidth ? `${item.imgWidth}%` : '100%';
@@ -376,14 +455,14 @@
                                     const gridItems = item.gridItems || [];
                                     const cols = item.gridCols || 2;
                                     const gridHtml = gridItems.map(gi => `
-                                        <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                            <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--accent); margin-bottom:12px; letter-spacing:1px; line-height:1.2;">${gi.title || ''}</h4>
+                                        <div class="be-text-grid-item">
+                                            <h4 class="be-section-subtitle" style="color:var(--accent);">${gi.title || ''}</h4>
                                             <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">${gi.desc || ''}</div>
                                         </div>
                                     `).join('');
 
                                     sec.style.marginBottom = '40px';
-                                    sec.innerHTML = `<div class="be-text-grid" style="display:grid; grid-template-columns:repeat(${cols}, 1fr); gap:20px; width:100%;">${gridHtml}</div>`;
+                                    sec.innerHTML = `<div class="be-text-grid be-content-container">${gridHtml}</div>`;
                                     if (!document.getElementById('be-grid-styles')) {
                                         const style = document.createElement('style');
                                         style.id = 'be-grid-styles';
@@ -407,11 +486,11 @@
                                     sec.style.marginBottom = '60px';
                                     sec.className += ' be-feature-block';
                                     const imgPart = item.imgUrl ? `<img src="${item.imgUrl}" class="be-feature-image" style="aspect-ratio:${item.aspectRatio && item.aspectRatio !== 'auto' ? item.aspectRatio : '1/1'}; object-fit:cover;">` : '';
-                                    const titlePart = `<h3 class="be-feature-title be-feature-title-mobile" style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; color:var(--accent); margin-bottom:0; letter-spacing:1px; line-height:1.1;">${item.featureTitle || ''}</h3>`;
+                                    const titlePart = `<h3 class="be-feature-title be-feature-title-mobile be-section-title">${item.featureTitle || ''}</h3>`;
                                     const textPart = `
-                                        <div class="be-feature-content" style="flex:1; min-width:0; text-align:left;">
-                                            <h3 class="be-feature-title be-feature-title-desktop" style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; color:var(--accent); margin-bottom:15px; letter-spacing:1px; line-height:1.1;">${item.featureTitle || ''}</h3>
-                                            <div class="content-text" style="line-height:1.7; opacity:0.85; font-size:1.05rem; color:#b0c4de; text-align:left;">${item.featureDesc || ''}</div>
+                                        <div class="be-feature-content">
+                                            <h3 class="be-feature-title be-feature-title-desktop be-section-title">${item.featureTitle || ''}</h3>
+                                            <div class="content-text be-feature-desc">${item.featureDesc || ''}</div>
                                         </div>
                                     `;
                                     sec.innerHTML = titlePart + imgPart + textPart;
@@ -455,11 +534,13 @@
                             list.appendChild(li2);
                             const sec2 = document.createElement('div');
                             sec2.id = `section-${sectionIndex}`;
-                            sec2.style.cssText = 'margin-bottom:80px; scroll-margin-top:100px; border-left:4px solid var(--accent); padding-left:18px;';
+                            sec2.className = 'be-content-block';
+                            sec2.style.marginBottom = '80px';
+                            sec2.style.scrollMarginTop = '100px';
                             sec2.innerHTML = `
-                                <h2 style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:2px;color:#fff;margin-bottom:20px;">${item.header || ''}</h2>
+                                <h2 class="be-section-title" style="margin-bottom:20px;">${item.header || ''}</h2>
                                 ${item.image ? `<img src="${item.image}" alt="${item.header || ''}" style="width:100%;border-radius:20px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 40px rgba(0,0,0,0.4);">` : ''}
-                                <div style="color:#b0c4de;line-height:1.8;font-size:1.15rem;white-space:pre-wrap;">${item.description || ''}</div>
+                                <div class="content-text be-content-container" style="color:#b0c4de;line-height:1.8;font-size:1rem;white-space:pre-wrap;">${item.description || ''}</div>
                             `;
                             mainContent.appendChild(sec2);
                             sectionIndex++;

@@ -2272,6 +2272,130 @@ a span[class*="fa-"],
     text-align: justify;
 }
 
+/* Strategic Content Block Classes (Responsive) */
+.be-content-block {
+    margin-bottom: 25px;
+    border-left: 4px solid var(--accent);
+    padding-left: 15px;
+}
+
+.be-section-title {
+    font-family: var(--heading-font);
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    margin: 0;
+    line-height: 1.1;
+    color: #fff;
+}
+
+.be-section-subtitle {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.be-content-container {
+    padding-left: 19px;
+}
+
+.be-text-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.be-text-grid-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.be-step-label {
+    color: var(--accent);
+    font-family: var(--heading-font);
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Mobile Adjustments for Strategic Blocks */
+@media (max-width: 768px) {
+    .be-section-title {
+        font-size: 1.9rem !important;
+        letter-spacing: 1px;
+    }
+    
+    .be-section-subtitle {
+        font-size: 1.5rem !important;
+    }
+    
+    .be-content-container,
+    .be-text-grid {
+        padding-left: 0 !important;
+    }
+    
+    .be-text-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+    
+    .be-content-block {
+        padding-left: 12px;
+    }
+
+    .be-feature-title-desktop {
+        display: none !important;
+    }
+
+    .be-feature-title-mobile {
+        display: block !important;
+        margin-bottom: 20px !important;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.be-feature-title-mobile {
+    display: none;
+}
+
+.be-feature-title-desktop {
+    display: block;
+}
+
+.be-feature-desc {
+    line-height: 1.8;
+    opacity: 0.85;
+    font-size: 1rem;
+    color: #b0c4de;
+    text-align: left;
+    padding-left: 19px;
+}
+
+@media (max-width: 768px) {
+    .be-feature-desc {
+        padding-left: 0 !important;
+        text-align: center;
+    }
+    
+    .be-feature-block {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    
+    .be-feature-image {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+}
+
+
+
 /* Gallery Grid System */
 .project-gallery {
     display: grid;
@@ -2331,13 +2455,26 @@ a span[class*="fa-"],
 /* Responsive Details */
 @media (max-width: 992px) {
     .details-grid {
-        grid-template-columns: 1fr;
-        /* Stack sidebar on top/bottom? Reference usually puts sidebar below or top. Let's put sidebar *bottom* or *top* based on importance. Usually content first. */
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
     }
 
     .details-sidebar {
-        order: -1;
-        /* Sidebar on top for mobile as requested */
+        display: contents;
+    }
+
+    .details-sidebar .sidebar-widget:nth-child(1) {
+        order: 1;
+    }
+
+    .details-content {
+        order: 2;
+    }
+
+    .details-sidebar .sidebar-widget:nth-child(2),
+    #appointment-widget {
+        order: 3;
     }
 
     .project-gallery {

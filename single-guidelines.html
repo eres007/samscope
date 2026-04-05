@@ -263,23 +263,71 @@
             </div>
 
             <div class="faq-grid">
-                <!-- FAQ Items -->
+                <!-- FAQ Item 1 -->
                 <div class="faq-item">
                     <button class="faq-question">
-                        <div class="faq-question-text">Why should I follow the guidelines?</div>
+                        <div class="faq-question-text">
+                            <span class="faq-number">1.</span>
+                            Why should I follow the guidelines?
+                        </div>
                         <i class="fas fa-chevron-down faq-chevron"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Samscope provides these guidelines to protect your brand and help it grow in a sustainable way. Following them keeps your brand strong and on track.</p>
+                        <p>
+                            Samscope provides these guidelines to protect your brand and help it grow in a sustainable
+                            way. Following them keeps your brand strong and on track.
+                        </p>
                     </div>
                 </div>
+
+                <!-- FAQ Item 2 -->
                 <div class="faq-item">
                     <button class="faq-question">
-                        <div class="faq-question-text">Can Samscope provide services based on the guidelines?</div>
+                        <div class="faq-question-text">
+                            <span class="faq-number">2.</span>
+                            Can Samscope provide services based on the guidelines?
+                        </div>
                         <i class="fas fa-chevron-down faq-chevron"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. Samscope offers services that follow these guidelines, so your brand growth is structured and effective.</p>
+                        <p>
+                            Yes. Samscope offers services that follow these guidelines, so your brand growth is
+                            structured and effective.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">3.</span>
+                            Why is it important to follow the guidelines?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Following the guidelines helps your brand grow steadily and ensures your business stays
+                            sustainable.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">4.</span>
+                            How can I contact Samscope to grow my brand?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            You can contact us by submitting an appointment request or sending an email to
+                            Support@samscope.com. Our team will help guide your brand toward sustainable growth.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -418,7 +466,7 @@
                         } else if (post.main_content) {
                             mainContent.innerHTML = post.main_content;
                         } else {
-                            mainContent.innerHTML = `<p class="content-text" style="color:#b0c4de; line-height:1.8; font-size:1.15rem;">${post.description}</p>`;
+                            mainContent.innerHTML = `<p class="content-text" style="color:#b0c4de; line-height:1.8; font-size:1rem; padding-left:19px;">${post.description}</p>`;
                         }
 
                         if (post.scope_items) {
@@ -443,15 +491,14 @@
                                             sec.id = `be-sec-${idx}`;
                                             sec.style.scrollMarginTop = '100px';
                                             sec.style.clear = 'both';
-                                            let hSize = tag === 'h1' ? '3.5rem' : tag === 'h3' ? '2rem' : tag === 'h4' ? '1.5rem' : tag === 'h5' ? '1.25rem' : tag === 'h6' ? '1rem' : '2.8rem';
-                                            sec.style.borderLeft = '4px solid var(--accent)';
-                                            sec.innerHTML = `<${tag} style="font-family:'Bebas Neue',sans-serif; font-size:${hSize}; letter-spacing:2px; color:${item.color || '#fff'}; margin:0; padding-left:15px;">${item.content}</${tag}>`;
+                                            sec.className += ' be-content-block';
+                                            sec.innerHTML = `<${tag} class="be-section-title">${item.content}</${tag}>`;
                                         } else if (item.type === 'text') {
                                             let tContent = (item.content || '')
                                                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                                                 .replace(/_(.*?)_/g, '<em>$1</em>')
                                                 .replace(/\n/g, '<br>');
-                                            sec.innerHTML = `<div style="color:${item.color || '#b0c4de'}; line-height:1.9; font-size:1.15rem;">${tContent}</div>`;
+                                            sec.innerHTML = `<div class="content-text be-content-container" style="color:${item.color || '#b0c4de'}; line-height:1.8;">${tContent}</div>`;
                                         } else if (item.type === 'image') {
                                             if (!item.imgUrl) return;
                                             const widthVal = item.imgWidth ? `${item.imgWidth}%` : '100%';
@@ -467,14 +514,14 @@
                                             const gridItems = item.gridItems || [];
                                             const cols = item.gridCols || 2;
                                             const gridHtml = gridItems.map(gi => `
-                                                <div class="be-text-grid-item" style="background:rgba(255,255,255,0.03); padding:25px; border-radius:15px; border:1px solid rgba(255,255,255,0.08);">
-                                                    <h4 style="font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--accent); margin-bottom:12px; letter-spacing:1px; line-height:1.2;">${gi.title || ''}</h4>
+                                                <div class="be-text-grid-item">
+                                                    <h4 class="be-section-subtitle" style="color:var(--accent);">${gi.title || ''}</h4>
                                                     <div style="color:#b0c4de; font-size:1rem; line-height:1.6; opacity:0.9;">${gi.desc || ''}</div>
                                                 </div>
                                             `).join('');
 
                                             sec.style.marginBottom = '40px';
-                                            sec.innerHTML = `<div class="be-text-grid" style="display:grid; grid-template-columns:repeat(${cols}, 1fr); gap:20px; width:100%;">${gridHtml}</div>`;
+                                            sec.innerHTML = `<div class="be-text-grid be-content-container">${gridHtml}</div>`;
                                             if (!document.getElementById('be-grid-styles')) {
                                                 const style = document.createElement('style');
                                                 style.id = 'be-grid-styles';
@@ -500,13 +547,15 @@
                                             sec.style.marginBottom = '60px';
                                             sec.className += ' be-feature-block';
                                             const imgPart = item.imgUrl ? `<img src="${item.imgUrl}" class="be-feature-image" style="aspect-ratio:${item.aspectRatio || '1'}; object-fit:cover;">` : '';
+                                            const titlePart = `<h3 class="be-section-title be-feature-title-mobile" style="color:var(--accent);">${item.featureTitle || ''}</h3>`;
                                             const textPart = `
                                                 <div class="be-feature-content" style="flex:1; min-width:0; text-align:left;">
-                                                    <h3 class="be-feature-title" style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; color:var(--accent); margin-bottom:15px; letter-spacing:1px; line-height:1.1;">${item.featureTitle || ''}</h3>
-                                                    <div class="content-text" style="line-height:1.7; opacity:0.85; font-size:1.05rem; color:#b0c4de;">${item.featureDesc || ''}</div>
+                                                    <h3 class="be-section-title be-feature-title-desktop" style="color:var(--accent); margin-bottom:15px;">${item.featureTitle || ''}</h3>
+                                                    <div class="content-text be-content-container">${item.featureDesc || ''}</div>
                                                 </div>
                                             `;
-                                            sec.innerHTML = imgPart + textPart;
+                                            sec.innerHTML = titlePart + imgPart + textPart;
+
                                         }
                                         mainContent.appendChild(sec);
                                     });
