@@ -2042,6 +2042,10 @@ a span[class*="fa-"],
     gap: 15px;
 }
 
+.appointment-form textarea {
+    resize: none;
+}
+
 .form-input {
     width: 100%;
     padding: 15px 20px;
