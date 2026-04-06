@@ -1216,7 +1216,7 @@ a span[class*="fa-"],
     color: #fff;
     text-transform: uppercase;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: none !important;
     border-radius: 50px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     font-size: 0.95rem;
@@ -1224,6 +1224,11 @@ a span[class*="fa-"],
     box-shadow: 0 0 15px rgba(0, 243, 255, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.02);
     cursor: pointer;
     text-align: center;
+}
+
+.btn-brand * {
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .btn-brand:hover {
@@ -2302,7 +2307,7 @@ a span[class*="fa-"],
 }
 
 .be-content-container {
-    padding-left: 0;
+    padding-left: 19px;
 }
 
 .be-text-grid {
@@ -5202,31 +5207,39 @@ a span[class*="fa-"],
     .guidelines-details-container {
         max-width: 100% !important;
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 0 20px !important;
     }
 
     .details-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: 30px !important;
-        align-items: stretch !important; /* CRITICAL: Ensure items stretch to 100% width */
+        align-items: stretch !important;
         width: 100% !important;
     }
 
     .be-content-block {
-        padding-left: 0 !important;
+        padding-left: 10px !important;
+        border-left-width: 3px !important;
         margin-bottom: 25px !important;
         width: 100% !important;
     }
 
-    .be-content-block h2 {
-        font-size: 2.22rem !important;
+    .be-content-block h2,
+    .be-section-title {
+        font-size: 2rem !important;
+        letter-spacing: 1px !important;
     }
 
-    .be-content-container,
+    .be-content-container {
+        padding-left: 13px !important;
+        font-size: 1rem !important;
+        width: 100% !important;
+    }
+
     .content-text {
-        padding-left: 0 !important;
-        font-size: 1.05rem !important;
+        padding-left: 13px !important;
+        font-size: 1rem !important;
         width: 100% !important;
     }
 
@@ -5238,8 +5251,52 @@ a span[class*="fa-"],
     }
 
     .be-text-grid-item {
-        padding: 20px !important;
+        padding: 15px !important;
         width: 100% !important;
+    }
+
+    .be-section-subtitle {
+        font-size: 1.4rem !important;
+    }
+
+    .be-feature-block {
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding-left: 0 !important;
+    }
+
+    .be-feature-image {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .be-feature-title-desktop {
+        display: none !important;
+    }
+
+    .be-feature-title-mobile {
+        display: block !important;
+        margin-bottom: 20px !important;
+    }
+
+    .be-image-grid {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: auto !important;
+        gap: 15px !important;
+        padding-left: 0 !important;
+    }
+
+    /* Mobile: Remove left padding from images, videos, PDFs, CTAs */
+    .Demonstration-details-container img[style*="margin"] {
+        margin-left: 0 !important;
+    }
+
+    .Demonstration-details-container div[style*="position:relative"] {
+        margin-left: 0 !important;
+    }
+
+    .Demonstration-details-container a.btn-brand {
+        margin-left: 0 !important;
     }
 
     /* Scope of Work Image Full-width refinement */

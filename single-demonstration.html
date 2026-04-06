@@ -419,9 +419,9 @@
                                 const sec = document.createElement('div');
                                 sec.style.marginBottom = '25px';
                                 sec.style.textAlign = item.align || 'left';
-                                sec.className = 'be-content-block';
 
                                 if (item.type === 'heading') {
+                                    sec.className = 'be-content-block';
                                     const li = document.createElement('li');
                                     li.innerHTML = `<a href="#be-sec-${idx}"><i class="fas fa-chevron-right"></i> ${item.content}</a>`;
                                     list.appendChild(li);
@@ -431,23 +431,22 @@
                                     sec.style.scrollMarginTop = '100px';
                                     sec.style.clear = 'both';
 
-                                    sec.className += ' be-content-block';
-                                    sec.innerHTML = `<${tag} class="be-section-title">${item.content}</${tag}>`;
+                                    sec.innerHTML = `<${tag} class="be-section-title" style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; letter-spacing:2px; color:#fff; margin:0;">${item.content}</${tag}>`;
                                 } else if (item.type === 'text') {
                                     let tContent = (item.content || '')
                                         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                                         .replace(/_(.*?)_/g, '<em>$1</em>')
                                         .replace(/\n/g, '<br>');
 
-                                    sec.innerHTML = `<div class="content-text be-content-container" style="color:${item.color || '#b0c4de'}; line-height:1.8;">${tContent}</div>`;
+                                    sec.innerHTML = `<div class="content-text" style="color:${item.color || '#b0c4de'}; line-height:1.8; padding-left:19px;">${tContent}</div>`;
                                 } else if (item.type === 'image') {
                                     if (!item.imgUrl) return;
                                     const widthVal = item.imgWidth ? `${item.imgWidth}%` : '100%';
                                     const floatStyles = {
-                                        left: `width:${widthVal}; float:left; margin:10px 30px 25px 0; border-radius:15px; aspect-ratio:${item.aspectRatio && item.aspectRatio !== 'auto' ? item.aspectRatio : 'auto'}; object-fit:cover;`,
+                                        left: `width:${widthVal}; float:left; margin:10px 30px 25px 19px; border-radius:15px; aspect-ratio:${item.aspectRatio && item.aspectRatio !== 'auto' ? item.aspectRatio : 'auto'}; object-fit:cover;`,
                                         right: `width:${widthVal}; float:right; margin:10px 0 25px 30px; border-radius:15px; aspect-ratio:${item.aspectRatio && item.aspectRatio !== 'auto' ? item.aspectRatio : 'auto'}; object-fit:cover;`,
-                                        center: `width:${widthVal}; margin:25px auto; display:block; border-radius:20px; clear:both; aspect-ratio:${item.aspectRatio && item.aspectRatio !== 'auto' ? item.aspectRatio : 'auto'}; object-fit:cover;`,
-                                        full: `width:${widthVal}; margin:25px auto; display:block; border-radius:20px; clear:both; aspect-ratio:${item.aspectRatio && item.aspectRatio !== 'auto' ? item.aspectRatio : 'auto'}; object-fit:cover;`,
+                                        center: `width:${widthVal}; margin:25px auto 25px 19px; display:block; border-radius:20px; clear:both; aspect-ratio:${item.aspectRatio && item.aspectRatio !== 'auto' ? item.aspectRatio : 'auto'}; object-fit:cover;`,
+                                        full: `width:${widthVal}; margin:25px 0 25px 19px; display:block; border-radius:20px; clear:both; aspect-ratio:${item.aspectRatio && item.aspectRatio !== 'auto' ? item.aspectRatio : 'auto'}; object-fit:cover;`,
                                     };
                                     sec.style.marginBottom = (item.imgSize === 'full' || item.imgSize === 'center') ? '40px' : '0';
                                     sec.innerHTML = `<img src="${item.imgUrl}" alt="" style="${floatStyles[item.imgSize] || floatStyles.full} border:1px solid rgba(255,255,255,0.1); box-shadow:0 20px 40px rgba(0,0,0,0.4);">`;
@@ -462,7 +461,7 @@
                                     `).join('');
 
                                     sec.style.marginBottom = '40px';
-                                    sec.innerHTML = `<div class="be-text-grid be-content-container">${gridHtml}</div>`;
+                                    sec.innerHTML = `<div class="be-text-grid" style="padding-left:19px; width:100%;">${gridHtml}</div>`;
                                     if (!document.getElementById('be-grid-styles')) {
                                         const style = document.createElement('style');
                                         style.id = 'be-grid-styles';
@@ -477,13 +476,14 @@
                                         </div>
                                     `).join('');
                                     sec.style.marginBottom = '40px';
-                                    sec.innerHTML = `<div class="be-image-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px; ${item.aspectRatio && item.aspectRatio !== 'auto' ? '' : 'grid-auto-rows:280px;'} width:100%;">${gridHtml}</div>`;
+                                    sec.innerHTML = `<div class="be-image-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px; ${item.aspectRatio && item.aspectRatio !== 'auto' ? '' : 'grid-auto-rows:280px;'} width:100%; padding-left:19px;">${gridHtml}</div>`;
                                 } else if (item.type === 'feature') {
                                     const side = item.imgSide || 'left';
                                     sec.style.display = 'flex';
                                     sec.style.gap = '40px'; sec.style.alignItems = 'center';
                                     sec.style.flexDirection = side === 'left' ? 'row' : 'row-reverse';
                                     sec.style.marginBottom = '60px';
+                                    sec.style.paddingLeft = '19px';
                                     sec.className += ' be-feature-block';
                                     const imgPart = item.imgUrl ? `<img src="${item.imgUrl}" class="be-feature-image" style="aspect-ratio:${item.aspectRatio && item.aspectRatio !== 'auto' ? item.aspectRatio : '1/1'}; object-fit:cover;">` : '';
                                     const titlePart = `<h3 class="be-feature-title be-feature-title-mobile be-section-title">${item.featureTitle || ''}</h3>`;
@@ -497,9 +497,10 @@
                                 } else if (item.type === 'cta') {
                                     sec.style.textAlign = item.align || 'center';
                                     sec.style.margin = '40px 0 60px';
+                                    sec.style.paddingLeft = '19px';
                                     sec.innerHTML = `<a href="${item.url || '#'}" target="_blank" class="btn-brand">${item.label || 'Click Here'}</a>`;
                                 } else if (item.type === 'pdf') {
-                                    sec.style.margin = '30px 0';
+                                    sec.style.margin = '30px 0 30px 19px';
                                     sec.innerHTML = `
                                         <a href="${item.url || '#'}" download target="_blank" style="display:flex; align-items:center; gap:20px; padding:25px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:15px; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)';" onmouseout="this.style.background='rgba(255,255,255,0.03)';">
                                             <div style="width:60px; height:60px; background:rgba(255,59,48,0.1); color:#ff3b30; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex-shrink:0;"><i class="fas fa-file-pdf"></i></div>
@@ -510,7 +511,7 @@
                                             <div style="color:var(--accent); font-size:1.5rem;"><i class="fas fa-download"></i></div>
                                         </a>`;
                                 } else if (item.type === 'video') {
-                                    sec.style.margin = '40px 0';
+                                    sec.style.margin = '40px 0 40px 19px';
                                     let embedUrl = item.url || '';
                                     if (embedUrl.includes('youtube.com/watch?v=')) embedUrl = embedUrl.replace('watch?v=', 'embed/');
                                     if (embedUrl.includes('youtu.be/')) embedUrl = embedUrl.replace('youtu.be/', 'youtube.com/embed/');
@@ -540,7 +541,7 @@
                             sec2.innerHTML = `
                                 <h2 class="be-section-title" style="margin-bottom:20px;">${item.header || ''}</h2>
                                 ${item.image ? `<img src="${item.image}" alt="${item.header || ''}" style="width:100%;border-radius:20px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 40px rgba(0,0,0,0.4);">` : ''}
-                                <div class="content-text be-content-container" style="color:#b0c4de;line-height:1.8;font-size:1rem;white-space:pre-wrap;">${item.description || ''}</div>
+                                <div class="content-text" style="color:#b0c4de;line-height:1.8;font-size:1rem;white-space:pre-wrap;padding-left:0;">${item.description || ''}</div>
                             `;
                             mainContent.appendChild(sec2);
                             sectionIndex++;
@@ -736,6 +737,10 @@
 
                 <div class="modal-input-group">
                     <input type="text" name="name" class="modal-input-field" placeholder="Full Name" required>
+                </div>
+
+                <div class="modal-input-group">
+                    <input type="text" name="brand_name" class="modal-input-field" placeholder="Brand Name" required>
                 </div>
 
                 <div class="modal-input-group">

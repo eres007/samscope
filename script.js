@@ -450,6 +450,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalForm) {
             modalForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                
+                // Validate form before submission
+                if (!modalForm.checkValidity()) {
+                    modalForm.reportValidity();
+                    return;
+                }
+                
                 const btn = modalForm.querySelector('button[type="submit"]');
                 const originalText = btn.textContent;
                 btn.disabled = true;
@@ -458,8 +465,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formData = new FormData(modalForm);
                 const formDataObj = {
                     full_name: formData.get('name'),
+                    brand_name: formData.get('brand_name'),
                     phone: formData.get('phone'),
-                    whatsapp: formData.get('whatsapp'), // Added
+                    whatsapp: formData.get('whatsapp'),
                     email: formData.get('email'),
                     service: formData.get('services'),
                     appointment_date: formData.get('Appointment Date'),
@@ -629,6 +637,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sidebarForm) {
         sidebarForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            // Validate form before submission
+            if (!sidebarForm.checkValidity()) {
+                sidebarForm.reportValidity();
+                return;
+            }
+            
             const btn = sidebarForm.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
             btn.disabled = true;
@@ -637,6 +652,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(sidebarForm);
             const formDataObj = {
                 full_name: formData.get('name'),
+                brand_name: formData.get('brand_name'),
                 phone: formData.get('phone'),
                 whatsapp: formData.get('whatsapp'),
                 email: formData.get('email'),
