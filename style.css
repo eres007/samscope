@@ -1147,6 +1147,10 @@ a span[class*="fa-"],
     margin: 0 auto;
 }
 
+
+
+
+
 .cta-card {
     /* Shiny Glass Card Effect */
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
@@ -2269,7 +2273,7 @@ a span[class*="fa-"],
 .content-text {
     margin-bottom: 30px;
     font-size: 1rem;
-    text-align: justify;
+    text-align: left;
 }
 
 /* Strategic Content Block Classes (Responsive) */
@@ -2298,7 +2302,7 @@ a span[class*="fa-"],
 }
 
 .be-content-container {
-    padding-left: 19px;
+    padding-left: 0;
 }
 
 .be-text-grid {
@@ -5144,4 +5148,143 @@ a span[class*="fa-"],
 .sidebar-input-group .timepicker-dropdown.show {
     display: block !important;
     animation: slideDownFade 0.3s ease;
+}
+
+/* =========================================
+   FREE GUIDES & EXPERTS SECTION
+   ========================================= */
+.related-guides-section {
+    padding: 80px 5%; /* Replaces inline 100px padding */
+}
+
+.experts-header {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.experts-title {
+    font-family: 'Bebas Neue', var(--heading-font), sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.experts-description {
+    font-size: 1.1rem;
+    color: #b0c4de;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .related-guides-section {
+        padding: 50px 5%;
+    }
+    
+    .experts-header {
+        margin-bottom: 40px;
+    }
+}
+
+/* TABLE OF CONTENT & SCOPE OF WORK - MOBILE FULL WIDTH */
+@media (max-width: 768px) {
+    .Demonstration-details-section {
+        padding: 40px 15px !important;
+    }
+
+    .Demonstration-details-container,
+    .guidelines-details-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .details-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+        align-items: stretch !important; /* CRITICAL: Ensure items stretch to 100% width */
+        width: 100% !important;
+    }
+
+    .be-content-block {
+        padding-left: 0 !important;
+        margin-bottom: 25px !important;
+        width: 100% !important;
+    }
+
+    .be-content-block h2 {
+        font-size: 2.22rem !important;
+    }
+
+    .be-content-container,
+    .content-text {
+        padding-left: 0 !important;
+        font-size: 1.05rem !important;
+        width: 100% !important;
+    }
+
+    .be-text-grid {
+        grid-template-columns: 1fr !important;
+        padding-left: 0 !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    .be-text-grid-item {
+        padding: 20px !important;
+        width: 100% !important;
+    }
+
+    /* Scope of Work Image Full-width refinement */
+    .be-content-block img {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        float: none !important;
+        border-radius: 12px !important;
+    }
+
+    /* Sidebar Table of Content full width */
+    .details-sidebar {
+        display: contents !important; /* Keep it as contents to let widgets flow as siblings of main content */
+    }
+
+    .sidebar-widget {
+        width: 100% !important; /* Ensure the widget itself stretches */
+        padding: 20px !important;
+        border-radius: 15px !important;
+    }
+
+    /* Main content area */
+    .details-content {
+        width: 100% !important;
+    }
+
+    /* Feature block mobile refinement */
+    .be-feature-block {
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+    .be-feature-image {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .Demonstration-details-section {
+        padding: 30px 10px !important;
+    }
+    
+    .be-section-title {
+        font-size: 1.8rem !important;
+    }
 }

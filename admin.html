@@ -2016,6 +2016,33 @@
         }
 
         /* Responsive grid colors for text_grid */
+
+        /* CALENDAR STYLES */
+        #calendar-popup {
+            animation: slideDown 0.2s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #start-date:hover, #end-date:hover {
+            background: rgba(255,255,255,0.08) !important;
+            border-color: var(--accent) !important;
+        }
+
+        #start-date:focus, #end-date:focus {
+            outline: none;
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 0 3px rgba(79,142,247,0.1);
+        }
         </style>
 </head>
 
@@ -2450,18 +2477,30 @@
 
                     <!-- ANALYTICS PANEL -->
                     <div class="tab-panel" id="tab-analytics">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
                             <div class="live-badge" style="margin-bottom: 0;">
                                 <div class="live-dot"></div>
                                 Live Traffic Monitoring
                             </div>
-                            <div class="analytics-filter">
-                                <select id="analytics-timeframe" class="form-control" style="width: auto; padding: 8px 15px; border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1);" onchange="loadAnalytics()">
+                            <div class="analytics-filter" style="display: flex; gap: 10px; align-items: center;">
+                                <select id="analytics-timeframe" class="form-control" style="width: auto; padding: 8px 15px; border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1);" onchange="handleTimeframeChange()">
                                     <option value="1" style="color: #fff; background-color: var(--bg-sidebar);">Today</option>
+                                    <option value="7" style="color: #fff; background-color: var(--bg-sidebar);">Last 7 Days</option>
                                     <option value="30" style="color: #fff; background-color: var(--bg-sidebar);" selected>Last 30 Days</option>
                                     <option value="365" style="color: #fff; background-color: var(--bg-sidebar);">This Year</option>
                                     <option value="all" style="color: #fff; background-color: var(--bg-sidebar);">All Time</option>
+                                    <option value="custom" style="color: #fff; background-color: var(--bg-sidebar);">Custom Range</option>
                                 </select>
+                                <div id="date-range-picker" style="display: none; position: relative;">
+                                    <div style="display: flex; gap: 8px; align-items: center;">
+                                        <input type="text" id="start-date" readonly placeholder="Start Date" style="width: 130px; padding: 8px 12px; border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 0.85rem;">
+                                        <span style="color: var(--muted);">to</span>
+                                        <input type="text" id="end-date" readonly placeholder="End Date" style="width: 130px; padding: 8px 12px; border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 0.85rem;">
+                                        <button onclick="applyCustomDateRange()" style="padding: 8px 16px; border-radius: 8px; background: var(--accent); color: #030816; border: none; font-weight: 600; cursor: pointer; font-size: 0.85rem;">Apply</button>
+                                        <button onclick="clearCustomDateRange()" style="padding: 8px 12px; border-radius: 8px; background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 0.85rem;"><i class="fas fa-times"></i></button>
+                                    </div>
+                                    <div id="calendar-popup" style="display: none; position: absolute; top: 45px; left: 0; z-index: 1000; background: var(--bg-sidebar); border: 1px solid var(--border-bright); border-radius: 12px; padding: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); min-width: 300px;"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="panel-grid">
@@ -4936,6 +4975,141 @@
         /* ═══ ANALYTICS ═══ */
         let isRealtimeInitialized = false;
         let uniqueIpsSet = new Set();
+        let customStartDate = null;
+        let customEndDate = null;
+        let activeCalendarInput = null;
+
+        function handleTimeframeChange() {
+            const timeframeSelect = document.getElementById('analytics-timeframe');
+            const dateRangePicker = document.getElementById('date-range-picker');
+            
+            if (timeframeSelect.value === 'custom') {
+                dateRangePicker.style.display = 'block';
+            } else {
+                dateRangePicker.style.display = 'none';
+                customStartDate = null;
+                customEndDate = null;
+                loadAnalytics();
+            }
+        }
+
+        function applyCustomDateRange() {
+            if (customStartDate && customEndDate) {
+                loadAnalytics();
+            } else {
+                showToast('Please select both start and end dates', 'error');
+            }
+        }
+
+        function clearCustomDateRange() {
+            customStartDate = null;
+            customEndDate = null;
+            document.getElementById('start-date').value = '';
+            document.getElementById('end-date').value = '';
+            document.getElementById('analytics-timeframe').value = '30';
+            document.getElementById('date-range-picker').style.display = 'none';
+            loadAnalytics();
+        }
+
+        function renderCalendar(targetInput) {
+            const popup = document.getElementById('calendar-popup');
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const prevLastDay = new Date(year, month, 0);
+            
+            const firstDayIndex = firstDay.getDay();
+            const lastDayDate = lastDay.getDate();
+            const prevLastDayDate = prevLastDay.getDate();
+            
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            let calendarHTML = `
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <div style="font-weight: 700; color: #fff; font-size: 1.1rem; margin-bottom: 5px;">${monthNames[month]} ${year}</div>
+                    <div style="font-size: 0.75rem; color: var(--muted);">Select a date</div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-bottom: 10px;">
+                    ${['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => 
+                        `<div style="text-align: center; font-size: 0.7rem; font-weight: 600; color: var(--muted); padding: 5px;">${day}</div>`
+                    ).join('')}
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;">`;
+            
+            // Previous month days
+            for (let i = firstDayIndex; i > 0; i--) {
+                calendarHTML += `<div style="text-align: center; padding: 8px; color: var(--muted); opacity: 0.3; font-size: 0.85rem;">${prevLastDayDate - i + 1}</div>`;
+            }
+            
+            // Current month days
+            for (let day = 1; day <= lastDayDate; day++) {
+                const date = new Date(year, month, day);
+                const dateStr = date.toISOString().split('T')[0];
+                const isToday = day === now.getDate() && month === now.getMonth();
+                const isSelected = (targetInput === 'start' && customStartDate === dateStr) || (targetInput === 'end' && customEndDate === dateStr);
+                
+                calendarHTML += `
+                    <div onclick="selectDate('${dateStr}', '${targetInput}')" 
+                         style="text-align: center; padding: 8px; cursor: pointer; border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+                                background: ${isSelected ? 'var(--accent)' : isToday ? 'rgba(79,142,247,0.1)' : 'transparent'};
+                                color: ${isSelected ? '#030816' : isToday ? 'var(--accent)' : '#fff'};
+                                border: ${isToday ? '1px solid var(--accent)' : '1px solid transparent'};"
+                         onmouseover="this.style.background='${isSelected ? 'var(--accent)' : 'rgba(255,255,255,0.05)'}'"
+                         onmouseout="this.style.background='${isSelected ? 'var(--accent)' : isToday ? 'rgba(79,142,247,0.1)' : 'transparent'}'">${day}</div>`;
+            }
+            
+            calendarHTML += `</div>`;
+            popup.innerHTML = calendarHTML;
+            popup.style.display = 'block';
+            activeCalendarInput = targetInput;
+        }
+
+        function selectDate(dateStr, targetInput) {
+            const date = new Date(dateStr);
+            const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            
+            if (targetInput === 'start') {
+                customStartDate = dateStr;
+                document.getElementById('start-date').value = formatted;
+            } else {
+                customEndDate = dateStr;
+                document.getElementById('end-date').value = formatted;
+            }
+            
+            document.getElementById('calendar-popup').style.display = 'none';
+        }
+
+        // Add click handlers for date inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const startDateInput = document.getElementById('start-date');
+            const endDateInput = document.getElementById('end-date');
+            
+            if (startDateInput) {
+                startDateInput.addEventListener('click', function() {
+                    renderCalendar('start');
+                });
+            }
+            
+            if (endDateInput) {
+                endDateInput.addEventListener('click', function() {
+                    renderCalendar('end');
+                });
+            }
+            
+            // Close calendar when clicking outside
+            document.addEventListener('click', function(e) {
+                const popup = document.getElementById('calendar-popup');
+                const startDate = document.getElementById('start-date');
+                const endDate = document.getElementById('end-date');
+                
+                if (popup && !popup.contains(e.target) && e.target !== startDate && e.target !== endDate) {
+                    popup.style.display = 'none';
+                }
+            });
+        });
 
         async function loadAnalytics() {
             const list = document.getElementById('analytics-list');
@@ -4945,7 +5119,16 @@
             
             // Set time range
             let startDateStr = null;
-            if (timeframeSelect && timeframeSelect.value !== 'all') {
+            let endDateStr = null;
+            
+            if (timeframeSelect && timeframeSelect.value === 'custom') {
+                if (customStartDate && customEndDate) {
+                    startDateStr = new Date(customStartDate).toISOString();
+                    endDateStr = new Date(customEndDate + 'T23:59:59').toISOString();
+                } else {
+                    return; // Don't load if custom range not set
+                }
+            } else if (timeframeSelect && timeframeSelect.value !== 'all') {
                 const days = parseInt(timeframeSelect.value) || 30;
                 const pastDate = new Date();
                 pastDate.setDate(pastDate.getDate() - days);
@@ -4956,6 +5139,7 @@
                 // 1. Page Views & Unique Visitors
                 let viewsQuery = db.from('page_views').select('*').order('created_at', { ascending: false });
                 if (startDateStr) viewsQuery = viewsQuery.gte('created_at', startDateStr);
+                if (endDateStr) viewsQuery = viewsQuery.lte('created_at', endDateStr);
                 const { data: views, error: viewErr } = await viewsQuery;
 
                 if (viewErr) throw viewErr;
@@ -4975,6 +5159,7 @@
                 // Initial Activity Feed (merge last 5 views and last 5 clicks)
                 let clicksFeedQuery = db.from('link_clicks').select('*').order('created_at', { ascending: false }).limit(10);
                 if (startDateStr) clicksFeedQuery = clicksFeedQuery.gte('created_at', startDateStr);
+                if (endDateStr) clicksFeedQuery = clicksFeedQuery.lte('created_at', endDateStr);
                 const { data: clicksRaw, error: clickErr } = await clicksFeedQuery;
 
                 // Graceful fallback: if link_clicks table doesn't exist yet, don't crash
@@ -5066,6 +5251,7 @@
                 if (!clickErr) {
                     let allClicksQuery = db.from('link_clicks').select('link_url, link_text');
                     if (startDateStr) allClicksQuery = allClicksQuery.gte('created_at', startDateStr);
+                    if (endDateStr) allClicksQuery = allClicksQuery.lte('created_at', endDateStr);
                     const { data: allClicksData } = await allClicksQuery;
                     allClicks = allClicksData || clicks;
                 }

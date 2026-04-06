@@ -44,21 +44,63 @@
     <meta property="og:locale" content="en_US">
 
     <style>
-        /* Mobile Optimization Overrides */
+        /* ============================================
+           MOBILE OVERRIDES — single-service-content-development.html
+           ============================================ */
         @media (max-width: 992px) {
-            .details-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .details-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+            .details-sidebar { order: 1 !important; width: 100% !important; }
+            .details-content { order: 2 !important; margin-top: 40px !important; }
+            #appointment-widget { display: none !important; }
+
+            .service-dropdown-widget {
+                background: transparent !important; border: none !important;
+                box-shadow: none !important; backdrop-filter: none !important;
+                padding: 0 !important; margin: 30px auto !important;
+                width: 100% !important; max-width: 420px !important; display: block !important;
             }
-            .details-sidebar {
-                order: 2;
+            .service-dropdown-widget .widget-title {
+                display: flex !important; width: 100% !important;
+                justify-content: center !important; align-items: center !important;
+                position: relative !important; cursor: pointer !important;
+                padding: 16px 48px !important;
+                background: rgba(255,255,255,0.07) !important;
+                border: 1px solid rgba(255,255,255,0.2) !important;
+                border-top-color: rgba(255,255,255,0.4) !important;
+                border-radius: 50px !important; margin-bottom: 0 !important;
+                font-size: 1.1rem !important; font-family: 'Bebas Neue', sans-serif !important;
+                letter-spacing: 1.5px !important; color: #ffffff !important;
+                -webkit-text-fill-color: #ffffff !important; background-clip: initial !important;
+                -webkit-background-clip: initial !important; background-image: none !important;
+                opacity: 1 !important; backdrop-filter: blur(15px) !important;
+                transition: all 0.3s ease !important; text-align: center !important;
             }
-            .details-content {
-                order: 1;
+            .service-dropdown-widget .widget-title::after { display: none !important; }
+            .service-dropdown-widget .dropdown-icon {
+                display: inline-block !important; position: absolute !important;
+                right: 22px !important; top: 50% !important;
+                transform: translateY(-50%) !important; font-size: 0.8rem !important;
+                transition: transform 0.3s ease !important;
             }
-            .service-hero-title {
-                font-size: 3.5rem !important;
+            .service-dropdown-widget .service-list {
+                display: none !important; margin-top: 12px !important;
+                background: linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03)) !important;
+                border: 1px solid rgba(255,255,255,0.12) !important;
+                border-radius: 20px !important; padding: 15px 25px !important;
+                backdrop-filter: blur(20px) !important;
+                animation: slideDownFade 0.3s ease forwards !important;
             }
+            .service-dropdown-widget.active .service-list { display: block !important; }
+            .service-dropdown-widget.active .dropdown-icon { transform: translateY(-50%) rotate(180deg) !important; }
+            .service-dropdown-widget.active .widget-title {
+                border-color: rgba(255,255,255,0.4) !important;
+                background: rgba(255,255,255,0.1) !important;
+            }
+        }
+
+        @keyframes slideDownFade {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
@@ -71,17 +113,6 @@
             }
             .service-hero-desc {
                 font-size: 1rem;
-            }
-            .be-text-grid {
-                grid-template-columns: 1fr !important;
-                padding-left: 0 !important;
-            }
-            .content-text {
-                padding-left: 0 !important;
-                font-size: 1.05rem !important;
-            }
-            .be-content-block {
-                padding-left: 10px !important;
             }
             .be-content-block h2 {
                 font-size: 2.22rem !important;
@@ -98,84 +129,9 @@
             .service-hero-title {
                 font-size: 2.2rem !important;
             }
-            .be-text-grid-item {
-                padding: 20px !important;
-            }
             .btn-cta {
                 width: 100%;
                 text-align: center;
-            }
-        }
-
-        /* --- Mobile Service Dropdown (Pill Style) --- */
-        .service-dropdown-widget .dropdown-icon {
-            display: none;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 0.8rem;
-            margin-left: 10px;
-        }
-
-        @media (max-width: 992px) {
-            .service-dropdown-widget {
-                background: transparent !important;
-                border: none !important;
-                box-shadow: none !important;
-                backdrop-filter: none !important;
-                padding: 0 !important;
-                margin-bottom: 30px;
-            }
-
-            .service-dropdown-widget .widget-title {
-                display: inline-flex;
-                width: 100%;
-                justify-content: space-between;
-                align-items: center;
-                cursor: pointer;
-                padding: 16px 30px !important;
-                background: rgba(255, 255, 255, 0.05) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
-                border-radius: 50px !important;
-                margin-bottom: 0 !important;
-                font-size: 1.1rem !important;
-                color: #fff !important;
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                transition: all 0.3s ease;
-            }
-
-            .service-dropdown-widget .widget-title::after {
-                display: none;
-            }
-
-            .service-dropdown-widget .dropdown-icon {
-                display: inline-block;
-            }
-
-            .service-dropdown-widget .service-list {
-                display: none;
-                margin-top: 15px;
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-                border: 1px solid rgba(255, 255, 255, 0.12);
-                border-radius: 20px;
-                padding: 15px 25px !important;
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-                animation: slideDownFade 0.3s ease forwards;
-            }
-
-            .service-dropdown-widget.active .service-list {
-                display: block;
-            }
-
-            .service-dropdown-widget.active .dropdown-icon {
-                transform: rotate(180deg);
-            }
-
-            .service-dropdown-widget.active .widget-title {
-                border-color: rgba(255, 255, 255, 0.4) !important;
-                background: rgba(255, 255, 255, 0.1) !important;
             }
         }
 

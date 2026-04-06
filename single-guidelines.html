@@ -58,6 +58,43 @@
   "url": "https://samscope.netlify.app/single-guidelines.html"
 }
     </script>
+
+    <style>
+        /* Mobile: Move appointment widget before FAQ section */
+        @media (max-width: 992px) {
+            /* Hide sidebar appointment widget on mobile */
+            #appointment-widget {
+                display: none !important;
+            }
+
+            /* Show mobile appointment section */
+            .appointment-mobile-section {
+                display: block !important;
+            }
+
+            /* Adjust grid for mobile */
+            .details-grid {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .details-sidebar {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .details-content {
+                margin-bottom: 40px;
+            }
+        }
+
+        /* Desktop: Hide mobile appointment section */
+        @media (min-width: 993px) {
+            .appointment-mobile-section {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -229,7 +266,7 @@
 
 
     <!-- Related Guides Section -->
-    <section class="related-guides-section" style="padding: 100px 5%;">
+    <section class="related-guides-section">
         <div class="experts-container">
             <div class="experts-header">
                 <h2 class="experts-title">OUR ANOTHER FREE GUIDES</h2>
@@ -245,10 +282,84 @@
                 <!-- Related guides will be loaded here via JS -->
             </div>
 
-            <div style="text-align: center; margin-top: 60px;">
+            <div style="text-align: center; margin-top: 40px;">
                 <a href="guidelines.html" class="btn-cta"
                     style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 18px 45px; border-radius: 10px; font-size: 1rem;">See
                     More <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Appointment Section (Only visible on mobile, positioned before FAQ) -->
+    <section class="appointment-mobile-section" style="display: none;">
+        <div class="Demonstration-details-container" style="max-width: 600px; margin: 0 auto;">
+            <div class="sidebar-widget" style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);">
+                <h4 class="widget-title" style="font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 15px; color: #fff; text-align: center;">MAKE AN APPOINTMENT</h4>
+                <p style="color: #b0c4de; margin-bottom: 25px; font-size: 0.95rem; text-align: center; line-height: 1.6;">
+                    Ready to grow your brand? Book a dedicated session with our strategic experts.
+                </p>
+                
+                <form class="sidebar-appointment-form" id="mobileAppointmentForm">
+                    <!-- Web3Forms Config -->
+                    <input type="hidden" name="access_key" value="4f9f5e56-d1e3-4df7-9859-7ccb1e1ccc33">
+                    <input type="hidden" name="subject" value="New Appointment Request (Mobile) - Guidelines Page">
+                    <input type="hidden" name="from_name" value="Samscope Website (Mobile)">
+
+                    <div class="sidebar-input-group">
+                        <input type="text" name="name" class="sidebar-input-field" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="sidebar-input-group">
+                        <input type="tel" name="phone" class="sidebar-input-field" placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="sidebar-input-group">
+                        <input type="tel" name="whatsapp" class="sidebar-input-field" placeholder="Whatsapp Number" required>
+                    </div>
+
+                    <div class="sidebar-input-group">
+                        <input type="email" name="email" class="sidebar-input-field" placeholder="E-mail Address" required>
+                    </div>
+
+                    <div class="sidebar-input-group sidebar-custom-select">
+                        <div class="sidebar-input-field sidebar-select-trigger" id="mobileServiceTrigger">
+                            <span class="trigger-label">Select Service</span>
+                            <div class="selected-items"></div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="custom-select-options" id="mobileServiceOptions">
+                            <div class="select-option" data-value="strategic-brand-building">Strategic Brand Building</div>
+                            <div class="select-option" data-value="strategic-web-design-development">Strategic Web Design & Development</div>
+                            <div class="select-option" data-value="strategic-social-media-content-development">Strategic Social Media Content Development</div>
+                            <div class="select-option" data-value="strategic-social-media-management">Strategic Social Media Management</div>
+                            <div class="select-option" data-value="strategic-social-media-advertising">Strategic Social Media Advertising</div>
+                            <div class="select-option" data-value="strategic-search-engine-optimization">Strategic Search Engine Optimization</div>
+                            <div class="select-option" data-value="strategic-search-engine-advertising">Strategic Search Engine Advertising</div>
+                            <div class="select-option" data-value="strategic-email-marketing">Strategic Email Marketing</div>
+                            <div class="select-option" data-value="strategic-sms-marketing">Strategic SMS Marketing</div>
+                        </div>
+                        <input type="hidden" name="services" id="mobileSelectedServices" required>
+                    </div>
+
+                    <div class="sidebar-form-row">
+                        <div class="sidebar-input-group">
+                            <input type="text" class="sidebar-input-field with-icon" id="mobileAppointmentDate" name="Appointment Date" placeholder="Appointment Date" readonly required>
+                            <i class="far fa-calendar-alt sidebar-input-icon"></i>
+                            <div class="calendar-dropdown" id="mobileCalendarDropdown"></div>
+                        </div>
+                        <div class="sidebar-input-group">
+                            <input type="text" class="sidebar-input-field with-icon" id="mobileAppointmentTime" name="Appointment Time" placeholder="Appointment Time" readonly required>
+                            <i class="far fa-clock sidebar-input-icon"></i>
+                            <div class="timepicker-dropdown" id="mobileTimepickerDropdown"></div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-input-group">
+                        <textarea name="message" class="sidebar-input-field sidebar-textarea" placeholder="How can we help you?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="sidebar-btn-submit">BOOK AN APPOINTMENT</button>
+                </form>
             </div>
         </div>
     </section>
@@ -752,6 +863,116 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // Initialize mobile appointment form
+        if (window.initSidebarForm) {
+            // Initialize mobile form with unique IDs
+            const mobileForm = document.getElementById('mobileAppointmentForm');
+            if (mobileForm) {
+                // Setup service selector for mobile
+                const mobileTrigger = document.getElementById('mobileServiceTrigger');
+                const mobileOptions = document.getElementById('mobileServiceOptions');
+                const mobileHidden = document.getElementById('mobileSelectedServices');
+                
+                if (mobileTrigger && mobileOptions && mobileHidden) {
+                    let mobileSelected = [];
+                    
+                    mobileTrigger.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        mobileOptions.classList.toggle('active');
+                    });
+                    
+                    mobileOptions.querySelectorAll('.select-option').forEach(opt => {
+                        opt.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            const val = this.getAttribute('data-value');
+                            const idx = mobileSelected.indexOf(val);
+                            
+                            if (idx > -1) {
+                                mobileSelected.splice(idx, 1);
+                                this.classList.remove('selected');
+                            } else {
+                                mobileSelected.push(val);
+                                this.classList.add('selected');
+                            }
+                            
+                            mobileHidden.value = mobileSelected.join(',');
+                            const selectedDiv = mobileTrigger.querySelector('.selected-items');
+                            if (mobileSelected.length > 0) {
+                                selectedDiv.innerHTML = mobileSelected.map(s => 
+                                    `<span class="selected-tag">${s.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>`
+                                ).join('');
+                                mobileTrigger.querySelector('.trigger-label').style.display = 'none';
+                            } else {
+                                selectedDiv.innerHTML = '';
+                                mobileTrigger.querySelector('.trigger-label').style.display = 'block';
+                            }
+                        });
+                    });
+                    
+                    document.addEventListener('click', function() {
+                        mobileOptions.classList.remove('active');
+                    });
+                }
+                
+                // Setup calendar for mobile
+                const mobileDateInput = document.getElementById('mobileAppointmentDate');
+                const mobileCalendar = document.getElementById('mobileCalendarDropdown');
+                if (mobileDateInput && mobileCalendar && window.renderCalendar) {
+                    mobileDateInput.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        window.renderCalendar(mobileCalendar, mobileDateInput);
+                    });
+                }
+                
+                // Setup time picker for mobile
+                const mobileTimeInput = document.getElementById('mobileAppointmentTime');
+                const mobileTimePicker = document.getElementById('mobileTimepickerDropdown');
+                if (mobileTimeInput && mobileTimePicker && window.renderTimePicker) {
+                    mobileTimeInput.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        window.renderTimePicker(mobileTimePicker, mobileTimeInput);
+                    });
+                }
+                
+                // Form submission
+                mobileForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+                    
+                    try {
+                        const response = await fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        if (response.ok) {
+                            if (window.showToast) {
+                                window.showToast('Appointment booked successfully!', 'success');
+                            } else {
+                                alert('Appointment booked successfully!');
+                            }
+                            this.reset();
+                            mobileSelected = [];
+                            mobileHidden.value = '';
+                            const selectedDiv = mobileTrigger.querySelector('.selected-items');
+                            selectedDiv.innerHTML = '';
+                            mobileTrigger.querySelector('.trigger-label').style.display = 'block';
+                        } else {
+                            throw new Error('Submission failed');
+                        }
+                    } catch (error) {
+                        if (window.showToast) {
+                            window.showToast('Failed to book appointment. Please try again.', 'error');
+                        } else {
+                            alert('Failed to book appointment. Please try again.');
+                        }
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 
 </html>
