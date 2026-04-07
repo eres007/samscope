@@ -1792,6 +1792,7 @@ a span[class*="fa-"],
     display: inline-block;
     color: #fff;
     opacity: 0.8;
+    font-size: 0;
 }
 
 /* If the separator span is empty in HTML, inject the chevron via CSS to guarantee it's visible */
@@ -1803,14 +1804,8 @@ a span[class*="fa-"],
     font-weight: 900;
     font-size: 0.8rem;
     display: inline-block;
-    /* Hide any text content inside the span if it exists, use ONLY the icon */
     position: relative;
     top: -1px;
-}
-
-/* Hide original text inside the span to prevent double separators (e.g. ">" and icon) */
-.breadcrumbs .separator {
-    font-size: 0;
 }
 
 .breadcrumbs .current,
