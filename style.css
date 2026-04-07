@@ -1101,7 +1101,7 @@ a span[class*="fa-"],
 .Demonstration-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     padding: 0 10px 10px 10px;
 }
 
@@ -1786,16 +1786,18 @@ a span[class*="fa-"],
     color: #fff;
 }
 
-/* Breadcrumb Separators - Ensure visible chevron */
+/* Breadcrumb Separators - Hide text, show only chevron icon */
 .breadcrumbs .separator,
 .hero-breadcrumbs .separator {
     display: inline-block;
-    color: #fff;
+    color: transparent;
     opacity: 0.8;
-    font-size: 0;
+    width: 0.8rem;
+    overflow: hidden;
+    position: relative;
 }
 
-/* If the separator span is empty in HTML, inject the chevron via CSS to guarantee it's visible */
+/* Inject chevron via CSS */
 .breadcrumbs .separator::after,
 .hero-breadcrumbs .separator::after {
     content: "\f054";
@@ -1804,8 +1806,11 @@ a span[class*="fa-"],
     font-weight: 900;
     font-size: 0.8rem;
     display: inline-block;
-    position: relative;
-    top: -1px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
 }
 
 .breadcrumbs .current,
@@ -4464,7 +4469,7 @@ a span[class*="fa-"],
 .be-feature-block {
     display: flex;
     gap: 40px;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 60px;
 }
 
@@ -4476,6 +4481,7 @@ a span[class*="fa-"],
     flex-shrink: 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    align-self: flex-start;
 }
 
 .be-feature-content {
@@ -4489,6 +4495,7 @@ a span[class*="fa-"],
     color: var(--accent);
     margin-bottom: 15px;
     letter-spacing: 1px;
+    padding-left: 19px;
 }
 
 /* Desktop: hide the standalone mobile title, show inline desktop title */

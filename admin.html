@@ -683,14 +683,26 @@
             color: var(--muted);
         }
 
-        .action-btn.edit:hover {
+        .action-btn.edit {
             background: rgba(79, 142, 247, 0.1);
+            color: var(--accent);
+            border-color: rgba(79, 142, 247, 0.2);
+        }
+
+        .action-btn.edit:hover {
+            background: rgba(79, 142, 247, 0.2);
             color: var(--accent);
             border-color: var(--accent);
         }
 
-        .action-btn.delete:hover {
+        .action-btn.delete {
             background: rgba(255, 92, 92, 0.1);
+            color: var(--danger);
+            border-color: rgba(255, 92, 92, 0.2);
+        }
+
+        .action-btn.delete:hover {
+            background: rgba(255, 92, 92, 0.2);
             color: var(--danger);
             border-color: var(--danger);
         }
@@ -1415,9 +1427,26 @@
             transition: all 0.15s;
         }
 
-        .be-block-btn:hover {
-            color: var(--danger);
-            background: rgba(255, 92, 92, 0.15);
+        .be-block-btn.move-btn {
+            background: rgba(79, 142, 247, 0.1) !important;
+            color: #4f8ef7 !important;
+            border-color: rgba(79, 142, 247, 0.2) !important;
+        }
+
+        .be-block-btn.move-btn:hover {
+            background: rgba(79, 142, 247, 0.2) !important;
+            color: #4f8ef7 !important;
+        }
+
+        .be-block-btn.delete-btn {
+            background: rgba(255, 92, 92, 0.1) !important;
+            color: #ff5c5c !important;
+            border-color: rgba(255, 92, 92, 0.2) !important;
+        }
+
+        .be-block-btn.delete-btn:hover {
+            background: rgba(255, 92, 92, 0.2) !important;
+            color: #ff5c5c !important;
         }
 
         /* Rendered text styles inside canvas */
@@ -1872,6 +1901,10 @@
             text-transform: uppercase;
             text-align: center;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
         .bep-opt-btn.active,
@@ -2491,6 +2524,7 @@
                                     <option value="all" style="color: #fff; background-color: var(--bg-sidebar);">All Time</option>
                                     <option value="custom" style="color: #fff; background-color: var(--bg-sidebar);">Custom Range</option>
                                 </select>
+                                <button onclick="resetAnalyticsData()" style="padding: 8px 16px; border-radius: 8px; background: rgba(255,92,92,0.1); color: var(--danger); border: 1px solid rgba(255,92,92,0.2); cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,92,92,0.2)'" onmouseout="this.style.background='rgba(255,92,92,0.1)'"><i class="fas fa-trash"></i> Reset Data</button>
                                 <div id="date-range-picker" style="display: none; position: relative;">
                                     <div style="display: flex; gap: 8px; align-items: center;">
                                         <input type="text" id="start-date" readonly placeholder="Start Date" style="width: 130px; padding: 8px 12px; border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 0.85rem;">
@@ -3724,9 +3758,9 @@
                         <span>${labels[block.type]}</span>
                     </div>
                     <div class="be-block-actions">
-                        <button class="be-block-btn" onclick="event.stopPropagation(); beMoveBlock('${type}','${block._id}',-1)" title="Move Up"><i class="fas fa-chevron-up"></i></button>
-                        <button class="be-block-btn" onclick="event.stopPropagation(); beMoveBlock('${type}','${block._id}',1)" title="Move Down"><i class="fas fa-chevron-down"></i></button>
-                        <button class="be-block-btn" onclick="event.stopPropagation(); beDeleteBlock('${type}','${block._id}')" title="Delete"><i class="fas fa-trash"></i></button>
+                        <button class="be-block-btn move-btn" style="background: rgba(79, 142, 247, 0.15) !important; color: #4f8ef7 !important; border-color: rgba(79, 142, 247, 0.3) !important;" onclick="event.stopPropagation(); beMoveBlock('${type}','${block._id}',-1)" title="Move Up"><i class="fas fa-arrow-up"></i></button>
+                        <button class="be-block-btn move-btn" style="background: rgba(79, 142, 247, 0.15) !important; color: #4f8ef7 !important; border-color: rgba(79, 142, 247, 0.3) !important;" onclick="event.stopPropagation(); beMoveBlock('${type}','${block._id}',1)" title="Move Down"><i class="fas fa-arrow-down"></i></button>
+                        <button class="be-block-btn delete-btn" style="background: rgba(255, 92, 92, 0.15) !important; color: #ff5c5c !important; border-color: rgba(255, 92, 92, 0.3) !important;" onclick="event.stopPropagation(); beDeleteBlock('${type}','${block._id}')" title="Delete"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </div>
                 <div class="be-block-preview ${block.type}-preview" id="be-prev-${block._id}" 
@@ -3787,8 +3821,28 @@
                         <img src="${img.url}" style="width:100%; height:100%; object-fit:cover;">
                     </div>
                 `).join('');
+                
+                const gridAlign = block.gridAlign || 'center';
+                let containerStyle = 'display:grid; grid-template-columns:repeat(3, 1fr); gap:15px;';
+                
+                if (gridAlign === 'left') {
+                    containerStyle += ' margin-right: auto; max-width: 70%;';
+                } else if (gridAlign === 'right') {
+                    containerStyle += ' margin-left: auto; max-width: 70%;';
+                } else if (gridAlign === 'center') {
+                    containerStyle += ' margin: 0 auto; max-width: 70%;';
+                } else if (gridAlign === 'full') {
+                    containerStyle += ' width: 100%;';
+                }
+                
+                if (block.aspectRatio && block.aspectRatio !== 'auto') {
+                    // aspect ratio is set, no need for grid-auto-rows
+                } else {
+                    containerStyle += ' grid-auto-rows: 15vw;';
+                }
+                
                 return `
-                    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:15px; ${block.aspectRatio && block.aspectRatio !== 'auto' ? '' : 'grid-auto-rows: 15vw;'}">
+                    <div style="${containerStyle}">
                         ${itemsHtml}
                     </div>
                 `;
@@ -4144,6 +4198,16 @@
                             <option value="2/3" ${block.aspectRatio === '2/3' ? 'selected' : ''}>2:3 Portrait</option>
                         </select>
                     </div>
+
+                    <div class="bep-field">
+                        <label>Grid Alignment</label>
+                        <div class="bep-options-grid" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:5px;">
+                            <button class="bep-opt-btn ${block.gridAlign === 'left' ? 'active' : ''}" onclick="beUpdateBlock('${type}','${block._id}','gridAlign','left'); beSetActive(this, '.bep-options-grid')"><i class="fas fa-align-left"></i> Left</button>
+                            <button class="bep-opt-btn ${block.gridAlign === 'center' || !block.gridAlign ? 'active' : ''}" onclick="beUpdateBlock('${type}','${block._id}','gridAlign','center'); beSetActive(this, '.bep-options-grid')"><i class="fas fa-align-center"></i> Center</button>
+                            <button class="bep-opt-btn ${block.gridAlign === 'right' ? 'active' : ''}" onclick="beUpdateBlock('${type}','${block._id}','gridAlign','right'); beSetActive(this, '.bep-options-grid')"><i class="fas fa-align-right"></i> Right</button>
+                            <button class="bep-opt-btn ${block.gridAlign === 'full' ? 'active' : ''}" onclick="beUpdateBlock('${type}','${block._id}','gridAlign','full'); beSetActive(this, '.bep-options-grid')"><i class="fas fa-arrows-alt-h"></i> Full</button>
+                        </div>
+                    </div>
                 `;
 
             } else if (block.type === 'text_grid') {
@@ -4420,7 +4484,7 @@
                 // Sync cursor: Only re-render full HTML if NOT live-typing content from canvas
                 // OR if it's a structural change like style
                 if (source !== 'canvas' || (field !== 'content' && field !== 'featureTitle' && field !== 'featureDesc')) {
-                    if (field === 'content' || field === 'style' || field === 'imgSize' || field === 'imgWidth' || field === 'imgUrl' || field === 'url' || field === 'label' || field === 'images' || field === 'featureTitle' || field === 'featureDesc' || field === 'imgSide' || field === 'gridItems' || field === 'gridCols' || field === 'aspectRatio') {
+                    if (field === 'content' || field === 'style' || field === 'imgSize' || field === 'imgWidth' || field === 'imgUrl' || field === 'url' || field === 'label' || field === 'images' || field === 'featureTitle' || field === 'featureDesc' || field === 'imgSide' || field === 'gridItems' || field === 'gridCols' || field === 'aspectRatio' || field === 'gridAlign') {
                         prev.innerHTML = beGetPreviewHtml(type, block);
                     }
                 }
@@ -4760,7 +4824,8 @@
                         imgSide: item.imgSide || 'left',
                         gridItems: item.gridItems || [],
                         gridCols: item.gridCols || 2,
-                        aspectRatio: item.aspectRatio || 'auto'
+                        aspectRatio: item.aspectRatio || 'auto',
+                        gridAlign: item.gridAlign || 'center'
                     };
                     beBlocks[type].push(block);
                 }
@@ -4785,7 +4850,8 @@
                 imgSide: b.imgSide,
                 gridItems: b.gridItems || [],
                 gridCols: b.gridCols || 2,
-                aspectRatio: b.aspectRatio || 'auto'
+                aspectRatio: b.aspectRatio || 'auto',
+                gridAlign: b.gridAlign || 'center'
             }));
         }
 
@@ -5136,16 +5202,16 @@
             }
 
             try {
-                // 1. Page Views & Unique Visitors
-                let viewsQuery = db.from('page_views').select('*').order('created_at', { ascending: false });
-                if (startDateStr) viewsQuery = viewsQuery.gte('created_at', startDateStr);
-                if (endDateStr) viewsQuery = viewsQuery.lte('created_at', endDateStr);
-                const { data: views, error: viewErr } = await viewsQuery;
+                // 1. Page Views & Unique Visitors - Use count instead of fetching all rows
+                let viewsCountQuery = db.from('page_views').select('*', { count: 'exact', head: false });
+                if (startDateStr) viewsCountQuery = viewsCountQuery.gte('created_at', startDateStr);
+                if (endDateStr) viewsCountQuery = viewsCountQuery.lte('created_at', endDateStr);
+                const { data: views, count: viewsCount, error: viewErr } = await viewsCountQuery;
 
                 if (viewErr) throw viewErr;
 
-                // Update Stats
-                document.getElementById('stat-views').textContent = (views || []).length;
+                // Update Stats - use count for accurate numbers beyond 1000
+                document.getElementById('stat-views').textContent = viewsCount || 0;
                 
                 uniqueIpsSet = new Set((views || []).filter(v => v.ip_address && v.ip_address !== 'unknown').map(v => v.ip_address));
                 document.getElementById('stat-ips').textContent = uniqueIpsSet.size || ((views || []).length > 0 ? 1 : 0);
@@ -5375,6 +5441,33 @@
             }
         }
 
+        async function resetAnalyticsData() {
+            if (!confirm('Are you sure you want to delete ALL analytics data? This cannot be undone.')) {
+                return;
+            }
+
+            try {
+                // Delete all page views
+                const { error: viewsError } = await db.from('page_views').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+                if (viewsError) throw viewsError;
+
+                // Delete all link clicks
+                const { error: clicksError } = await db.from('link_clicks').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+                if (clicksError) console.warn('Could not delete link_clicks:', clicksError);
+
+                // Reset the UI
+                document.getElementById('stat-views').textContent = '0';
+                document.getElementById('stat-ips').textContent = '0';
+                uniqueIpsSet = new Set();
+
+                showToast('Analytics data reset successfully', 'success');
+                loadAnalytics();
+            } catch (err) {
+                console.error('Reset Error:', err);
+                showToast('Failed to reset analytics data', 'error');
+            }
+        }
+
         function initRealtimeSubscription() {
             const channel = db.channel('analytics-realtime')
                 .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'page_views' }, payload => {
@@ -5592,10 +5685,14 @@
                 return;
             }
 
-            count.textContent = posts.length + ' ' + word;
-            postsData[type] = posts;
+            // Update counter
+            if (count && posts) {
+                count.textContent = posts.length + ' ' + word;
+            }
+            
+            postsData[type] = posts || [];
 
-            if (!posts.length) {
+            if (!posts || !posts.length) {
                 list.innerHTML = `<div class="empty-state"><i class="fas fa-inbox"></i>No ${word} yet.<br>Add your first one!</div>`;
                 return;
             }
@@ -5611,9 +5708,9 @@
                     </div>
                 </div>
                 <div class="item-actions">
-                    <button class="action-btn edit" onclick="openSinglePageEditor('${type}',${p.id})" title="Edit Content"><i class="fas fa-magic"></i></button>
-                    <button class="action-btn edit" onclick="editPost('${type}',${p.id})" title="Edit Settings"><i class="fas fa-pen"></i></button>
-                    <button class="action-btn delete" onclick="deletePost('${type}',${p.id})" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                    <button class="action-btn edit" onclick="openSinglePageEditor('${type}',${p.id})" title="Edit Content"><i class="fas fa-file-alt"></i></button>
+                    <button class="action-btn edit" onclick="editPost('${type}',${p.id})" title="Edit Settings"><i class="fas fa-cog"></i></button>
+                    <button class="action-btn delete" onclick="deletePost('${type}',${p.id})" title="Delete"><i class="fas fa-trash"></i></button>
                 </div>
             </div>`).join('');
         }
