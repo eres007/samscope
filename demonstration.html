@@ -524,16 +524,18 @@
     <script>
         (async function () {
             const grid = document.querySelector('.Demonstration-grid');
-            const CACHE_KEY = 'samscope_demo_posts_full';
+            const CACHE_KEY = 'samscope_demo_posts_full_v2';
             const db = supabase.createClient('https://ocaeyapzahotesvybfon.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k');
 
             const renderCards = (posts) => {
                 if (!grid || !posts || !posts.length) return;
                 grid.innerHTML = '';
                 posts.forEach(p => {
+                    console.log('Rendering card with ID:', p.id, 'Full data:', p);
                     const card = document.createElement('div');
                     card.className = 'Demonstration-card';
                     card.dataset.category = p.category || 'all';
+                    const demoId = p.id || p.idx || 0;
                     card.innerHTML = `
                 <div class="Demonstration-img-wrapper">
                     <img src="${p.img_url || 'image-removebg-preview.webp'}" alt="${p.title}" class="Demonstration-img" onload="this.style.opacity=1" style="opacity:0; transition: opacity 0.3s ease;">
@@ -543,7 +545,7 @@
                         <h3 class="Demonstration-card-title">${p.title.toUpperCase()}</h3>
                         <p class="Demonstration-card-desc">${p.description}</p>
                     </div>
-                    <a href="single-demonstration.html?id=${p.id || p.idx}" class="Demonstration-link-btn" data-id="${p.id || p.idx}">
+                    <a href="single-demonstration.html?id=${demoId}" class="Demonstration-link-btn" data-id="${demoId}">
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>`;

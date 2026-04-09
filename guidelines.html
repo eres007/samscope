@@ -478,9 +478,11 @@
             }
             
             posts.forEach(p => {
+                console.log('Rendering guideline with ID:', p.id, 'Full data:', p);
                 const card = document.createElement('div');
                 card.className = 'Demonstration-card';
                 card.dataset.category = p.category || 'all';
+                const guideId = p.id || p.idx || 0;
                 card.innerHTML = `
             <div class="Demonstration-img-wrapper">
                 <img src="${p.img_url || 'image-removebg-preview.webp'}" alt="${p.title}" class="Demonstration-img" onerror="this.src='image-removebg-preview.webp'">
@@ -490,7 +492,7 @@
                     <h3 class="Demonstration-card-title">${p.title.toUpperCase()}</h3>
                     <p class="Demonstration-card-desc">${p.description || ''}</p>
                 </div>
-                <a href="single-guidelines.html?id=${p.id || p.idx}" class="Demonstration-link-btn" data-id="${p.id || p.idx}">
+                <a href="single-guidelines.html?id=${guideId}" class="Demonstration-link-btn" data-id="${guideId}">
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>`;
