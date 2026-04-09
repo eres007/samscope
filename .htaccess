@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Preserve query strings when rewriting
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+)$ $1.html [L,QSA]
+
+    # Redirect old URLs to new ones (preserve query strings)
+    RewriteRule ^free-guide/?$ /guidelines [R=301,QSA,L]
+    RewriteRule ^free-guide\.html/?$ /guidelines.html [R=301,QSA,L]
+    RewriteRule ^single-free-guide/?$ /single-guidelines [R=301,QSA,L]
+    RewriteRule ^single-free-guide\.html/?$ /single-guidelines.html [R=301,QSA,L]
+</IfModule>
