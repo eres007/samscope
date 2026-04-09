@@ -2,11 +2,13 @@
     RewriteEngine On
     RewriteBase /
 
-    # Preserve query strings when rewriting
+    # Don't rewrite if it's a real file or directory
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Rewrite to .html if the file exists with .html extension
     RewriteCond %{REQUEST_FILENAME}.html -f
-    RewriteRule ^(.+)$ $1.html [L,QSA]
+    RewriteRule ^(.+?)/?$ $1.html [L,QSA]
 
     # Redirect old URLs to new ones (preserve query strings)
     RewriteRule ^free-guide/?$ /guidelines [R=301,QSA,L]
