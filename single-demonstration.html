@@ -356,13 +356,20 @@
         (async function () {
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
-            if (!id) return;
+            
+            // If no ID, redirect to demonstrations page
+            if (!id) {
+                window.location.href = '/demonstration.html';
+                return;
+            }
 
             const db = supabase.createClient('https://ocaeyapzahotesvybfon.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k');
 
             const { data: post, error } = await db.from('demo_posts').select('*').eq('id', id).single();
             if (error || !post) {
                 console.error("Error fetching post:", error);
+                alert('Demonstration not found. Redirecting to demonstrations page.');
+                window.location.href = '/demonstration.html';
                 return;
             }
 

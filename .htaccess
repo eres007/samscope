@@ -1,14 +1,12 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
-
-    # Don't rewrite if it's a real file or directory
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteEngine Off
     
-    # Rewrite to .html if the file exists with .html extension
-    RewriteCond %{REQUEST_FILENAME}.html -f
-    RewriteRule ^(.+?)/?$ $1.html [L,QSA]
+    # Temporarily disabled to debug query parameter issue
+    # RewriteBase /
+    # RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteCond %{REQUEST_FILENAME}.html -f
+    # RewriteRule ^(.+?)/?$ $1.html [L,QSA]
 
     # Redirect old URLs to new ones (preserve query strings)
     RewriteRule ^free-guide/?$ /guidelines [R=301,QSA,L]
