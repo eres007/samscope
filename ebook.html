@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebook | Samscope Agency</title>
+    <link rel="icon" type="image/webp" href="Samscope Agency Logo Favicon Cropped.webp">
+    <link rel="apple-touch-icon" href="Samscope Agency Logo Favicon Cropped.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Explore Samscope's digital marketing ebooks, guides, and frequently asked questions to help grow your brand strategically.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Samscope Agency">
+    <link rel="canonical" href="https://samscope.com/ebook.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ebook | Samscope Agency">
+    <meta property="og:description"
+        content="Explore Samscope's digital marketing ebooks, guides, and frequently asked questions.">
+    <meta property="og:url" content="https://samscope.com/ebook.html">
+    <meta property="og:site_name" content="Samscope Agency">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="full-logo-white.webp" alt="SAMSCOPE Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="demonstration.html">Demonstration</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="guidelines.html">Guidelines</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <h1 class="service-hero-title">EBOOK</h1>
+            <p class="service-hero-desc">
+                Explore our collection of guides, insights, and answers to help you navigate digital marketing strategically.
+            </p>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span class="separator">></span>
+                <a href="resource.html">Resource</a>
+                <span class="separator">></span>
+                <span class="current">Ebook</span>
+            </div>
+        </div>
+
+        <!-- Abstract Wave Background -->
+        <div class="service-hero-bg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(0, 243, 255, 0.4);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(0, 243, 255, 0);stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                <path
+                    d="M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450"
+                    fill="none" stroke="url(#waveGradient)" stroke-width="3" filter="url(#glow)"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                        values="
+                        M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450;
+                        M-100,460 C100,460 200,410 300,430 C400,450 450,310 500,410 C580,570 620,110 680,160 C740,210 780,460 850,360 C920,260 980,310 1050,330 C1150,360 1200,210 1300,260 C1400,310 1500,460 1600,460;
+                        M-100,450 C100,450 200,400 300,420 C400,440 450,300 500,400 C580,560 620,100 680,150 C740,200 780,450 850,350 C920,250 980,300 1050,320 C1150,350 1200,200 1300,250 C1400,300 1500,450 1600,450" />
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Pills Section -->
+    <section style="background: transparent; padding: 0; margin-top: -110px; position: relative; z-index: 10;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px 60px 20px;">
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <button style="background: #fff; color: #030816; border: none; padding: 15px 50px; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;">
+                    E-Book
+                </button>
+                <button style="background: transparent; color: #fff; border: 2px solid rgba(255, 255, 255, 0.3); padding: 15px 50px; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;">
+                    Resource
+                </button>
+                <button style="background: transparent; color: #fff; border: 2px solid rgba(255, 255, 255, 0.3); padding: 15px 50px; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;">
+                    Resource
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-Book Cards Section -->
+    <section style="background: transparent; padding: 100px 0;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            
+            <!-- E-Book Section Header -->
+            <div style="margin-bottom: 60px;">
+                <h2 style="color: #fff; font-size: 3rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; margin-bottom: 20px;">E-BOOK</h2>
+                <p style="color: #8ba2bd; font-size: 1rem; line-height: 1.8;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+            <div class="e-book-cards-grid" id="ebooks-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px; transition: opacity 0.3s ease, transform 0.3s ease;">
+                <!-- Ebooks will be loaded here dynamically -->
+                <div id="loading-state" style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: #00f3ff; margin-bottom: 20px;"></i>
+                    <p style="color: #8ba2bd; font-size: 1.2rem;">Loading ebooks...</p>
+                </div>
+
+            </div>
+
+            <!-- See More Button -->
+            <div style="display: flex; justify-content: center; margin-top: 60px;">
+                <button style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 18px 80px; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: 600; font-family: 'Montserrat', sans-serif; transition: all 0.3s ease; letter-spacing: 0.5px;">
+                    See More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="padding: 100px 0; background: transparent;">
+        <div class="faq-container">
+            <div class="faq-header">
+                <span class="section-tag-center">FAQ</span>
+                <h2 class="faq-title">FAQ</h2>
+                <p class="faq-desc">We deliver strategic digital marketing solutions that help brands grow sustainably.</p>
+            </div>
+
+            <div class="faq-grid">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">1.</span>
+                            OUR RESULTS, PROVEN SUCCESS, REAL IMPACT?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                <div class="e-book-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 40px; backdrop-filter: blur(10px);">
+                    <img src="assets/images/process-chart.jpg" alt="Strategic Brand Building" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 25px;">
+                    
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <span style="background: rgba(255, 255, 255, 0.1); color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem;">E-Book</span>
+                        <div style="margin-left: auto; display: flex; align-items: center; gap: 5px;">
+                            <i class="fas fa-star" style="color: #ffd700; font-size: 1rem;"></i>
+                            <span style="color: #fff; font-size: 1rem;">4.5 Rating</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="color: #fff; font-size: 1.8rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; margin-bottom: 15px;">STRATEGIC BRAND BUILDING</h3>
+                    <p style="color: #8ba2bd; font-size: 1rem; line-height: 1.7; margin-bottom: 25px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;">
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">Certificate</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">3 Months</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">36 Classes</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">Internship</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">E-Book</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">Brand Resource</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <div>
+                            <div style="color: #8ba2bd; font-size: 1rem; margin-bottom: 8px;">E-Book Fee</div>
+                            <div style="color: #fff; font-size: 2.5rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">1,500 BDT</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="color: #8ba2bd; font-size: 1rem;">Quantity</span>
+                            <button class="quantity-plus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">+</button>
+                            <span class="quantity-display" style="color: #fff; font-size: 1.2rem; min-width: 35px; text-align: center; font-weight: 600;">01</span>
+                            <button class="quantity-minus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">-</button>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px;">
+                        <button style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 65px; height: 65px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                            <i class="fas fa-shopping-cart" style="font-size: 1.4rem;"></i>
+                        </button>
+                        <button style="background: #fff; border: none; color: #030816; flex: 1; height: 65px; border-radius: 35px; cursor: pointer; font-size: 1.2rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; transition: all 0.3s ease;">BUY NOW</button>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="e-book-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 40px; backdrop-filter: blur(10px);">
+                    <img src="assets/images/process-chart.jpg" alt="Strategic Brand Building" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 25px;">
+                    
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <span style="background: rgba(255, 255, 255, 0.1); color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem;">E-Book</span>
+                        <div style="margin-left: auto; display: flex; align-items: center; gap: 5px;">
+                            <i class="fas fa-star" style="color: #ffd700; font-size: 1rem;"></i>
+                            <span style="color: #fff; font-size: 1rem;">4.5 Rating</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="color: #fff; font-size: 1.8rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; margin-bottom: 15px;">STRATEGIC BRAND BUILDING</h3>
+                    <p style="color: #8ba2bd; font-size: 1rem; line-height: 1.7; margin-bottom: 25px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;">
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">Certificate</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">3 Months</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">36 Classes</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">Internship</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">E-Book</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">Brand Resource</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <div>
+                            <div style="color: #8ba2bd; font-size: 1rem; margin-bottom: 8px;">E-Book Fee</div>
+                            <div style="color: #fff; font-size: 2.5rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">1,500 BDT</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="color: #8ba2bd; font-size: 1rem;">Quantity</span>
+                            <button class="quantity-plus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">+</button>
+                            <span class="quantity-display" style="color: #fff; font-size: 1.2rem; min-width: 35px; text-align: center; font-weight: 600;">01</span>
+                            <button class="quantity-minus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">-</button>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px;">
+                        <button style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 65px; height: 65px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                            <i class="fas fa-shopping-cart" style="font-size: 1.4rem;"></i>
+                        </button>
+                        <button style="background: #fff; border: none; color: #030816; flex: 1; height: 65px; border-radius: 35px; cursor: pointer; font-size: 1.2rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; transition: all 0.3s ease;">BUY NOW</button>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="e-book-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 40px; backdrop-filter: blur(10px);">
+                    <img src="assets/images/process-chart.jpg" alt="Strategic Brand Building" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 25px;">
+                    
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <span style="background: rgba(255, 255, 255, 0.1); color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem;">E-Book</span>
+                        <div style="margin-left: auto; display: flex; align-items: center; gap: 5px;">
+                            <i class="fas fa-star" style="color: #ffd700; font-size: 1rem;"></i>
+                            <span style="color: #fff; font-size: 1rem;">4.5 Rating</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="color: #fff; font-size: 1.8rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; margin-bottom: 15px;">STRATEGIC BRAND BUILDING</h3>
+                    <p style="color: #8ba2bd; font-size: 1rem; line-height: 1.7; margin-bottom: 25px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;">
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">Certificate</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">3 Months</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">36 Classes</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">Internship</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">E-Book</span>
+                        <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">Brand Resource</span>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <div>
+                            <div style="color: #8ba2bd; font-size: 1rem; margin-bottom: 8px;">E-Book Fee</div>
+                            <div style="color: #fff; font-size: 2.5rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">1,500 BDT</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="color: #8ba2bd; font-size: 1rem;">Quantity</span>
+                            <button class="quantity-plus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">+</button>
+                            <span class="quantity-display" style="color: #fff; font-size: 1.2rem; min-width: 35px; text-align: center; font-weight: 600;">01</span>
+                            <button class="quantity-minus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">-</button>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px;">
+                        <button style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 65px; height: 65px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                            <i class="fas fa-shopping-cart" style="font-size: 1.4rem;"></i>
+                        </button>
+                        <button style="background: #fff; border: none; color: #030816; flex: 1; height: 65px; border-radius: 35px; cursor: pointer; font-size: 1.2rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; transition: all 0.3s ease;">BUY NOW</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- See More Button -->
+            <div style="display: flex; justify-content: center; margin-top: 60px;">
+                <button style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 18px 80px; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: 600; font-family: 'Montserrat', sans-serif; transition: all 0.3s ease; letter-spacing: 0.5px;">
+                    See More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="padding: 100px 0; background: transparent;">
+        <div class="faq-container">
+            <div class="faq-header">
+                <span class="section-tag-center">FAQ</span>
+                <h2 class="faq-title">FAQ</h2>
+                <p class="faq-desc">We deliver strategic digital marketing solutions that help brands grow sustainably.</p>
+            </div>
+
+            <div class="faq-grid">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">1.</span>
+                            OUR RESULTS, PROVEN SUCCESS, REAL IMPACT?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor line velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor line velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">1.</span>
+                            OUR RESULTS, PROVEN SUCCESS, REAL IMPACT?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor line velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor line velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">1.</span>
+                            OUR RESULTS, PROVEN SUCCESS, REAL IMPACT?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor line velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor line velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <div class="faq-question-text">
+                            <span class="faq-number">1.</span>
+                            OUR RESULTS, PROVEN SUCCESS, REAL IMPACT?
+                        </div>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor line velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor line velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="full-logo-white.webp" alt="SAMSCOPE Logo" class="logo-image">
+                    </div>
+                    <p class="brand-desc">
+                        Samscope is a strategic digital marketing agency dedicated to helping brands achieve sustainable
+                        and measurable growth through structured, data-driven marketing strategies.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/samscopeagency" class="social-icon" aria-label="Facebook"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/samscope_agency" class="social-icon" aria-label="Instagram"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/98774287" class="social-icon" aria-label="LinkedIn"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Important Links</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="demonstration.html">Demonstration</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="guidelines.html">Brand Guidelines</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="service.html">Strategic Brand Building</a></li>
+                        <li><a href="service.html">Strategic Web Design &amp; Development</a></li>
+                        <li><a href="service.html">Strategic Social Media Content Development</a></li>
+                        <li><a href="service.html">Strategic Social Media Management</a></li>
+                        <li><a href="service.html">Strategic Social Media Advertising</a></li>
+                        <li><a href="service.html">Strategic Search Engine Optimization</a></li>
+                        <li><a href="service.html">Strategic Search Engine Advertising</a></li>
+                        <li><a href="service.html">Strategic Email Marketing</a></li>
+                        <li><a href="service.html">Strategic SMS Marketing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@samscope.com">info@samscope.com</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/8801751973367" target="_blank">+8801751973367</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <a href="https://samscope.com" target="_blank" rel="noopener noreferrer">samscope.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Samscope Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Supabase configuration
+        const SUPABASE_URL = 'https://ocaeyapzahotesvybfon.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jYWV5YXB6YWhvdGVzdnliZm9uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzNzE2OTEsImV4cCI6MjA4Nzk0NzY5MX0.dkOHsv1zHDTvlbQIqYQ_VaI6d2e6uZxEBs__ldbpj9k';
+        const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // Load ebooks from database
+        async function loadEbooks() {
+            try {
+                const { data, error } = await db.from('ebooks').select('*').order('created_at', { ascending: false });
+                if (error) throw error;
+
+                const container = document.getElementById('ebooks-container');
+                const loadingState = document.getElementById('loading-state');
+                
+                if (loadingState) loadingState.remove();
+
+                if (!data || data.length === 0) {
+                    container.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;"><p style="color: #8ba2bd; font-size: 1.2rem;">No ebooks available yet.</p></div>';
+                    return;
+                }
+
+                // Check for URL parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const ebookId = urlParams.get('id');
+                
+                let featured, regular;
+                
+                if (ebookId) {
+                    // Find the ebook with the specified ID
+                    const selectedEbook = data.find(ebook => ebook.id == ebookId);
+                    if (selectedEbook) {
+                        // Selected ebook as featured, rest as regular
+                        featured = [selectedEbook];
+                        regular = data.filter(ebook => ebook.id != ebookId);
+                    } else {
+                        // If ID not found, use default behavior
+                        featured = data.slice(0, 2);
+                        regular = data.slice(2);
+                    }
+                } else {
+                    // Default: First 2 ebooks as featured cards
+                    featured = data.slice(0, 2);
+                    // Rest as regular cards
+                    regular = data.slice(2);
+                }
+
+                let html = '';
+
+                // Featured cards
+                featured.forEach(ebook => {
+                    const tags = [];
+                    if (ebook.certificate) tags.push('Certificate');
+                    if (ebook.duration) tags.push(ebook.duration);
+                    if (ebook.classes_count) tags.push(`${ebook.classes_count} Classes`);
+                    
+                    const extraTags = [];
+                    if (ebook.internship) extraTags.push('Internship');
+                    if (ebook.brand_resource) extraTags.push('Brand Resource');
+                    if (Array.isArray(ebook.tags)) {
+                        ebook.tags.forEach(tag => {
+                            if (!extraTags.includes(tag)) extraTags.push(tag);
+                        });
+                    }
+
+                    html += `
+                        <div class="e-book-card" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 40px; backdrop-filter: blur(10px); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+                            <div>
+                                <img src="${ebook.image_url}" alt="${ebook.title}" style="width: 100%; height: 350px; object-fit: contain; border-radius: 12px; background: rgba(255,255,255,0.05);">
+                            </div>
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                                    <span style="background: rgba(255, 255, 255, 0.1); color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem;">E-Book</span>
+                                    <div style="margin-left: auto; display: flex; align-items: center; gap: 5px;">
+                                        <i class="fas fa-star" style="color: #ffd700; font-size: 1rem;"></i>
+                                        <span style="color: #fff; font-size: 1rem;">${ebook.rating} Rating</span>
+                                    </div>
+                                </div>
+                                <h3 style="color: #fff; font-size: 2rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; margin-bottom: 20px;">${ebook.title.toUpperCase()}</h3>
+                                <div style="display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;">
+                                    ${tags.map(tag => `<span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">${tag}</span>`).join('')}
+                                </div>
+                                ${extraTags.length > 0 ? `<div style="display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
+                                    ${extraTags.map(tag => `<span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">${tag}</span>`).join('')}
+                                </div>` : ''}
+                                <p style="color: #8ba2bd; font-size: 1rem; line-height: 1.7; margin-bottom: 30px;">${ebook.description}</p>
+                                ${ebook.long_description ? `<p style="color: #8ba2bd; font-size: 1rem; line-height: 1.7; margin-bottom: 30px;">${ebook.long_description}</p>` : ''}
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                                    <div>
+                                        <div style="color: #8ba2bd; font-size: 1rem; margin-bottom: 8px;">E-Book Fee</div>
+                                        <div style="color: #fff; font-size: 2.5rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">${ebook.price} BDT</div>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 15px;">
+                                        <span style="color: #8ba2bd; font-size: 1rem;">Quantity</span>
+                                        <button class="quantity-plus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">+</button>
+                                        <span class="quantity-display" style="color: #fff; font-size: 1.2rem; min-width: 35px; text-align: center; font-weight: 600;">01</span>
+                                        <button class="quantity-minus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">-</button>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 15px;">
+                                    <button style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 65px; height: 65px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                        <i class="fas fa-shopping-cart" style="font-size: 1.4rem;"></i>
+                                    </button>
+                                    <button style="background: #fff; border: none; color: #030816; flex: 1; height: 65px; border-radius: 35px; cursor: pointer; font-size: 1.2rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; transition: all 0.3s ease;" onclick="window.location.href='contact.html'">BUY NOW</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                // Regular cards
+                regular.forEach(ebook => {
+                    const tags = [];
+                    if (ebook.certificate) tags.push('Certificate');
+                    if (ebook.duration) tags.push(ebook.duration);
+                    if (ebook.classes_count) tags.push(`${ebook.classes_count} Classes`);
+                    
+                    const extraTags = [];
+                    if (ebook.internship) extraTags.push('Internship');
+                    if (ebook.brand_resource) extraTags.push('Brand Resource');
+                    if (Array.isArray(ebook.tags)) {
+                        ebook.tags.forEach(tag => {
+                            if (!extraTags.includes(tag)) extraTags.push(tag);
+                        });
+                    }
+
+                    html += `
+                        <div class="e-book-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 40px; backdrop-filter: blur(10px);">
+                            <img src="${ebook.image_url}" alt="${ebook.title}" style="width: 100%; height: 250px; object-fit: contain; border-radius: 12px; background: rgba(255,255,255,0.05); margin-bottom: 25px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                                <span style="background: rgba(255, 255, 255, 0.1); color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem;">E-Book</span>
+                                <div style="margin-left: auto; display: flex; align-items: center; gap: 5px;">
+                                    <i class="fas fa-star" style="color: #ffd700; font-size: 1rem;"></i>
+                                    <span style="color: #fff; font-size: 1rem;">${ebook.rating} Rating</span>
+                                </div>
+                            </div>
+                            <h3 style="color: #fff; font-size: 1.8rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; margin-bottom: 15px;">${ebook.title.toUpperCase()}</h3>
+                            <p style="color: #8ba2bd; font-size: 1rem; line-height: 1.7; margin-bottom: 25px;">${ebook.description.substring(0, 150)}...</p>
+                            <div style="display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;">
+                                ${tags.map(tag => `<span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">${tag}</span>`).join('')}
+                            </div>
+                            ${extraTags.length > 0 ? `<div style="display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
+                                ${extraTags.map(tag => `<span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;">${tag}</span>`).join('')}
+                            </div>` : ''}
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                                <div>
+                                    <div style="color: #8ba2bd; font-size: 1rem; margin-bottom: 8px;">E-Book Fee</div>
+                                    <div style="color: #fff; font-size: 2.5rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">${ebook.price} BDT</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <span style="color: #8ba2bd; font-size: 1rem;">Quantity</span>
+                                    <button class="quantity-plus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">+</button>
+                                    <span class="quantity-display" style="color: #fff; font-size: 1.2rem; min-width: 35px; text-align: center; font-weight: 600;">01</span>
+                                    <button class="quantity-minus" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center;">-</button>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 15px;">
+                                <button style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; width: 65px; height: 65px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                    <i class="fas fa-shopping-cart" style="font-size: 1.4rem;"></i>
+                                </button>
+                                <button style="background: #fff; border: none; color: #030816; flex: 1; height: 65px; border-radius: 35px; cursor: pointer; font-size: 1.2rem; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; transition: all 0.3s ease;" onclick="window.location.href='contact.html'">BUY NOW</button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+
+                // Re-attach quantity button functionality
+                attachQuantityHandlers();
+            } catch (err) {
+                console.error('Error loading ebooks:', err);
+                const container = document.getElementById('ebooks-container');
+                container.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;"><p style="color: #ff5c5c; font-size: 1.2rem;">Failed to load ebooks. Please try again later.</p></div>';
+            }
+        }
+
+        function attachQuantityHandlers() {
+            document.querySelectorAll('.e-book-card').forEach(card => {
+                const quantityDisplay = card.querySelector('.quantity-display');
+                const plusBtn = card.querySelector('.quantity-plus');
+                const minusBtn = card.querySelector('.quantity-minus');
+                
+                if (!quantityDisplay || !plusBtn || !minusBtn) return;
+                
+                let quantity = 1;
+                
+                plusBtn.addEventListener('click', () => {
+                    quantity++;
+                    quantityDisplay.textContent = quantity.toString().padStart(2, '0');
+                });
+                
+                minusBtn.addEventListener('click', () => {
+                    if (quantity > 1) {
+                        quantity--;
+                        quantityDisplay.textContent = quantity.toString().padStart(2, '0');
+                    }
+                });
+            });
+        }
+
+        // Load ebooks when page loads
+        document.addEventListener('DOMContentLoaded', loadEbooks);
+    </script>
+</body>
+
+</html>
+
+
+

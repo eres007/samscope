@@ -2165,6 +2165,12 @@
                     <div class="nav-item" onclick="switchTab('tab-bookings', this); loadAppointments();">
                         <i class="fas fa-calendar-alt"></i> Bookings
                     </div>
+                    <div class="nav-item" onclick="switchTab('tab-ebooks', this); loadEbooks();">
+                        <i class="fas fa-book"></i> Ebooks
+                    </div>
+                    <div class="nav-item" onclick="switchTab('tab-sp-ebooks', this);">
+                        <i class="fas fa-book-open"></i> All Ebooks
+                    </div>
                 </nav>
 
                 <div class="sidebar-footer">
@@ -2606,6 +2612,189 @@
                             </div>
                             <div class="items-list" id="bookings-list">
                                 <div class="empty-state">No active bookings.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EBOOKS PANEL -->
+                    <div class="tab-panel" id="tab-ebooks">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px; height: 100%; overflow: hidden;">
+                            <div style="overflow-y: auto; max-height: calc(100vh - 200px);">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title"><i class="fas fa-plus-circle"></i> <span id="ebook-form-title">Add Ebook</span></h3>
+                                    </div>
+                                    <form id="ebook-form" style="display: flex; flex-direction: column; gap: 18px; padding: 20px 0;">
+                                        <div class="form-group">
+                                            <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 8px; display: block;">Title *</label>
+                                            <input type="text" id="ebook-title" placeholder="e.g. Strategic Brand Building" required style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 12px 14px; font-family: inherit; outline: none;">
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 8px; display: block;">Short Description *</label>
+                                            <textarea id="ebook-description" placeholder="Brief description for cards" rows="3" required style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 12px 14px; font-family: inherit; outline: none; resize: vertical;"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 8px; display: block;">Long Description</label>
+                                            <textarea id="ebook-long-description" placeholder="Full detailed description" rows="3" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 12px 14px; font-family: inherit; outline: none; resize: vertical;"></textarea>
+                                        </div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                            <div class="form-group">
+                                                <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 8px; display: block;">Price (BDT) *</label>
+                                                <input type="number" id="ebook-price" placeholder="1500" step="0.01" required style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 12px 14px; font-family: inherit; outline: none;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 8px; display: block;">Rating (1-5)</label>
+                                                <input type="number" id="ebook-rating" placeholder="4.5" min="1" max="5" step="0.1" value="4.5" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 12px 14px; font-family: inherit; outline: none;">
+                                            </div>
+                                        </div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                            <div class="form-group">
+                                                <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 8px; display: block;">Duration</label>
+                                                <input type="text" id="ebook-duration" placeholder="3 Months" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 12px 14px; font-family: inherit; outline: none;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 8px; display: block;">Classes</label>
+                                                <input type="number" id="ebook-classes" placeholder="36" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 12px 14px; font-family: inherit; outline: none;">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 8px; display: block;">Image URL *</label>
+                                            <input type="text" id="ebook-image" placeholder="assets/images/process-chart.jpg" required style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #fff; padding: 12px 14px; font-family: inherit; outline: none;">
+                                        </div>
+                                        <div style="padding: 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+                                            <label style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 12px; display: block;">Tags</label>
+                                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff;"><input type="checkbox" id="ebook-cert" checked style="cursor: pointer;"><span>Certificate</span></label>
+                                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff;"><input type="checkbox" id="ebook-intern" style="cursor: pointer;"><span>Internship</span></label>
+                                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff;"><input type="checkbox" id="ebook-brand" style="cursor: pointer;"><span>Brand Resource</span></label>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 12px; margin-top: 10px;">
+                                            <button type="submit" class="btn-primary" style="flex: 1; background: var(--accent); color: #030816; border: none; padding: 14px; border-radius: 8px; font-weight: 700; cursor: pointer;"><i class="fas fa-save"></i> Save Ebook</button>
+                                            <button type="button" onclick="resetEbookForm()" class="btn-secondary" style="flex: 1; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 14px; border-radius: 8px; font-weight: 700; cursor: pointer;"><i class="fas fa-redo"></i> Clear</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div style="overflow-y: auto; max-height: calc(100vh - 200px);">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title"><i class="fas fa-book-reader"></i> All Ebooks</h3>
+                                        <span class="card-badge" id="ebooks-count">0</span>
+                                    </div>
+                                    <div id="ebooks-list" style="display: flex; flex-direction: column; gap: 12px; padding: 16px 0;"><div class="empty-state" style="padding: 40px 20px; text-align: center; color: var(--muted);"><i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 12px; display: block;"></i>Loading ebooks...</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ALL EBOOKS EDIT PANEL -->
+                    <div class="tab-panel" id="tab-sp-ebooks">
+                        <div class="panel-grid" style="grid-template-columns: 1fr;">
+                            <!-- EDITOR VIEW -->
+                            <div id="sp-ebook-edit-view" style="display: none; margin-bottom: 30px;">
+                                <div class="block-editor-topbar">
+                                    <div class="block-editor-topbar-left">
+                                        <div class="be-topbar-breadcrumb">
+                                            <button class="btn-preview btn-sm" onclick="cancelEbookEdit()" style="background: rgba(255,255,255,0.1); padding: 6px 14px !important;">
+                                                <i class="fas fa-arrow-left"></i> Back to List
+                                            </button>
+                                        </div>
+                                        <div style="width:1px; height:20px; background:rgba(255,255,255,0.1); margin:0 10px;"></div>
+                                        <h3 id="sp-ebook-display-title" style="font-size:1rem; font-weight:700; color:#fff;">-</h3>
+                                    </div>
+                                    <div class="block-editor-topbar-right">
+                                        <button class="btn-primary" id="sp-ebook-update-btn" style="background:var(--accent); color:#030816; border:none; padding:10px 22px; border-radius:12px; font-weight:700;" onclick="saveEbookEdit()">
+                                            <i class="fas fa-check-circle"></i> Save & Close
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="block-editor-layout">
+                                    <div class="block-editor-canvas">
+                                        <div class="be-hero-strip">
+                                            <div class="be-label">Ebook Information</div>
+                                            <div class="be-hero-inputs">
+                                                <input type="text" id="sp-ebook-title" class="bep-input" placeholder="Ebook Title">
+                                                <textarea id="sp-ebook-short-desc" class="bep-textarea" style="min-height:80px;" placeholder="Short description for cards"></textarea>
+                                                <textarea id="sp-ebook-long-desc" class="bep-textarea" style="min-height:120px;" placeholder="Full detailed description"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="be-hero-strip" style="margin-top: 20px;">
+                                            <div class="be-label">Pricing & Details</div>
+                                            <div class="be-hero-inputs">
+                                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                                    <input type="number" id="sp-ebook-price" class="bep-input" placeholder="Price (BDT)" step="0.01">
+                                                    <input type="number" id="sp-ebook-rating" class="bep-input" placeholder="Rating (1-5)" min="1" max="5" step="0.1">
+                                                </div>
+                                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                                    <input type="text" id="sp-ebook-duration" class="bep-input" placeholder="Duration (e.g. 3 Months)">
+                                                    <input type="number" id="sp-ebook-classes" class="bep-input" placeholder="Number of Classes">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="be-hero-strip" style="margin-top: 20px;">
+                                            <div class="be-label">Image</div>
+                                            <div class="be-hero-inputs">
+                                                <input type="text" id="sp-ebook-image" class="bep-input" placeholder="Image URL">
+                                                <div id="sp-ebook-image-dropzone" style="margin-top: 15px; padding: 30px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 12px; text-align: center; cursor: pointer; background: rgba(255,255,255,0.02); transition: all 0.3s;" onclick="document.getElementById('sp-ebook-image-file').click()">
+                                                    <i class="fas fa-cloud-upload-alt" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px; display: block;"></i>
+                                                    <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 5px;">Click to upload or drag & drop</p>
+                                                    <p style="color: var(--muted); font-size: 0.75rem;">PNG, JPG, WEBP up to 10MB</p>
+                                                    <input type="file" id="sp-ebook-image-file" accept="image/*" style="display: none;">
+                                                </div>
+                                                <div style="margin-top: 10px;">
+                                                    <img id="sp-ebook-image-preview" src="" alt="Preview" style="max-width: 200px; max-height: 200px; border-radius: 8px; display: none;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="be-hero-strip" style="margin-top: 20px;">
+                                            <div class="be-label">Tags</div>
+                                            <div class="be-hero-inputs">
+                                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff;">
+                                                        <input type="checkbox" id="sp-ebook-cert" style="cursor: pointer;">
+                                                        <span>Certificate</span>
+                                                    </label>
+                                                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff;">
+                                                        <input type="checkbox" id="sp-ebook-intern" style="cursor: pointer;">
+                                                        <span>Internship</span>
+                                                    </label>
+                                                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff;">
+                                                        <input type="checkbox" id="sp-ebook-brand" style="cursor: pointer;">
+                                                        <span>Brand Resource</span>
+                                                    </label>
+                                                </div>
+                                                <div style="margin-top: 20px;">
+                                                    <label style="font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; display: block;">Custom Tags</label>
+                                                    <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+                                                        <input type="text" id="sp-ebook-custom-tag" class="bep-input" placeholder="Add custom tag" style="flex: 1;">
+                                                        <button type="button" onclick="addEbookTag()" style="background: var(--accent); color: #030816; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                                                            <i class="fas fa-plus"></i> Add
+                                                        </button>
+                                                    </div>
+                                                    <div id="sp-ebook-custom-tags-list" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+                                                        <!-- Custom tags will appear here -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LIST VIEW -->
+                            <div class="card" id="sp-ebook-list-view">
+                                <div class="card-header">
+                                    <h3 class="card-title"><i class="fas fa-book-open"></i> All Ebooks Content</h3>
+                                </div>
+                                <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 20px;">Manage ebook details, images, and descriptions.</p>
+                                <div class="items-list" id="sp-ebooks-list">
+                                    <div class="empty-state">Loading ebooks...</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -3513,8 +3702,6 @@
                 `).join('');
             } catch (err) {
                 console.error("Error loading bookings:", err);
-                const list = document.getElementById('bookings-list');
-                if (list) list.innerHTML = `<div class="empty-state" style="color:var(--danger)">Error: ${err.message}</div>`;
             }
         }
 
@@ -3527,6 +3714,11 @@
             if (panel) panel.classList.add('active');
             if (btn) btn.classList.add('active');
 
+            // Load ebooks when switching to All Ebooks tab
+            if (panelId === 'tab-sp-ebooks') {
+                loadSpEbooks();
+            }
+
             // Update header title
             const titleMap = {
                 'tab-demo': 'Demonstration Management',
@@ -3534,7 +3726,9 @@
                 'tab-sp-demo': 'All Demos Content',
                 'tab-sp-guide': 'All Guides Content',
                 'tab-analytics': 'Site Analytics',
-                'tab-bookings': 'Service Bookings'
+                'tab-bookings': 'Service Bookings',
+                'tab-ebooks': 'Ebook Management',
+                'tab-sp-ebooks': 'All Ebooks Content'
             };
             const titleEl = document.getElementById('page-current-title');
             if (titleEl) titleEl.textContent = titleMap[panelId] || 'Dashboard';
@@ -5175,6 +5369,108 @@
                     popup.style.display = 'none';
                 }
             });
+
+            // Ebook form submission
+            const form = document.getElementById('ebook-form');
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const data = {
+                        title: document.getElementById('ebook-title').value.trim(),
+                        description: document.getElementById('ebook-description').value.trim(),
+                        long_description: document.getElementById('ebook-long-description').value.trim(),
+                        price: parseFloat(document.getElementById('ebook-price').value),
+                        image_url: document.getElementById('ebook-image').value.trim(),
+                        rating: parseFloat(document.getElementById('ebook-rating').value),
+                        duration: document.getElementById('ebook-duration').value.trim(),
+                        classes_count: parseInt(document.getElementById('ebook-classes').value) || 0,
+                        certificate: document.getElementById('ebook-cert').checked,
+                        internship: document.getElementById('ebook-intern').checked,
+                        brand_resource: document.getElementById('ebook-brand').checked,
+                        updated_at: new Date().toISOString()
+                    };
+                    if (!data.title || !data.description || !data.price || !data.image_url) {
+                        showToast('Fill all required fields', 'error');
+                        return;
+                    }
+                    try {
+                        let result;
+                        if (currentEbookId) {
+                            result = await db.from('ebooks').update(data).eq('id', currentEbookId);
+                        } else {
+                            result = await db.from('ebooks').insert([data]);
+                        }
+                        if (result.error) throw result.error;
+                        showToast(currentEbookId ? 'Updated' : 'Created', 'success');
+                        resetEbookForm();
+                        loadEbooks();
+                    } catch (err) {
+                        console.error('Error saving ebook:', err);
+                        showToast('Error saving ebook', 'error');
+                    }
+                });
+            }
+
+            // Image preview for ebook edit
+            const imageInput = document.getElementById('sp-ebook-image');
+            if (imageInput) {
+                imageInput.addEventListener('input', function() {
+                    const preview = document.getElementById('sp-ebook-image-preview');
+                    if (this.value) {
+                        preview.src = this.value;
+                        preview.style.display = 'block';
+                    } else {
+                        preview.style.display = 'none';
+                    }
+                });
+            }
+
+            // File upload for ebook image
+            const fileInput = document.getElementById('sp-ebook-image-file');
+            if (fileInput) {
+                fileInput.addEventListener('change', async function() {
+                    if (this.files && this.files[0]) {
+                        await uploadEbookImage(this.files[0]);
+                    }
+                });
+            }
+
+            // Drag & drop for ebook image
+            const dropzone = document.getElementById('sp-ebook-image-dropzone');
+            if (dropzone) {
+                dropzone.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    this.style.borderColor = 'var(--accent)';
+                    this.style.background = 'rgba(79,142,247,0.05)';
+                });
+
+                dropzone.addEventListener('dragleave', function(e) {
+                    e.preventDefault();
+                    this.style.borderColor = 'rgba(255,255,255,0.2)';
+                    this.style.background = 'rgba(255,255,255,0.02)';
+                });
+
+                dropzone.addEventListener('drop', async function(e) {
+                    e.preventDefault();
+                    this.style.borderColor = 'rgba(255,255,255,0.2)';
+                    this.style.background = 'rgba(255,255,255,0.02)';
+                    
+                    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                        await uploadEbookImage(e.dataTransfer.files[0]);
+                    }
+                });
+            }
+
+            // Add tag on Enter key
+            const tagInput = document.getElementById('sp-ebook-custom-tag');
+            if (tagInput) {
+                tagInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        addEbookTag();
+                    }
+                });
+            }
         });
 
         async function loadAnalytics() {
@@ -5895,6 +6191,249 @@
             t.classList.add('show');
             setTimeout(() => t.classList.remove('show'), 3500);
         }
+
+        /* ═══ EBOOKS MANAGEMENT ═══ */
+        let currentEbookId = null;
+        let allEbooks = [];
+        let editingEbookId = null;
+        let ebookCustomTags = [];
+
+        async function loadEbooks() {
+            const list = document.getElementById('ebooks-list');
+            const countEl = document.getElementById('ebooks-count');
+            if (!list || !countEl) return;
+            try {
+                const { data, error } = await db.from('ebooks').select('*').order('created_at', { ascending: false });
+                if (error) throw error;
+                allEbooks = data || [];
+                countEl.textContent = allEbooks.length;
+                if (!allEbooks.length) {
+                    list.innerHTML = '<div class="empty-state" style="padding: 40px 20px; text-align: center;"><i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 12px; display: block;"></i>No ebooks yet</div>';
+                    return;
+                }
+                list.innerHTML = allEbooks.map(e => `<div style="padding: 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;"><div style="display: flex; gap: 14px;"><img src="${e.image_url}" alt="${e.title}" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; flex-shrink: 0;"><div style="flex: 1;"><h4 style="color: #fff; margin-bottom: 4px; font-size: 0.95rem; font-weight: 700;">${e.title}</h4><p style="color: var(--muted); font-size: 0.8rem; margin-bottom: 8px;">${e.description.substring(0, 70)}...</p><div style="display: flex; gap: 16px; font-size: 0.8rem;"><span style="color: var(--accent);"><i class="fas fa-tag"></i> ${e.price} BDT</span><span style="color: #ffd700;"><i class="fas fa-star"></i> ${e.rating}</span></div></div><div style="display: flex; gap: 8px;"><button onclick="editEbook(${e.id})" style="background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.3); color: var(--accent); width: 40px; height: 40px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fas fa-edit"></i></button><button onclick="deleteEbook(${e.id})" style="background: rgba(255,92,92,0.1); border: 1px solid rgba(255,92,92,0.3); color: var(--danger); width: 40px; height: 40px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fas fa-trash"></i></button></div></div></div>`).join('');
+            } catch (err) {
+                console.error('Error loading ebooks:', err);
+            }
+        }
+
+        async function loadSpEbooks() {
+            const list = document.getElementById('sp-ebooks-list');
+            if (!list) return;
+            try {
+                const { data, error } = await db.from('ebooks').select('*').order('created_at', { ascending: false });
+                if (error) throw error;
+                if (!data || !data.length) {
+                    list.innerHTML = '<div class="empty-state">No ebooks yet</div>';
+                    return;
+                }
+                list.innerHTML = data.map(e => `
+                    <div class="item-card">
+                        <div class="item-info">
+                            <h4 class="item-title">${e.title}</h4>
+                            <p class="item-meta">${e.price} BDT • ${e.rating} ★</p>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn-icon" style="background: rgba(79,142,247,0.1); color: var(--accent);" onclick="openEbookEdit(${e.id})" title="Edit Content">
+                                <i class="fas fa-file-alt"></i>
+                            </button>
+                            <button class="btn-icon" style="background: rgba(255,92,92,0.1); color: var(--danger);" onclick="deleteEbookFromList(${e.id})" title="Delete">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error('Error loading ebooks:', err);
+                list.innerHTML = '<div class="empty-state">Failed to load ebooks</div>';
+            }
+        }
+
+        async function openEbookEdit(id) {
+            try {
+                const { data, error } = await db.from('ebooks').select('*').eq('id', id).single();
+                if (error) throw error;
+                editingEbookId = id;
+                document.getElementById('sp-ebook-display-title').textContent = data.title;
+                document.getElementById('sp-ebook-title').value = data.title;
+                document.getElementById('sp-ebook-short-desc').value = data.description;
+                document.getElementById('sp-ebook-long-desc').value = data.long_description || '';
+                document.getElementById('sp-ebook-price').value = data.price;
+                document.getElementById('sp-ebook-rating').value = data.rating;
+                document.getElementById('sp-ebook-duration').value = data.duration || '';
+                document.getElementById('sp-ebook-classes').value = data.classes_count || '';
+                document.getElementById('sp-ebook-image').value = data.image_url;
+                document.getElementById('sp-ebook-cert').checked = data.certificate;
+                document.getElementById('sp-ebook-intern').checked = data.internship;
+                document.getElementById('sp-ebook-brand').checked = data.brand_resource;
+                
+                ebookCustomTags = Array.isArray(data.tags) ? data.tags : [];
+                renderEbookCustomTags();
+                
+                const preview = document.getElementById('sp-ebook-image-preview');
+                if (data.image_url) {
+                    preview.src = data.image_url;
+                    preview.style.display = 'block';
+                }
+                document.getElementById('sp-ebook-list-view').style.display = 'none';
+                document.getElementById('sp-ebook-edit-view').style.display = 'block';
+            } catch (err) {
+                console.error('Error loading ebook:', err);
+                showToast('Failed to load ebook', 'error');
+            }
+        }
+
+        async function saveEbookEdit() {
+            if (!editingEbookId) return;
+            const btn = document.getElementById('sp-ebook-update-btn');
+            btn.disabled = true;
+            try {
+                const data = {
+                    title: document.getElementById('sp-ebook-title').value.trim(),
+                    description: document.getElementById('sp-ebook-short-desc').value.trim(),
+                    long_description: document.getElementById('sp-ebook-long-desc').value.trim(),
+                    price: parseFloat(document.getElementById('sp-ebook-price').value),
+                    rating: parseFloat(document.getElementById('sp-ebook-rating').value),
+                    duration: document.getElementById('sp-ebook-duration').value.trim(),
+                    classes_count: parseInt(document.getElementById('sp-ebook-classes').value) || 0,
+                    image_url: document.getElementById('sp-ebook-image').value.trim(),
+                    certificate: document.getElementById('sp-ebook-cert').checked,
+                    internship: document.getElementById('sp-ebook-intern').checked,
+                    brand_resource: document.getElementById('sp-ebook-brand').checked,
+                    tags: ebookCustomTags,
+                    updated_at: new Date().toISOString()
+                };
+                const { error } = await db.from('ebooks').update(data).eq('id', editingEbookId);
+                if (error) throw error;
+                showToast('Ebook updated successfully', 'success');
+                cancelEbookEdit();
+                loadSpEbooks();
+            } catch (err) {
+                console.error('Error saving ebook:', err);
+                showToast('Failed to save ebook', 'error');
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
+        function cancelEbookEdit() {
+            editingEbookId = null;
+            ebookCustomTags = [];
+            document.getElementById('sp-ebook-edit-view').style.display = 'none';
+            document.getElementById('sp-ebook-list-view').style.display = 'block';
+        }
+
+        function addEbookTag() {
+            const input = document.getElementById('sp-ebook-custom-tag');
+            const tag = input.value.trim();
+            if (!tag) return;
+            if (ebookCustomTags.includes(tag)) {
+                showToast('Tag already exists', 'error');
+                return;
+            }
+            ebookCustomTags.push(tag);
+            input.value = '';
+            renderEbookCustomTags();
+        }
+
+        function removeEbookTag(tag) {
+            ebookCustomTags = ebookCustomTags.filter(t => t !== tag);
+            renderEbookCustomTags();
+        }
+
+        function renderEbookCustomTags() {
+            const container = document.getElementById('sp-ebook-custom-tags-list');
+            if (!container) return;
+            if (ebookCustomTags.length === 0) {
+                container.innerHTML = '<p style="color: var(--muted); font-size: 0.85rem;">No custom tags added</p>';
+                return;
+            }
+            container.innerHTML = ebookCustomTags.map(tag => `
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.3); color: var(--accent); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">
+                    <span>${tag}</span>
+                    <button onclick="removeEbookTag('${tag}')" style="background: none; border: none; color: var(--accent); cursor: pointer; padding: 0; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        async function deleteEbookFromList(id) {
+            if (!confirm('Delete this ebook? This cannot be undone.')) return;
+            try {
+                const { error } = await db.from('ebooks').delete().eq('id', id);
+                if (error) throw error;
+                showToast('Ebook deleted', 'success');
+                loadSpEbooks();
+            } catch (err) {
+                console.error('Error deleting ebook:', err);
+                showToast('Failed to delete ebook', 'error');
+            }
+        }
+
+        async function editEbook(id) {
+            const allEbooksNav = document.querySelector('[onclick*="tab-sp-ebooks"]');
+            if (allEbooksNav) {
+                switchTab('tab-sp-ebooks', allEbooksNav);
+            }
+            await openEbookEdit(id);
+        }
+
+        async function deleteEbook(id) {
+            const ebook = allEbooks.find(e => e.id === id);
+            if (!confirm('Delete "' + (ebook?.title || 'Ebook') + '"?')) return;
+            try {
+                const { error } = await db.from('ebooks').delete().eq('id', id);
+                if (error) throw error;
+                showToast('Ebook deleted', 'success');
+                loadEbooks();
+            } catch (err) {
+                showToast('Failed to delete ebook', 'error');
+            }
+        }
+
+        function resetEbookForm() {
+            currentEbookId = null;
+            document.getElementById('ebook-form-title').textContent = 'Add Ebook';
+            document.getElementById('ebook-form').reset();
+            document.getElementById('ebook-rating').value = 4.5;
+            document.getElementById('ebook-cert').checked = true;
+        }
+
+        async function uploadEbookImage(file) {
+            if (!file.type.startsWith('image/')) {
+                showToast('Please upload an image file', 'error');
+                return;
+            }
+
+            const dropzone = document.getElementById('sp-ebook-image-dropzone');
+            const originalHTML = dropzone.innerHTML;
+            dropzone.innerHTML = '<i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--accent);"></i><p style="color: var(--muted); margin-top: 10px;">Uploading...</p>';
+
+            try {
+                const ext = file.name.split('.').pop();
+                const path = `ebooks/${Date.now()}.${ext}`;
+                
+                const { data, error } = await db.storage.from('post-images').upload(path, file, { upsert: true });
+                
+                if (error) throw error;
+                
+                const { data: pub } = db.storage.from('post-images').getPublicUrl(path);
+                const imageUrl = pub.publicUrl;
+                
+                document.getElementById('sp-ebook-image').value = imageUrl;
+                const preview = document.getElementById('sp-ebook-image-preview');
+                preview.src = imageUrl;
+                preview.style.display = 'block';
+                
+                showToast('Image uploaded successfully', 'success');
+            } catch (err) {
+                console.error('Upload error:', err);
+                showToast('Upload failed: ' + err.message, 'error');
+            } finally {
+                dropzone.innerHTML = originalHTML;
+            }
+        }
     </script>
     <div id="image-options-modal" class="modal-overlay" style="display:none;">
         <div class="modal-content">
@@ -5925,5 +6464,3 @@
 </body>
 
 </html>
-
-
